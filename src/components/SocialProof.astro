@@ -23,27 +23,31 @@ const testimonials = [
 const badges = ['Atención profesional', 'Seguimiento responsable', 'Orientación clara', 'Confianza del paciente'];
 ---
 
-<section id="testimonios" class="py-24 px-6 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+<section id="testimonios" class="py-24 px-6 bg-gradient-to-b from-blue-50 to-white dark:from-gray-900 dark:to-gray-950 transition-colors duration-300">
   <div class="max-w-7xl mx-auto">
     <div class="text-center mb-16">
       <span class="inline-block px-4 py-1.5 rounded-full bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 text-sm font-medium mb-4">Confianza</span>
-      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Experiencias que refuerzan la confianza del paciente</h2>
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Experiencias que elevan la percepción de seguridad y cercanía</h2>
       <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-        Testimonios breves como estos ayudan a reforzar trato humano, claridad médica y confianza antes del contacto.
+        Una buena prueba social en una web médica ayuda a reducir objeciones y a reforzar la confianza antes del primer contacto.
       </p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
       {testimonials.map((item) => (
-        <div class="p-6 rounded-xl bg-white dark:bg-gray-800 shadow-lg border border-blue-100 dark:border-blue-900/30">
-          <p class="text-gray-600 dark:text-gray-300 mb-6">“{item.quote}”</p>
-          <div class="flex items-center">
-            <div class="w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900/50 flex items-center justify-center mr-3">
-              <span class="text-blue-600 dark:text-blue-400 font-medium">{item.initials}</span>
-            </div>
-            <div>
-              <h4 class="font-semibold text-gray-900 dark:text-white">{item.name}</h4>
-              <p class="text-sm text-gray-600 dark:text-gray-400">{item.role}</p>
+        <div class="relative p-7 rounded-3xl bg-white/95 dark:bg-gray-800/95 backdrop-blur shadow-xl border border-blue-100 dark:border-blue-900/30">
+          <div class="absolute top-0 right-0 w-24 h-24 bg-blue-100/60 dark:bg-blue-900/20 blur-2xl rounded-full"></div>
+          <div class="relative">
+            <div class="text-4xl text-blue-200 dark:text-blue-800 mb-3">“</div>
+            <p class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">{item.quote}”</p>
+            <div class="flex items-center">
+              <div class="w-11 h-11 rounded-2xl bg-blue-100 dark:bg-blue-900/50 flex items-center justify-center mr-3 shadow-sm">
+                <span class="text-blue-600 dark:text-blue-400 font-medium">{item.initials}</span>
+              </div>
+              <div>
+                <h4 class="font-semibold text-gray-900 dark:text-white">{item.name}</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-400">{item.role}</p>
+              </div>
             </div>
           </div>
         </div>
@@ -52,7 +56,7 @@ const badges = ['Atención profesional', 'Seguimiento responsable', 'Orientació
 
     <div class="flex flex-wrap gap-4 justify-center">
       {badges.map((badge) => (
-        <div class="px-5 py-3 rounded-full bg-white dark:bg-gray-800 border border-blue-100 dark:border-blue-900/30 text-gray-700 dark:text-gray-300">
+        <div class="px-5 py-3 rounded-full bg-white/90 dark:bg-gray-800/90 border border-blue-100 dark:border-blue-900/30 text-gray-700 dark:text-gray-300 shadow-sm">
           {badge}
         </div>
       ))}
