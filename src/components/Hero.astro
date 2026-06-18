@@ -1,5 +1,6 @@
 ---
 import { MapPin, MessageCircle, Phone, ShieldCheck } from 'lucide-astro';
+import Image from './Image.astro';
 ---
 
 <section id="inicio" class="relative pt-32 md:pt-44 pb-24 px-6 bg-gradient-to-br from-blue-50 via-white to-sky-100 dark:from-gray-950 dark:via-gray-900 dark:to-blue-950 overflow-hidden">
@@ -55,38 +56,51 @@ import { MapPin, MessageCircle, Phone, ShieldCheck } from 'lucide-astro';
 
       <div class="relative">
         <div class="absolute -inset-4 bg-gradient-to-br from-blue-300/30 to-sky-200/20 dark:from-blue-700/20 dark:to-cyan-700/10 blur-3xl rounded-[2rem]"></div>
-        <div class="relative rounded-3xl bg-white/95 dark:bg-gray-800/95 backdrop-blur p-8 border border-blue-100 dark:border-blue-900/40 shadow-2xl">
-          <div class="flex items-center justify-between mb-6">
-            <div>
-              <div class="text-sm text-blue-600 dark:text-blue-400 font-medium">Cirugía General</div>
-              <div class="text-2xl font-bold text-gray-900 dark:text-white">Atención confiable y cercana</div>
+        <div class="relative rounded-[2rem] overflow-hidden shadow-2xl border border-blue-100 dark:border-blue-900/40 bg-white/95 dark:bg-gray-800/95 backdrop-blur">
+          <div class="grid md:grid-cols-[1.05fr_0.95fr] items-stretch">
+            <div class="relative min-h-[540px] bg-slate-100 dark:bg-slate-900">
+              <Image src="/images/doctor/doctor-premium-portrait.png" alt="Retrato profesional del Dr. Alejandro Vintimilla" width={1024} height={1536} class="absolute inset-0 w-full h-full object-cover" />
+              <div class="absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-slate-950/75 via-slate-900/30 to-transparent text-white">
+                <div class="text-sm uppercase tracking-[0.2em] text-blue-200">Cirugía General</div>
+                <div class="text-3xl font-bold mt-1">Dr. Alejandro Vintimilla</div>
+                <div class="text-sm text-blue-100 mt-1">Diagnóstico claro, trato cercano y decisiones bien explicadas.</div>
+              </div>
             </div>
-            <div class="w-12 h-12 rounded-2xl bg-blue-100 dark:bg-blue-900/40 flex items-center justify-center text-blue-600 dark:text-blue-400 font-bold">
-              <ShieldCheck class="w-6 h-6" />
-            </div>
-          </div>
 
-          <div class="rounded-2xl bg-gradient-to-r from-blue-600 to-sky-500 text-white p-5 mb-5 shadow-lg">
-            <div class="text-sm uppercase tracking-wide text-blue-100">Primera valoración</div>
-            <div class="text-3xl font-bold mt-1">Agenda rápida y orientación clara</div>
-            <div class="text-sm text-blue-50 mt-2">Pensado para que el paciente entienda su caso y sepa qué hacer a continuación.</div>
-          </div>
+            <div class="p-8">
+              <div class="flex items-center justify-between mb-6">
+                <div>
+                  <div class="text-sm text-blue-600 dark:text-blue-400 font-medium">Primera impresión premium</div>
+                  <div class="text-2xl font-bold text-gray-900 dark:text-white">Atención confiable y cercana</div>
+                </div>
+                <div class="w-12 h-12 rounded-2xl bg-blue-100 dark:bg-blue-900/40 flex items-center justify-center text-blue-600 dark:text-blue-400 font-bold">
+                  <ShieldCheck class="w-6 h-6" />
+                </div>
+              </div>
 
-          <div class="space-y-4 text-gray-600 dark:text-gray-300">
-            <div class="rounded-2xl bg-gray-50 dark:bg-gray-900 p-4">Valoración quirúrgica, control de síntomas y segunda opinión médica</div>
-            <div class="rounded-2xl bg-gray-50 dark:bg-gray-900 p-4">Manejo de hernias, vesícula, apéndice y procedimientos frecuentes</div>
-            <div class="rounded-2xl bg-gray-50 dark:bg-gray-900 p-4">Diagnóstico explicado de forma simple, directa y sin rodeos</div>
-            <div class="rounded-2xl bg-gray-50 dark:bg-gray-900 p-4">Acompañamiento antes, durante y después del procedimiento</div>
-          </div>
+              <div class="rounded-2xl bg-gradient-to-r from-blue-600 to-sky-500 text-white p-5 mb-5 shadow-lg">
+                <div class="text-sm uppercase tracking-wide text-blue-100">Primera valoración</div>
+                <div class="text-3xl font-bold mt-1">Agenda rápida y orientación clara</div>
+                <div class="text-sm text-blue-50 mt-2">Pensado para que el paciente entienda su caso y sepa qué hacer a continuación.</div>
+              </div>
 
-          <div class="grid grid-cols-2 gap-3 mt-6 text-sm">
-            <div class="rounded-xl border border-blue-100 dark:border-blue-900/40 bg-blue-50/80 dark:bg-blue-950/30 p-4 text-gray-700 dark:text-gray-200">
-              <div class="font-semibold">Segunda opinión</div>
-              <div class="text-gray-500 dark:text-gray-400">Para decidir con más claridad</div>
-            </div>
-            <div class="rounded-xl border border-blue-100 dark:border-blue-900/40 bg-blue-50/80 dark:bg-blue-950/30 p-4 text-gray-700 dark:text-gray-200">
-              <div class="font-semibold">Seguimiento</div>
-              <div class="text-gray-500 dark:text-gray-400">Antes y después del procedimiento</div>
+              <div class="space-y-4 text-gray-600 dark:text-gray-300">
+                <div class="rounded-2xl bg-gray-50 dark:bg-gray-900 p-4">Valoración quirúrgica, control de síntomas y segunda opinión médica</div>
+                <div class="rounded-2xl bg-gray-50 dark:bg-gray-900 p-4">Manejo de hernias, vesícula, apéndice y procedimientos frecuentes</div>
+                <div class="rounded-2xl bg-gray-50 dark:bg-gray-900 p-4">Diagnóstico explicado de forma simple, directa y sin rodeos</div>
+                <div class="rounded-2xl bg-gray-50 dark:bg-gray-900 p-4">Acompañamiento antes, durante y después del procedimiento</div>
+              </div>
+
+              <div class="grid grid-cols-2 gap-3 mt-6 text-sm">
+                <div class="rounded-xl border border-blue-100 dark:border-blue-900/40 bg-blue-50/80 dark:bg-blue-950/30 p-4 text-gray-700 dark:text-gray-200">
+                  <div class="font-semibold">Segunda opinión</div>
+                  <div class="text-gray-500 dark:text-gray-400">Para decidir con más claridad</div>
+                </div>
+                <div class="rounded-xl border border-blue-100 dark:border-blue-900/40 bg-blue-50/80 dark:bg-blue-950/30 p-4 text-gray-700 dark:text-gray-200">
+                  <div class="font-semibold">Seguimiento</div>
+                  <div class="text-gray-500 dark:text-gray-400">Antes y después del procedimiento</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
