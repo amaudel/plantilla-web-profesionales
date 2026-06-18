@@ -1,0 +1,55 @@
+---
+const items = [
+  {
+    title: 'Cuando necesita orientación profesional clara',
+    description:
+      'Si tiene dudas importantes o necesita entender mejor su situación antes de decidir, este es un buen momento para consultar.',
+  },
+  {
+    title: 'Cuando busca una segunda opinión confiable',
+    description:
+      'Contar con una valoración adicional ayuda a tomar decisiones con más seguridad y menos incertidumbre.',
+  },
+  {
+    title: 'Cuando el problema ya afecta su día a día',
+    description:
+      'Si la situación está generando molestias, retrasos o preocupación, conviene atenderla con criterio profesional.',
+  },
+  {
+    title: 'Cuando quiere prevenir complicaciones futuras',
+    description:
+      'Resolver a tiempo suele significar menos riesgo, más claridad y un proceso mucho más ordenado.',
+  },
+];
+---
+
+<section id="problemas" class="py-24 bg-white dark:bg-gray-900">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <span class="inline-block px-4 py-1.5 rounded-full bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 text-sm font-medium mb-4">
+        ¿Cuándo consultar?
+      </span>
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+        Situaciones en las que el apoyo profesional marca la diferencia
+      </h2>
+      <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+        Este bloque ayuda al visitante a identificar rápido si este servicio es adecuado para su caso.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {items.map((item) => (
+        <div class="relative group">
+          <div class="absolute inset-0.5 bg-gradient-to-r from-blue-100 to-blue-50 dark:from-blue-900/30 dark:to-blue-800/20 rounded-2xl"></div>
+          <div class="relative h-full bg-white dark:bg-gray-900 p-8 rounded-2xl border border-blue-100 dark:border-blue-800/40">
+            <div class="w-12 h-12 rounded-xl bg-blue-100 dark:bg-blue-900/40 flex items-center justify-center mb-6 text-blue-600 dark:text-blue-400 font-bold text-lg group-hover:scale-110 transition-transform duration-300">
+              ✓
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">{item.title}</h3>
+            <p class="text-gray-600 dark:text-gray-300 leading-relaxed">{item.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

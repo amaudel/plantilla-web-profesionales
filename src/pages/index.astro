@@ -1,23 +1,48 @@
 ---
 import Navbar from '../components/Navbar.astro';
-import LogoHeader from '../components/LogoHeader.astro';
 import Hero from '../components/Hero.astro';
-import Benefits from '../components/Benefits.astro';
+import Problems from '../components/Problems.astro';
+import Services from '../components/Services.astro';
+import Process from '../components/Process.astro';
+import Profile from '../components/Profile.astro';
 import SocialProof from '../components/SocialProof.astro';
-import Pricing from '../components/Pricing.astro';
 import FAQ from '../components/FAQ.astro';
+import ContactForm from '../components/ContactForm.astro';
+import FinalCTA from '../components/FinalCTA.astro';
 import Footer from '../components/Footer.astro';
 import Layout from '../layouts/Layout.astro';
 import { config } from '../config';
-
 ---
 
-<Layout title={`${config.app.name}`}>
-  {config.features.navbar ? <Navbar /> : <LogoHeader />}
+<Layout
+  title={`${config.app.name}`}
+  description="Plantilla madre para webs de profesionales y negocios de servicios."
+>
+  <Navbar />
   <Hero />
-  <Benefits />
+  <Problems />
+  <Services />
+  <Process />
+  <Profile />
   <SocialProof />
-  <Pricing />
   <FAQ />
+
+  <section id="contacto" class="py-24 px-6 bg-gray-50 dark:bg-gray-900">
+    <div class="max-w-4xl mx-auto text-center mb-10">
+      <span class="inline-block px-4 py-1.5 rounded-full bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 text-sm font-medium mb-4">
+        Contacto
+      </span>
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+        Solicite información o agende una consulta
+      </h2>
+      <p class="text-lg text-gray-600 dark:text-gray-300">
+        Esta sección queda lista para adaptarse al profesional, ciudad y canal de contacto que necesite.
+      </p>
+    </div>
+
+    <ContactForm />
+  </section>
+
+  <FinalCTA />
   <Footer />
 </Layout>

@@ -1,50 +1,47 @@
 ---
 import { ChevronDown } from 'lucide-astro';
+
+const faqs = [
+  {
+    question: '¿Esta plantilla sirve para distintos tipos de profesionales?',
+    answer: 'Sí. La idea es usar una misma estructura base y adaptarla por nicho, ciudad, servicios, estilo y datos de contacto.',
+  },
+  {
+    question: '¿Qué se cambia para adaptarla a otro profesional?',
+    answer: 'Se cambian el nombre, especialidad, servicios, textos, ciudad, testimonios, imágenes, CTA y datos reales del contacto.',
+  },
+  {
+    question: '¿La estructura ya está pensada para convertir?',
+    answer: 'Sí. Incluye hero, problemas, servicios, proceso, perfil, prueba social, preguntas frecuentes y contacto, que es una secuencia comercial bastante sólida.',
+  },
+  {
+    question: '¿Se puede usar como base para portafolio y venta?',
+    answer: 'Sí. Puede funcionar como plantilla madre interna para producir webs más rápido o como base para demos comerciales por nicho.',
+  },
+];
 ---
 
 <section id="faq" class="py-24 px-6 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300">
   <div class="max-w-4xl mx-auto">
     <div class="text-center mb-16">
+      <span class="inline-block px-4 py-1.5 rounded-full bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 text-sm font-medium mb-4">FAQ</span>
       <h2 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-500 to-blue-700 dark:from-blue-400 dark:to-blue-600 text-transparent bg-clip-text mb-4">
-        Frequently Asked Questions
+        Preguntas frecuentes
       </h2>
       <p class="text-xl text-gray-600 dark:text-gray-300">
-        Everything you need to know about our AI chat platform
+        Un bloque útil para resolver objeciones y aclarar el funcionamiento de la web o del servicio.
       </p>
     </div>
 
     <div class="space-y-6">
-      {[
-        {
-          question: "How does the AI chat work?",
-          answer: "Our AI chat platform uses advanced language models to understand and respond to your messages naturally. It learns from context and can handle a wide range of topics and queries with high accuracy."
-        },
-        {
-          question: "Is my data secure?",
-          answer: "Yes, we take security seriously. All conversations are encrypted end-to-end, and we follow strict data protection protocols. We never share your data with third parties without your explicit consent."
-        },
-        {
-          question: "Can I customize the AI's responses?",
-          answer: "Yes, enterprise users can customize the AI's responses and train it on specific data sets. This allows you to tailor the chat experience to your specific needs and industry requirements."
-        },
-        {
-          question: "What kind of support do you offer?",
-          answer: "We offer different levels of support based on your plan. Basic users get email support, Pro users receive priority support, and Enterprise customers get 24/7 dedicated support with SLA guarantees."
-        }
-      ].map((faq) => (
+      {faqs.map((faq) => (
         <div class="faq-item bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden transition-all duration-200 hover:shadow-md">
-          <button 
-            type="button" 
-            class="w-full flex items-center justify-between p-6 text-left group"
-            aria-expanded="false"
-          >
+          <button type="button" class="w-full flex items-center justify-between p-6 text-left group" aria-expanded="false">
             <span class="text-lg font-semibold text-gray-900 dark:text-white group-hover:text-blue-500 dark:group-hover:text-blue-400 transition-colors">{faq.question}</span>
             <ChevronDown className="w-5 h-5 text-blue-500 dark:text-blue-400 transition-transform duration-200" />
           </button>
           <div class="faq-content hidden">
-            <div class="px-6 pb-6 text-gray-600 dark:text-gray-300">
-              {faq.answer}
-            </div>
+            <div class="px-6 pb-6 text-gray-600 dark:text-gray-300">{faq.answer}</div>
           </div>
         </div>
       ))}
@@ -55,51 +52,32 @@ import { ChevronDown } from 'lucide-astro';
 <script>
   function setupFAQ() {
     const faqItems = document.querySelectorAll('.faq-item');
-    
-    faqItems.forEach(item => {
-      const button = item.querySelector('button');
-      const clone = button?.cloneNode(true);
-      if (button && clone) {
-        button.parentNode?.replaceChild(clone, button);
-      }
-    });
-
     faqItems.forEach(item => {
       const button = item.querySelector('button');
       const content = item.querySelector('.faq-content');
       const icon = button?.querySelector('svg');
-      
       if (button && content && icon) {
-        button.addEventListener('click', () => {
+        button.onclick = () => {
           const isExpanded = button.getAttribute('aria-expanded') === 'true';
-          button.setAttribute('aria-expanded', (!isExpanded).toString());
-          
           faqItems.forEach(otherItem => {
-            if (otherItem !== item) {
-              const otherContent = otherItem.querySelector('.faq-content');
-              const otherButton = otherItem.querySelector('button');
-              const otherIcon = otherItem.querySelector('svg');
-              
-              if (otherContent && otherButton && otherIcon) {
-                otherContent.classList.add('hidden');
-                otherButton.setAttribute('aria-expanded', 'false');
-                (otherIcon as unknown as SVGElement).style.transform = 'rotate(0deg)';
-              }
+            const otherContent = otherItem.querySelector('.faq-content');
+            const otherButton = otherItem.querySelector('button');
+            const otherIcon = otherItem.querySelector('svg');
+            if (otherContent && otherButton && otherIcon) {
+              otherContent.classList.add('hidden');
+              otherButton.setAttribute('aria-expanded', 'false');
+              otherIcon.style.transform = 'rotate(0deg)';
             }
           });
-          
-          if (isExpanded) {
-            content.classList.add('hidden');
-            (icon as unknown as SVGElement).style.transform = 'rotate(0deg)';
-          } else {
+          if (!isExpanded) {
             content.classList.remove('hidden');
-            (icon as unknown as SVGElement).style.transform = 'rotate(180deg)';
+            button.setAttribute('aria-expanded', 'true');
+            icon.style.transform = 'rotate(180deg)';
           }
-        });
+        };
       }
     });
   }
-
   setupFAQ();
   document.addEventListener('astro:page-load', setupFAQ);
-</script> 
+</script>
