@@ -1,6 +1,5 @@
 ---
-import { MapPin, MessageCircle, Phone } from 'lucide-astro';
-import { config } from '../config';
+import { MapPin, MessageCircle, Phone, ShieldCheck } from 'lucide-astro';
 ---
 
 <section id="inicio" class="relative pt-32 md:pt-44 pb-24 px-6 bg-blue-50 dark:bg-gray-900 overflow-hidden">
@@ -15,41 +14,41 @@ import { config } from '../config';
       <div>
         <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 text-sm font-medium mb-6">
           <MapPin class="w-4 h-4" />
-          Plantilla base para profesionales
+          Atención médica en Cuenca
         </span>
 
         <h1 class="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
-          Una web profesional lista para adaptarse a
-          <span class="text-blue-600 dark:text-blue-400"> doctores, abogados, psicólogos y consultores</span>
+          Dr. Alejandro Vintimilla
+          <span class="text-blue-600 dark:text-blue-400"> Cirujano General y Laparoscopista</span>
         </h1>
 
         <p class="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl">
-          Esta plantilla madre está pensada para mostrar autoridad, explicar servicios, generar confianza y facilitar el contacto sin empezar cada proyecto desde cero.
+          Valoración quirúrgica clara, atención profesional y acompañamiento responsable para pacientes que buscan confianza, experiencia y una orientación médica honesta.
         </p>
 
         <div class="flex flex-col sm:flex-row gap-4 mb-10">
           <a href="#contacto" class="px-6 py-3 bg-blue-500 text-white rounded-xl hover:bg-blue-600 transition-all duration-200 flex items-center justify-center gap-2 font-medium">
             <MessageCircle class="w-5 h-5" />
-            Solicitar información
+            Agendar cita por WhatsApp
           </a>
           <a href="#servicios" class="px-6 py-3 bg-white dark:bg-gray-800 text-gray-900 dark:text-white rounded-xl border border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-700 transition-all duration-200 flex items-center justify-center gap-2 font-medium">
             <Phone class="w-5 h-5" />
-            Ver estructura de servicios
+            Ver servicios
           </a>
         </div>
 
         <div class="grid sm:grid-cols-3 gap-4">
           <div class="bg-white/80 dark:bg-gray-800/80 rounded-2xl p-4 border border-blue-100 dark:border-blue-900/40">
-            <div class="text-2xl font-bold text-gray-900 dark:text-white">1 base</div>
-            <div class="text-sm text-gray-600 dark:text-gray-300">para varios nichos</div>
+            <div class="text-2xl font-bold text-gray-900 dark:text-white">+20 años</div>
+            <div class="text-sm text-gray-600 dark:text-gray-300">de experiencia clínica</div>
           </div>
           <div class="bg-white/80 dark:bg-gray-800/80 rounded-2xl p-4 border border-blue-100 dark:border-blue-900/40">
-            <div class="text-2xl font-bold text-gray-900 dark:text-white">9 bloques</div>
-            <div class="text-sm text-gray-600 dark:text-gray-300">comerciales reutilizables</div>
+            <div class="text-2xl font-bold text-gray-900 dark:text-white">Atención clara</div>
+            <div class="text-sm text-gray-600 dark:text-gray-300">diagnóstico y orientación</div>
           </div>
           <div class="bg-white/80 dark:bg-gray-800/80 rounded-2xl p-4 border border-blue-100 dark:border-blue-900/40">
-            <div class="text-2xl font-bold text-gray-900 dark:text-white">100%</div>
-            <div class="text-sm text-gray-600 dark:text-gray-300">adaptable al profesional</div>
+            <div class="text-2xl font-bold text-gray-900 dark:text-white">Seguimiento</div>
+            <div class="text-sm text-gray-600 dark:text-gray-300">antes y después del procedimiento</div>
           </div>
         </div>
       </div>
@@ -58,17 +57,19 @@ import { config } from '../config';
         <div class="rounded-3xl bg-white dark:bg-gray-800 p-8 border border-blue-100 dark:border-blue-900/40 shadow-xl">
           <div class="flex items-center justify-between mb-6">
             <div>
-              <div class="text-sm text-blue-600 dark:text-blue-400 font-medium">{config.app.name}</div>
-              <div class="text-2xl font-bold text-gray-900 dark:text-white">Plantilla madre profesional</div>
+              <div class="text-sm text-blue-600 dark:text-blue-400 font-medium">Cirugía General</div>
+              <div class="text-2xl font-bold text-gray-900 dark:text-white">Atención confiable y cercana</div>
             </div>
-            <div class="w-12 h-12 rounded-2xl bg-blue-100 dark:bg-blue-900/40 flex items-center justify-center text-blue-600 dark:text-blue-400 font-bold">KM</div>
+            <div class="w-12 h-12 rounded-2xl bg-blue-100 dark:bg-blue-900/40 flex items-center justify-center text-blue-600 dark:text-blue-400 font-bold">
+              <ShieldCheck class="w-6 h-6" />
+            </div>
           </div>
 
           <div class="space-y-4 text-gray-600 dark:text-gray-300">
-            <div class="rounded-2xl bg-gray-50 dark:bg-gray-900 p-4">Hero con propuesta de valor y CTA</div>
-            <div class="rounded-2xl bg-gray-50 dark:bg-gray-900 p-4">Bloque de problemas o cuándo consultar</div>
-            <div class="rounded-2xl bg-gray-50 dark:bg-gray-900 p-4">Servicios, proceso y perfil profesional</div>
-            <div class="rounded-2xl bg-gray-50 dark:bg-gray-900 p-4">Testimonios, FAQ y contacto</div>
+            <div class="rounded-2xl bg-gray-50 dark:bg-gray-900 p-4">Valoración quirúrgica y segunda opinión médica</div>
+            <div class="rounded-2xl bg-gray-50 dark:bg-gray-900 p-4">Atención de hernias, vesícula, apendicitis y procedimientos frecuentes</div>
+            <div class="rounded-2xl bg-gray-50 dark:bg-gray-900 p-4">Explicación clara del diagnóstico y del tratamiento recomendado</div>
+            <div class="rounded-2xl bg-gray-50 dark:bg-gray-900 p-4">Coordinación de consulta, procedimiento y seguimiento</div>
           </div>
         </div>
       </div>
