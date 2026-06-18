@@ -106,10 +106,10 @@ function getSocialUrl(key: string): string {
 
 export const config: Config = {
   app: {
-    name: getEnvVar('APP_NAME', 'AI Chat Assistant'),
-    domain: getEnvVar('APP_DOMAIN', 'example.com'),
-    url: getEnvVar('APP_URL', 'https://example.com'),
-    adminEmail: getEnvVar('ADMIN_EMAIL', 'admin@example.com'),
+    name: getEnvVar('APP_NAME', 'Dr. Alejandro Vintimilla'),
+    domain: getEnvVar('APP_DOMAIN', 'tmp-landstro.vercel.app'),
+    url: getEnvVar('APP_URL', 'https://tmp-landstro.vercel.app'),
+    adminEmail: getEnvVar('ADMIN_EMAIL', 'contacto@demo-doctor.com'),
   },
   analytics: {
     googleAnalyticsId: getEnvVarOrNull('GOOGLE_ANALYTICS_ID'),

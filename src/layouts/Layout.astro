@@ -1,7 +1,6 @@
 ---
 import { ViewTransitions } from 'astro:transitions';
 import SEOMetadata from '../components/SEOMetadata.astro';
-import ContactModal from '../components/ContactModal.astro';
 import { config } from '../config';
 
 interface Props {
@@ -94,7 +93,6 @@ const pageStructuredData = {
   </head>
   <body>
     <slot />
-    <ContactModal />
     {gaTrackingId && (
       <script is:inline define:vars={{ gaTrackingId }}>
         window.addEventListener('load', function() {
