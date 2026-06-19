@@ -106,10 +106,10 @@ function getSocialUrl(key: string): string {
 
 export const config: Config = {
   app: {
-    name: getEnvVar('APP_NAME', 'Dr. Alejandro Vintimilla'),
+    name: getEnvVar('APP_NAME', 'Webs premium por nicho'),
     domain: getEnvVar('APP_DOMAIN', 'tmp-landstro.vercel.app'),
     url: getEnvVar('APP_URL', 'https://tmp-landstro.vercel.app'),
-    adminEmail: getEnvVar('ADMIN_EMAIL', 'contacto@demo-doctor.com'),
+    adminEmail: getEnvVar('ADMIN_EMAIL', 'contacto@webspornicho.com'),
   },
   analytics: {
     googleAnalyticsId: getEnvVarOrNull('GOOGLE_ANALYTICS_ID'),
