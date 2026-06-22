@@ -13,18 +13,21 @@ const hasSocialLinks = twitter || github || linkedin || facebook || instagram;
 const links = [
   { href: '#problemas', label: 'Por qué esto vende' },
   { href: '#servicios', label: 'Qué entrego' },
-  { href: '#perfil', label: 'Nichos' },
+  { href: '#perfil', label: 'Sectores' },
   { href: '#faq', label: 'FAQ' },
   { href: '#contacto', label: 'Contacto' },
 ];
 ---
 
-<nav class="fixed w-full z-50 transition-all duration-300 py-6" id="navbar">
-  <div class="max-w-7xl mx-auto px-6 flex items-center justify-between h-full">
-    <a href={prefix || '#inicio'} class="flex items-center space-x-1 text-gray-700 hover:text-blue-500 dark:text-gray-200 dark:hover:text-blue-400 transition-all duration-300">
-      <div class="flex items-center gap-2">
-        <Image src="/images/icon/logo.png" alt="Logo" width={32} height={32} class="w-8 h-8" />
-        <span class="text-xl font-semibold">{companyName}</span>
+<nav class="fixed w-full z-50 transition-all duration-300 py-4" id="navbar">
+  <div class="max-w-7xl mx-auto px-6 flex items-center justify-between h-full rounded-2xl border border-white/10 bg-white/70 dark:bg-slate-950/70 backdrop-blur-xl shadow-[0_20px_50px_rgba(2,6,23,0.08)]">
+    <a href={prefix || '#inicio'} class="flex items-center space-x-1 text-gray-700 hover:text-blue-600 dark:text-gray-100 dark:hover:text-cyan-300 transition-all duration-300 px-4 py-3">
+      <div class="flex items-center gap-3">
+        <Image src="/images/icon/logo.png" alt="Logo" width={32} height={32} class="w-9 h-9 rounded-xl" />
+        <div class="flex flex-col leading-none">
+          <span class="text-lg font-bold tracking-tight">{companyName}</span>
+          <span class="text-[11px] uppercase tracking-[0.18em] text-gray-500 dark:text-gray-400">Webs premium</span>
+        </div>
       </div>
     </a>
     
@@ -39,9 +42,9 @@ const links = [
         <X className="hidden w-6 h-6" id="close-icon" />
       </button>
       
-      <div class="hidden md:flex items-center space-x-8">
+      <div class="hidden md:flex items-center space-x-6 px-4">
         {links.map((link) => (
-          <a href={link.href} class="text-gray-700 hover:text-blue-500 dark:text-gray-200 dark:hover:text-blue-400 transition-all duration-300">{link.label}</a>
+          <a href={link.href} class="text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-200 dark:hover:text-cyan-300 transition-all duration-300">{link.label}</a>
         ))}
         {hasSocialLinks && <div class="h-4 w-px bg-gray-200 dark:bg-gray-700"></div>}
         {hasSocialLinks && (
@@ -113,8 +116,8 @@ const links = [
   function setupNavbarScroll() {
     const navbar = document.getElementById('navbar');
     const handleScroll = () => {
-      if (window.scrollY > 50) navbar?.classList.add('bg-white/80', 'dark:bg-gray-900/80', 'backdrop-blur-lg', 'shadow-sm');
-      else navbar?.classList.remove('bg-white/80', 'dark:bg-gray-900/80', 'backdrop-blur-lg', 'shadow-sm');
+      if (window.scrollY > 50) navbar?.classList.add('py-3');
+      else navbar?.classList.remove('py-3');
     };
     window.removeEventListener('scroll', handleScroll);
     window.addEventListener('scroll', handleScroll);
