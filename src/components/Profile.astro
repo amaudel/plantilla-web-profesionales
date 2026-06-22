@@ -1,5 +1,4 @@
 ---
-import Image from './Image.astro';
 ---
 
 <section id="perfil" class="py-24 bg-gradient-to-b from-white to-blue-50 dark:from-gray-950 dark:to-gray-900">
@@ -37,11 +36,23 @@ import Image from './Image.astro';
         <div class="absolute -inset-4 bg-gradient-to-br from-blue-200/40 to-sky-100/20 dark:from-blue-900/20 dark:to-cyan-900/10 blur-3xl rounded-[2rem]"></div>
         <div class="relative overflow-hidden bg-white/95 dark:bg-gray-800/95 backdrop-blur rounded-3xl border border-blue-100 dark:border-blue-900/40 shadow-xl">
           <div class="grid md:grid-cols-[0.95fr_1.05fr] items-stretch">
-            <div class="relative min-h-[520px] bg-slate-100 dark:bg-slate-900">
-              <Image src="/images/doctor/doctor-premium-portrait.png" alt="Ejemplo visual de demo para nicho médico" width={1024} height={1536} class="absolute inset-0 w-full h-full object-cover" />
-              <div class="absolute inset-x-0 bottom-0 p-5 bg-gradient-to-t from-slate-950/80 to-transparent text-white">
-                <div class="text-sm text-blue-200 uppercase tracking-[0.2em]">Demo visible</div>
-                <div class="text-2xl font-bold mt-1">Nicho médico ya aterrizado</div>
+            <div class="relative min-h-[520px] bg-slate-100 dark:bg-slate-900 overflow-hidden">
+              <div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,_rgba(59,130,246,0.28),_transparent_30%),radial-gradient(circle_at_80%_80%,_rgba(14,165,233,0.22),_transparent_25%),linear-gradient(160deg,_#f8fafc_0%,_#dbeafe_35%,_#0f172a_100%)] dark:bg-[radial-gradient(circle_at_20%_20%,_rgba(59,130,246,0.25),_transparent_30%),radial-gradient(circle_at_80%_80%,_rgba(14,165,233,0.20),_transparent_25%),linear-gradient(160deg,_#020617_0%,_#0f172a_45%,_#1d4ed8_100%)]"></div>
+              <div class="relative z-10 h-full p-8 flex flex-col justify-between text-white">
+                <div>
+                  <div class="text-sm text-blue-100 uppercase tracking-[0.2em]">Demo visible</div>
+                  <div class="text-3xl font-bold mt-2">La misma base se adapta con lógica distinta según el nicho</div>
+                </div>
+                <div class="grid gap-4">
+                  <div class="rounded-2xl bg-white/10 border border-white/10 backdrop-blur p-5">
+                    <div class="text-sm text-blue-100 mb-1">Percepción correcta</div>
+                    <div class="font-semibold">La web cambia según cómo ese cliente decide confiar</div>
+                  </div>
+                  <div class="rounded-2xl bg-slate-950/35 border border-white/10 p-5">
+                    <div class="text-sm text-blue-100 mb-1">Más que diseño</div>
+                    <div class="font-semibold">Estructura, mensaje, autoridad visual y CTA adecuados</div>
+                  </div>
+                </div>
               </div>
             </div>
             <div class="p-8">
