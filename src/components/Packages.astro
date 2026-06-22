@@ -71,7 +71,7 @@ const packages = [
 
           <div class="space-y-3 mb-8">
             {item.features.map((feature) => (
-              <div class:list={["rounded-2xl px-4 py-3 text-sm", item.featured ? "bg-white/10 text-white border border-white/10" : "bg-gray-50 dark:bg-gray-900 text-gray-700 dark:text-gray-300"]}>
+              <div class:list={["rounded-2xl px-4 py-3 text-sm leading-relaxed", item.featured ? "bg-slate-950/18 text-white border border-white/12 backdrop-blur-sm" : "bg-gray-50 dark:bg-gray-900 text-gray-700 dark:text-gray-300"]}>
                 {feature}
               </div>
             ))}
