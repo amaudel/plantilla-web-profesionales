@@ -1,5 +1,6 @@
 ---
 import { BriefcaseBusiness, MessageCircle, Phone, ShieldCheck } from 'lucide-astro';
+import Image from './Image.astro';
 ---
 
 <section id="inicio" class="relative pt-32 md:pt-44 pb-24 px-6 bg-gradient-to-br from-blue-50 via-white to-sky-100 dark:from-gray-950 dark:via-gray-900 dark:to-blue-950 overflow-hidden">
@@ -58,30 +59,33 @@ import { BriefcaseBusiness, MessageCircle, Phone, ShieldCheck } from 'lucide-ast
         <div class="relative rounded-[2rem] overflow-hidden shadow-2xl border border-blue-100 dark:border-blue-900/40 bg-white/95 dark:bg-gray-800/95 backdrop-blur">
           <div class="grid md:grid-cols-[1.05fr_0.95fr] items-stretch">
             <div class="relative min-h-[540px] bg-slate-100 dark:bg-slate-900 overflow-hidden">
-              <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(59,130,246,0.32),_transparent_35%),radial-gradient(circle_at_bottom_right,_rgba(14,165,233,0.26),_transparent_30%),linear-gradient(135deg,_#0f172a_0%,_#111827_42%,_#1d4ed8_100%)]"></div>
+              <Image src="/images/hero/nicho-digital-hero-premium.png" alt="Imagen premium para servicios profesionales" width={1536} height={1024} class="absolute inset-0 w-full h-full object-cover" />
+              <div class="absolute inset-0 bg-[linear-gradient(135deg,rgba(2,6,23,0.72)_0%,rgba(15,23,42,0.45)_38%,rgba(29,78,216,0.32)_100%)]"></div>
+              <div class="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-slate-950/40 to-transparent"></div>
+              <div class="absolute inset-x-0 bottom-0 h-56 bg-gradient-to-t from-slate-950/80 via-slate-950/30 to-transparent"></div>
               <div class="relative z-10 h-full p-8 md:p-10 flex flex-col justify-between text-white">
                 <div class="flex items-start justify-between gap-4">
                   <div>
                     <div class="text-sm uppercase tracking-[0.2em] text-blue-200">Nicho Digital</div>
-                    <div class="text-3xl md:text-4xl font-bold mt-2">Tu web debe hacer que tu negocio inspire confianza desde el primer segundo</div>
+                    <div class="text-3xl md:text-4xl font-bold mt-2 max-w-xl">Tu web debe hacer que tu negocio inspire confianza desde el primer segundo</div>
                   </div>
-                  <div class="w-14 h-14 rounded-2xl bg-white/10 border border-white/10 flex items-center justify-center backdrop-blur">
+                  <div class="w-14 h-14 rounded-2xl bg-white/10 border border-white/10 flex items-center justify-center backdrop-blur shadow-lg">
                     <ShieldCheck class="w-7 h-7 text-blue-100" />
                   </div>
                 </div>
 
                 <div class="grid gap-4">
-                  <div class="rounded-2xl bg-white/10 border border-white/10 backdrop-blur p-5">
-                    <div class="text-sm text-blue-100 mb-1">Demos que sí ayudan a vender</div>
-                    <div class="font-semibold text-xl">Médicos, abogados, wellness y servicios premium</div>
+                  <div class="rounded-2xl bg-white/10 border border-white/10 backdrop-blur p-5 shadow-xl max-w-lg">
+                    <div class="text-sm text-blue-100 mb-1">Ideal para profesionales y negocios de servicios</div>
+                    <div class="font-semibold text-xl">Médicos, abogados, psicólogos, wellness y servicios premium</div>
                   </div>
-                  <div class="grid sm:grid-cols-2 gap-4">
-                    <div class="rounded-2xl bg-slate-950/35 border border-white/10 p-5">
-                      <div class="text-sm text-blue-100 mb-1">Señales correctas</div>
-                      <div class="font-semibold">Más autoridad, claridad y contacto</div>
+                  <div class="grid sm:grid-cols-2 gap-4 max-w-2xl">
+                    <div class="rounded-2xl bg-slate-950/35 border border-white/10 backdrop-blur p-5 shadow-lg">
+                      <div class="text-sm text-blue-100 mb-1">Más confianza</div>
+                      <div class="font-semibold">Una presentación más seria, clara y profesional</div>
                     </div>
-                    <div class="rounded-2xl bg-slate-950/35 border border-white/10 p-5">
-                      <div class="text-sm text-blue-100 mb-1">Base escalable</div>
+                    <div class="rounded-2xl bg-slate-950/35 border border-white/10 backdrop-blur p-5 shadow-lg">
+                      <div class="text-sm text-blue-100 mb-1">Más contactos</div>
                       <div class="font-semibold">Una web pensada para mostrar valor y facilitar el contacto</div>
                     </div>
                   </div>
