@@ -1,0 +1,78 @@
+---
+const niches = [
+  {
+    name: 'Médicos y especialistas',
+    angle: 'Confianza clínica, autoridad profesional y contacto rápido.',
+    bullets: ['Presentación premium', 'Servicios claros', 'WhatsApp y agenda'],
+    cta: 'Ver demo médica',
+    href: '#contacto',
+  },
+  {
+    name: 'Abogados y firmas legales',
+    angle: 'Seriedad, respaldo y servicios explicados sin ruido.',
+    bullets: ['Imagen sobria', 'Áreas de práctica', 'Captación de consultas'],
+    cta: 'Ver enfoque legal',
+    href: '#contacto',
+  },
+  {
+    name: 'Psicólogos y wellness',
+    angle: 'Cercanía, estética cuidada y mensajes que generan confianza.',
+    bullets: ['Tono humano', 'Oferta bien guiada', 'Más intención de contacto'],
+    cta: 'Ver enfoque wellness',
+    href: '#contacto',
+  },
+  {
+    name: 'Consultores y servicios premium',
+    angle: 'Claridad comercial para vender criterio, proceso y resultado.',
+    bullets: ['Posicionamiento', 'Casos y proceso', 'CTA a reunión o WhatsApp'],
+    cta: 'Ver enfoque consultoría',
+    href: '#contacto',
+  },
+];
+---
+
+<section id="nichos" class="py-24 px-6 bg-white dark:bg-gray-950">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-16">
+      <span class="inline-block px-4 py-1.5 rounded-full bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 text-sm font-medium mb-4">
+        Nichos que puedo vender mejor
+      </span>
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+        No vendo una plantilla genérica, vendo una web aterrizada al tipo de cliente que quieres atraer
+      </h2>
+      <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+        Cada nicho necesita señales distintas de confianza, estilo visual, estructura y CTA. Aquí ya se ve cómo se traduce eso en demos vendibles.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {niches.map((niche, index) => (
+        <div class="rounded-3xl border border-blue-100 dark:border-blue-900/30 bg-gradient-to-br from-white to-blue-50/60 dark:from-gray-900 dark:to-blue-950/20 p-8 shadow-sm">
+          <div class="flex items-center justify-between gap-4 mb-5">
+            <div>
+              <div class="text-sm uppercase tracking-[0.18em] text-blue-600 dark:text-blue-400 mb-2">Demo {String(index + 1).padStart(2, '0')}</div>
+              <h3 class="text-2xl font-bold text-gray-900 dark:text-white">{niche.name}</h3>
+            </div>
+            <div class="w-12 h-12 rounded-2xl bg-blue-100 dark:bg-blue-900/40 text-blue-600 dark:text-blue-400 flex items-center justify-center font-bold">
+              {index + 1}
+            </div>
+          </div>
+
+          <p class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">{niche.angle}</p>
+
+          <div class="flex flex-wrap gap-3 mb-8">
+            {niche.bullets.map((bullet) => (
+              <span class="px-4 py-2 rounded-full bg-white dark:bg-gray-800 border border-blue-100 dark:border-blue-900/30 text-sm text-gray-700 dark:text-gray-300">
+                {bullet}
+              </span>
+            ))}
+          </div>
+
+          <a href={niche.href} class="inline-flex items-center rounded-xl bg-blue-600 px-5 py-3 text-white font-semibold hover:bg-blue-700 transition">
+            {niche.cta}
+          </a>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
