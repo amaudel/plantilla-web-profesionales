@@ -1,0 +1,78 @@
+---
+const caseStudy = {
+  category: 'Caso real',
+  title: 'Web para cirujano en Cuenca',
+  sector: 'Salud / servicios profesionales',
+  problem:
+    'El reto era transmitir autoridad médica, explicar con claridad cuándo consultar y facilitar el agendamiento directo sin depender de formularios largos.',
+  solution:
+    'Se construyó una web enfocada en confianza, trayectoria, especialidades, proceso y CTA claros a WhatsApp para acelerar el contacto.',
+  wins: [
+    'Posicionamiento serio y profesional',
+    'Estructura pensada para confianza y conversión',
+    'Contenido adaptado al nicho médico',
+    'Agendamiento directo por WhatsApp',
+  ],
+  url: 'https://web-doctor-orpin.vercel.app/#inicio',
+};
+---
+
+<section id="portfolio" class="py-24 px-6 bg-[radial-gradient(circle_at_top_left,_rgba(59,130,246,0.07),_transparent_26%),linear-gradient(to_bottom,_#ffffff,_#f8fafc)] dark:bg-[radial-gradient(circle_at_top_left,_rgba(34,211,238,0.08),_transparent_26%),linear-gradient(to_bottom,_#020617,_#0f172a)]">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-16">
+      <span class="inline-block px-4 py-1.5 rounded-full border border-blue-200/70 dark:border-cyan-400/20 bg-white/80 dark:bg-slate-900/70 text-blue-700 dark:text-cyan-300 text-sm font-semibold mb-4 backdrop-blur">
+        Portfolio
+      </span>
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-gray-900 dark:text-white mb-4">
+        Un caso real de cómo una web puede vender mejor un servicio profesional
+      </h2>
+      <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+        No se trata solo de que la web se vea bien. Se trata de que transmita confianza, explique mejor el servicio y facilite el contacto.
+      </p>
+    </div>
+
+    <div class="grid lg:grid-cols-[1.15fr_0.85fr] gap-8 items-stretch">
+      <div class="rounded-[32px] border border-slate-200/80 dark:border-slate-800 bg-white/80 dark:bg-slate-900/70 backdrop-blur-xl p-8 md:p-10 shadow-[0_20px_55px_rgba(15,23,42,0.08)]">
+        <div class="flex flex-wrap items-center gap-3 mb-6">
+          <span class="inline-flex rounded-full bg-blue-600 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-white">{caseStudy.category}</span>
+          <span class="inline-flex rounded-full border border-slate-200 dark:border-slate-700 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-gray-600 dark:text-gray-300">{caseStudy.sector}</span>
+        </div>
+
+        <h3 class="text-3xl md:text-4xl font-bold tracking-tight text-gray-900 dark:text-white mb-4">
+          {caseStudy.title}
+        </h3>
+
+        <div class="grid md:grid-cols-2 gap-6 mb-8">
+          <div class="rounded-2xl bg-slate-50 dark:bg-slate-950/60 border border-slate-200/70 dark:border-slate-800 p-5">
+            <div class="text-sm uppercase tracking-[0.18em] text-blue-600 dark:text-cyan-300 font-semibold mb-2">Problema</div>
+            <p class="text-gray-600 dark:text-gray-300 leading-relaxed">{caseStudy.problem}</p>
+          </div>
+          <div class="rounded-2xl bg-slate-50 dark:bg-slate-950/60 border border-slate-200/70 dark:border-slate-800 p-5">
+            <div class="text-sm uppercase tracking-[0.18em] text-blue-600 dark:text-cyan-300 font-semibold mb-2">Solución</div>
+            <p class="text-gray-600 dark:text-gray-300 leading-relaxed">{caseStudy.solution}</p>
+          </div>
+        </div>
+
+        <a href={caseStudy.url} target="_blank" rel="noopener noreferrer" class="inline-flex items-center rounded-2xl bg-blue-600 px-6 py-3.5 text-white font-semibold hover:bg-blue-700 transition shadow-lg shadow-blue-500/20">
+          Ver proyecto
+        </a>
+      </div>
+
+      <div class="rounded-[32px] border border-cyan-300/15 bg-[linear-gradient(160deg,rgba(37,99,235,0.96),rgba(8,47,73,0.95))] p-8 md:p-10 text-white shadow-[0_28px_70px_rgba(37,99,235,0.25)]">
+        <div class="text-sm uppercase tracking-[0.18em] text-cyan-100 font-semibold mb-4">Qué demuestra este caso</div>
+        <div class="space-y-4 mb-8">
+          {caseStudy.wins.map((win) => (
+            <div class="rounded-2xl border border-white/10 bg-white/8 px-4 py-4 backdrop-blur-sm">{win}</div>
+          ))}
+        </div>
+
+        <div class="rounded-2xl border border-white/10 bg-slate-950/20 p-5">
+          <div class="text-sm uppercase tracking-[0.18em] text-cyan-100 font-semibold mb-2">Lectura comercial</div>
+          <p class="text-slate-100 leading-relaxed">
+            Este tipo de proyecto ayuda a venderle a otros profesionales porque muestra criterio, adaptación al nicho y una estructura pensada para convertir visitas en conversaciones reales.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
