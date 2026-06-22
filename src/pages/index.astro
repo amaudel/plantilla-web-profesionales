@@ -9,7 +9,6 @@ import Packages from '../components/Packages.astro';
 import Profile from '../components/Profile.astro';
 import SocialProof from '../components/SocialProof.astro';
 import FAQ from '../components/FAQ.astro';
-import ContactForm from '../components/ContactForm.astro';
 import FinalCTA from '../components/FinalCTA.astro';
 import Footer from '../components/Footer.astro';
 import Layout from '../layouts/Layout.astro';
@@ -58,13 +57,20 @@ import Layout from '../layouts/Layout.astro';
       </div>
     </div>
 
-    <div class="text-center mb-8">
-      <a href="https://wa.me/593984710898?text=Hola%2C%20quiero%20una%20web%20premium%20para%20mi%20nicho" class="inline-flex items-center rounded-lg bg-green-600 px-6 py-3 text-white font-semibold hover:bg-green-700 transition">
-        Hablar por WhatsApp
-      </a>
+    <div class="max-w-3xl mx-auto">
+      <div class="rounded-3xl border border-green-100 dark:border-green-900/30 bg-white dark:bg-gray-800 p-8 md:p-10 shadow-sm text-center">
+        <div class="text-sm uppercase tracking-[0.18em] text-green-600 dark:text-green-400 mb-3">Canal directo</div>
+        <h3 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-4">
+          Escríbeme por WhatsApp y conversemos sobre tu web
+        </h3>
+        <p class="text-gray-600 dark:text-gray-300 mb-6 max-w-2xl mx-auto">
+          Es la forma más rápida de revisar tu idea, tu sector y el tipo de web que necesitas sin perder mensajes ni depender de formularios.
+        </p>
+        <a href="https://wa.me/593984710898?text=Hola%2C%20quiero%20una%20web%20premium%20para%20mi%20nicho" class="inline-flex items-center rounded-xl bg-green-600 px-7 py-3 text-white font-semibold hover:bg-green-700 transition shadow-sm">
+          Hablar por WhatsApp
+        </a>
+      </div>
     </div>
-
-    <ContactForm />
   </section>
 
   <FinalCTA />
