@@ -1,0 +1,89 @@
+---
+---
+
+<script>
+  let cleanupAnimations;
+  let gsapInstance;
+  let scrollTriggerPlugin;
+  let loadingGsap;
+
+  const loadGsap = async () => {
+    if (gsapInstance && scrollTriggerPlugin) return;
+
+    loadingGsap ||= Promise.all([
+      import('gsap'),
+      import('gsap/ScrollTrigger'),
+    ]).then(([gsapModule, scrollTriggerModule]) => {
+      gsapInstance = gsapModule.gsap;
+      scrollTriggerPlugin = scrollTriggerModule.ScrollTrigger;
+      gsapInstance.registerPlugin(scrollTriggerPlugin);
+    });
+
+    await loadingGsap;
+  };
+
+  const setupScrollAnimations = async () => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    await loadGsap();
+
+    cleanupAnimations?.();
+    scrollTriggerPlugin.getAll()
+      .filter((trigger) => String(trigger.vars.id || '').startsWith('nd-'))
+      .forEach((trigger) => trigger.kill());
+
+    const context = gsapInstance.context(() => {
+      const revealItems = gsapInstance.utils.toArray('[data-reveal]');
+
+      revealItems.forEach((item, index) => {
+        const element = item as HTMLElement;
+        const distance = Number(element.getAttribute('data-reveal-distance') || 24);
+        const delay = Number(element.getAttribute('data-reveal-delay') || 0);
+
+        gsapInstance.fromTo(
+          element,
+          { autoAlpha: 0, y: distance },
+          {
+            autoAlpha: 1,
+            y: 0,
+            duration: 0.75,
+            delay,
+            ease: 'power3.out',
+            clearProps: 'transform,visibility,opacity',
+            scrollTrigger: {
+              id: `nd-reveal-${index}`,
+              trigger: element,
+              start: 'top 88%',
+              once: true,
+            },
+          }
+        );
+      });
+
+      gsapInstance.utils.toArray('[data-float-soft]').forEach((item, index) => {
+        gsapInstance.to(item, {
+          y: index % 2 === 0 ? -8 : 8,
+          duration: 3.8 + index * 0.2,
+          ease: 'sine.inOut',
+          repeat: -1,
+          yoyo: true,
+        });
+      });
+    }, document.body);
+
+    cleanupAnimations = () => context.revert();
+    scrollTriggerPlugin.refresh();
+  };
+
+  const scheduleAnimations = () => {
+    if ('requestIdleCallback' in window) {
+      window.requestIdleCallback(() => setupScrollAnimations(), { timeout: 1600 });
+      return;
+    }
+
+    window.setTimeout(() => setupScrollAnimations(), 300);
+  };
+
+  scheduleAnimations();
+  document.addEventListener('astro:page-load', scheduleAnimations);
+  document.addEventListener('astro:before-swap', () => cleanupAnimations?.());
+</script>

@@ -26,7 +26,7 @@ const items = [
 <section id="problemas" class="py-24 bg-white dark:bg-gray-900">
   <div class="max-w-7xl mx-auto px-6">
     <div class="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
-      <div class="lg:sticky lg:top-28">
+      <div data-reveal class="lg:sticky lg:top-28">
         <span class="inline-block px-4 py-1.5 rounded-full bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 text-sm font-medium mb-4">
           El problema que resolvemos
         </span>
@@ -46,7 +46,7 @@ const items = [
 
       <div class="grid gap-5">
         {items.map((item, index) => (
-          <div class="group rounded-[28px] border border-slate-200/80 bg-slate-50/80 p-4 shadow-[0_18px_45px_rgba(15,23,42,0.05)] transition-all duration-300 hover:-translate-y-1 hover:border-blue-200 hover:bg-white hover:shadow-[0_24px_65px_rgba(37,99,235,0.10)] dark:border-slate-800 dark:bg-slate-950/45 dark:hover:border-cyan-400/25 dark:hover:bg-slate-900/70">
+          <div data-reveal data-reveal-delay={String(Math.min(index * 0.05, 0.18))} class="group rounded-[28px] border border-slate-200/80 bg-slate-50/80 p-4 shadow-[0_18px_45px_rgba(15,23,42,0.05)] transition-all duration-300 hover:-translate-y-1 hover:border-blue-200 hover:bg-white hover:shadow-[0_24px_65px_rgba(37,99,235,0.10)] dark:border-slate-800 dark:bg-slate-950/45 dark:hover:border-cyan-400/25 dark:hover:bg-slate-900/70">
             <div class="grid gap-5 rounded-[22px] bg-white p-6 dark:bg-slate-900 md:grid-cols-[72px_1fr] md:p-7">
               <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-slate-950 text-sm font-bold text-white shadow-lg shadow-slate-950/10 transition-transform duration-300 group-hover:scale-105 dark:bg-cyan-300 dark:text-slate-950">
                 {String(index + 1).padStart(2, '0')}

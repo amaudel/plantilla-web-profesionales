@@ -27,7 +27,7 @@ const faqs = [
 
 <section id="faq" class="py-24 px-6 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300">
   <div class="max-w-4xl mx-auto">
-    <div class="text-center mb-16">
+    <div data-reveal class="text-center mb-16">
       <span class="inline-block px-4 py-1.5 rounded-full bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 text-sm font-medium mb-4">FAQ</span>
       <h2 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-500 to-blue-700 dark:from-blue-400 dark:to-blue-600 text-transparent bg-clip-text mb-4">
         Preguntas frecuentes
@@ -38,8 +38,8 @@ const faqs = [
     </div>
 
     <div class="space-y-6">
-      {faqs.map((faq) => (
-        <div class="faq-item bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden transition-all duration-200 hover:shadow-md">
+      {faqs.map((faq, index) => (
+        <div data-reveal data-reveal-delay={String(Math.min(index * 0.04, 0.16))} class="faq-item bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden transition-all duration-200 hover:shadow-md">
           <button type="button" class="w-full flex items-center justify-between p-6 text-left group" aria-expanded="false">
             <span class="text-lg font-semibold text-gray-900 dark:text-white group-hover:text-blue-500 dark:group-hover:text-blue-400 transition-colors">{faq.question}</span>
             <ChevronDown className="w-5 h-5 text-blue-500 dark:text-blue-400 transition-transform duration-200" />

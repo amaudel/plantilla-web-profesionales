@@ -33,6 +33,7 @@
         "astro": "^5.7.2",
         "astro-icon": "^1.1.5",
         "dotenv": "^16.5.0",
+        "gsap": "^3.15.0",
         "lucide-astro": "^0.503.0",
         "lucide-react": "^0.330.0",
         "postmark": "^4.0.5",

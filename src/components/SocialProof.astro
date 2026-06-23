@@ -25,7 +25,7 @@ const badges = ['Mejor percepción', 'Oferta más clara', 'Menos dudas', 'Más i
 
 <section id="testimonios" class="py-24 px-6 bg-gradient-to-b from-blue-50 to-white dark:from-gray-900 dark:to-gray-950 transition-colors duration-300">
   <div class="max-w-7xl mx-auto">
-    <div class="text-center mb-16">
+    <div data-reveal class="text-center mb-16">
       <span class="inline-block px-4 py-1.5 rounded-full bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 text-sm font-medium mb-4">Lo que debe demostrar tu web</span>
       <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Antes de vender, tu web tiene que hacer que confiar sea fácil</h2>
       <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
@@ -34,8 +34,8 @@ const badges = ['Mejor percepción', 'Oferta más clara', 'Menos dudas', 'Más i
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-      {proofPoints.map((item) => (
-        <div class="relative p-7 rounded-3xl bg-white/95 dark:bg-gray-800/95 backdrop-blur shadow-xl border border-blue-100 dark:border-blue-900/30">
+      {proofPoints.map((item, index) => (
+        <div data-reveal data-reveal-delay={String(Math.min(index * 0.06, 0.18))} class="relative p-7 rounded-3xl bg-white/95 dark:bg-gray-800/95 backdrop-blur shadow-xl border border-blue-100 dark:border-blue-900/30">
           <div class="absolute top-0 right-0 w-24 h-24 bg-blue-100/60 dark:bg-blue-900/20 blur-2xl rounded-full"></div>
           <div class="relative">
             <div class="text-4xl text-blue-200 dark:text-blue-800 mb-3">“</div>

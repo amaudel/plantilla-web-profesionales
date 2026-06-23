@@ -12,6 +12,7 @@ import SocialProof from '../components/SocialProof.astro';
 import FAQ from '../components/FAQ.astro';
 import FinalCTA from '../components/FinalCTA.astro';
 import Footer from '../components/Footer.astro';
+import ScrollAnimations from '../components/ScrollAnimations.astro';
 import Layout from '../layouts/Layout.astro';
 ---
 
@@ -34,7 +35,7 @@ import Layout from '../layouts/Layout.astro';
   <section id="contacto" class="relative overflow-hidden bg-slate-950 px-6 py-24 text-white">
     <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(34,211,238,0.16),_transparent_28%),radial-gradient(circle_at_bottom_right,_rgba(37,99,235,0.24),_transparent_32%)]"></div>
     <div class="relative mx-auto grid max-w-6xl gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-stretch">
-      <div class="rounded-[34px] border border-white/10 bg-white/6 p-8 shadow-[0_30px_80px_rgba(2,6,23,0.34)] backdrop-blur-xl md:p-10">
+      <div data-reveal class="rounded-[34px] border border-white/10 bg-white/6 p-8 shadow-[0_30px_80px_rgba(2,6,23,0.34)] backdrop-blur-xl md:p-10">
         <span class="inline-block rounded-full border border-cyan-300/20 bg-cyan-300/10 px-4 py-1.5 text-sm font-semibold text-cyan-100">
           Contacto
         </span>
@@ -61,7 +62,7 @@ import Layout from '../layouts/Layout.astro';
         </div>
       </div>
 
-      <div class="rounded-[34px] border border-cyan-300/15 bg-[linear-gradient(160deg,rgba(37,99,235,0.94),rgba(8,47,73,0.96))] p-8 shadow-[0_30px_80px_rgba(37,99,235,0.26)] md:p-10">
+      <div data-reveal data-reveal-delay="0.1" class="rounded-[34px] border border-cyan-300/15 bg-[linear-gradient(160deg,rgba(37,99,235,0.94),rgba(8,47,73,0.96))] p-8 shadow-[0_30px_80px_rgba(37,99,235,0.26)] md:p-10">
         <div class="text-sm font-semibold uppercase tracking-[0.18em] text-cyan-100">Canal directo</div>
         <h3 class="mt-4 text-2xl font-bold tracking-tight md:text-3xl">
           Escríbeme por WhatsApp y aterrizamos tu idea
@@ -83,4 +84,5 @@ import Layout from '../layouts/Layout.astro';
 
   <FinalCTA />
   <Footer />
+  <ScrollAnimations />
 </Layout>
