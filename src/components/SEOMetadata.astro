@@ -19,17 +19,13 @@ const {
   tags
 } = Astro.props;
 
-// Ensure title is under 60 characters
-const metaTitle = title.length > 60 ? `${title.substring(0, 57)}...` : title;
-
-// Ensure description is under 160 characters
-const metaDescription = description.length > 160 
-  ? `${description.substring(0, 157)}...` 
-  : description;
+const metaTitle = title;
+const metaDescription = description;
 
 // Get site URL from Astro.site
 const siteUrl = Astro.site?.toString().replace(/\/$/, '') || '';
 const siteName = import.meta.env.APP_NAME || 'Nicho Digital';
+const canonicalUrl = canonical || `${siteUrl}${Astro.url.pathname}`;
 
 // Construct full URL for the image
 const imageUrl = image.startsWith('http') 
@@ -39,7 +35,7 @@ const imageUrl = image.startsWith('http')
 
 <!-- Essential Meta Tags -->
 <meta name="description" content={metaDescription} />
-<link rel="canonical" href={canonical} />
+<link rel="canonical" href={canonicalUrl} />
 
 <meta name="keywords" content="webs premium, diseño web profesional, páginas web para médicos, páginas web para abogados, páginas web para psicólogos, webs para negocios de servicios, Nicho Digital" />
 
@@ -48,7 +44,7 @@ const imageUrl = image.startsWith('http')
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content={type} />
-<meta property="og:url" content={canonical} />
+<meta property="og:url" content={canonicalUrl} />
 <meta property="og:title" content={metaTitle} />
 <meta property="og:description" content={metaDescription} />
 <meta property="og:image" content={imageUrl} />
@@ -58,7 +54,7 @@ const imageUrl = image.startsWith('http')
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content={canonical} />
+<meta property="twitter:url" content={canonicalUrl} />
 <meta property="twitter:title" content={metaTitle} />
 <meta property="twitter:description" content={metaDescription} />
 <meta property="twitter:image" content={imageUrl} />

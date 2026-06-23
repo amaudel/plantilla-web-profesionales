@@ -5,7 +5,7 @@ import mdx from '@astrojs/mdx';
 import vercel from '@astrojs/vercel';
 import sitemap from '@astrojs/sitemap';
 
-// Get site URL from environment variable or default to localhost for development
+// Production canonical used by sitemap and SEO metadata.
 const SITE_URL = process.env.SITE_URL || 'https://nicho-digital.vercel.app';
 
 // https://astro.build/config
@@ -43,7 +43,10 @@ export default defineConfig({
     react(),
     mdx(),
     sitemap({
-      filter: (page) => !page.includes('/admin'),
+      filter: (page) => {
+        const url = new URL(page);
+        return url.pathname === '/';
+      },
       changefreq: 'weekly',
       lastmod: new Date(),
       serialize(item) {

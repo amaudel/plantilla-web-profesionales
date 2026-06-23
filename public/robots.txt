@@ -7,7 +7,7 @@ Disallow: /api/
 Disallow: /admin/
 
 # Sitemap location
-Sitemap: /sitemap-index.xml
+Sitemap: https://nicho-digital.vercel.app/sitemap-index.xml
 
 # Favicon for Google
 User-agent: Googlebot
@@ -15,4 +15,4 @@ Allow: /favicon.ico
 Allow: /favicon/favicon.ico
 Allow: /favicon/favicon-16x16.png
 Allow: /favicon/favicon-32x32.png
-Allow: /favicon/site.webmanifest 
+Allow: /favicon/site.webmanifest
