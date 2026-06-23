@@ -47,7 +47,7 @@ const pageStructuredData = {
   '@type': type === 'article' ? 'Article' : 'WebPage',
   headline: title,
   description,
-  image: image || `${siteUrl}/favicon/android-chrome-512x512.png`,
+  image: image || `${siteUrl}/images/hero/optimized/nicho-digital-hero-premium-1024.png`,
   url: canonical || Astro.url.href,
   datePublished: publishedTime || new Date().toISOString(),
 };
@@ -64,6 +64,15 @@ const pageStructuredData = {
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
     <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png">
     <link rel="manifest" href="/favicon/site.webmanifest">
+    <link
+      rel="preload"
+      as="image"
+      href="/images/hero/optimized/nicho-digital-hero-premium-1024.avif"
+      imagesrcset="/images/hero/optimized/nicho-digital-hero-premium-512.avif 512w, /images/hero/optimized/nicho-digital-hero-premium-1024.avif 1024w"
+      imagesizes="100vw"
+      type="image/avif"
+      fetchpriority="high"
+    >
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <SEOMetadata title={title} description={description} image={image} type={type} publishedTime={publishedTime} tags={tags} canonical={canonical} />

@@ -89,7 +89,7 @@ async function generateFavicons() {
     const manifestPath = path.join(FAVICON_DIR, 'site.webmanifest');
     
     // Use company name from env if available
-    const appName = process.env.APP_NAME || 'Your Company';
+    const appName = process.env.APP_NAME || 'Nicho Digital';
     const shortName = appName.split(' ')[0] || 'App';
     
     const manifestContent = {
@@ -107,15 +107,18 @@ async function generateFavicons() {
           type: 'image/png'
         }
       ],
-      theme_color: '#4f46e5',
+      theme_color: '#2563eb',
       background_color: '#ffffff',
       display: 'standalone'
     };
     
-    if (!fs.existsSync(manifestPath) || isSourceNewer(ORIGINAL_PATH, manifestPath)) {
+    const nextManifest = JSON.stringify(manifestContent, null, 2);
+    const currentManifest = fs.existsSync(manifestPath) ? fs.readFileSync(manifestPath, 'utf8') : '';
+
+    if (!fs.existsSync(manifestPath) || isSourceNewer(ORIGINAL_PATH, manifestPath) || currentManifest !== nextManifest) {
       fs.writeFileSync(
         manifestPath,
-        JSON.stringify(manifestContent, null, 2)
+        nextManifest
       );
       console.log('Generated site.webmanifest');
     } else {
@@ -153,4 +156,4 @@ async function generateSvgFavicon(inputImagePath, outputPath, size) {
   }
 }
 
-generateFavicons(); 
+generateFavicons();

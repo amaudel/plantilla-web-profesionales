@@ -2,7 +2,6 @@ import sqlite3 from 'sqlite3';
 import { open } from 'sqlite';
 import { dirname, join } from 'path';
 import fs from 'fs';
-import path from 'path';
 import * as dotenv from 'dotenv';
 
 // Load environment variables
@@ -13,7 +12,7 @@ export async function openDb() {
   const dbPath = join(process.cwd(), 'data', 'db.sqlite');
   
   // Make sure the directory exists
-  const dbDir = path.dirname(dbPath);
+  const dbDir = dirname(dbPath);
   if (!fs.existsSync(dbDir)) {
     fs.mkdirSync(dbDir, { recursive: true });
   }
@@ -23,4 +22,4 @@ export async function openDb() {
     filename: dbPath,
     driver: sqlite3.Database
   });
-} 
+}

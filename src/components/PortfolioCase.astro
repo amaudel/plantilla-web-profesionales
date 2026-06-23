@@ -42,7 +42,19 @@ const caseStudy = {
               <span class="ml-3 text-xs text-slate-400">web-doctor-orpin.vercel.app</span>
             </div>
             <div class="relative overflow-hidden rounded-[20px] border border-white/10 bg-slate-900">
-              <img src="/images/portfolio/web-doctor-device-mockup.jpg" alt="Vista previa principal de la web médica del portafolio" class="h-auto max-h-[280px] sm:max-h-none w-full object-cover object-center" loading="lazy" />
+              <picture>
+                <source
+                  type="image/avif"
+                  srcset="/images/portfolio/optimized/web-doctor-device-mockup-512.avif 512w, /images/portfolio/optimized/web-doctor-device-mockup-1024.avif 1024w"
+                  sizes="(min-width: 1024px) 58vw, 100vw"
+                />
+                <source
+                  type="image/webp"
+                  srcset="/images/portfolio/optimized/web-doctor-device-mockup-512.webp 512w, /images/portfolio/optimized/web-doctor-device-mockup-1024.webp 1024w"
+                  sizes="(min-width: 1024px) 58vw, 100vw"
+                />
+                <img src="/images/portfolio/optimized/web-doctor-device-mockup-1024.png" alt="Vista previa principal de la web médica del portafolio" width="1024" height="1024" class="h-auto max-h-[280px] sm:max-h-none w-full object-cover object-center" loading="lazy" decoding="async" />
+              </picture>
               <div class="absolute left-3 top-3 flex flex-wrap gap-2 sm:left-4 sm:top-4">
                 <span class="rounded-full bg-blue-600/90 px-3 py-1 text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.16em] text-white backdrop-blur">Caso real</span>
                 <span class="rounded-full bg-slate-950/65 px-3 py-1 text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.16em] text-white backdrop-blur">Sector salud</span>
@@ -54,13 +66,37 @@ const caseStudy = {
             <div class="rounded-[24px] border border-slate-200/70 dark:border-slate-800 bg-slate-950 p-3 shadow-[0_18px_50px_rgba(15,23,42,0.12)]">
               <div class="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-slate-400 px-1">Presentación</div>
               <div class="overflow-hidden rounded-[18px] border border-white/10 bg-slate-900">
-                <img src="/images/portfolio/web-doctor-device-mockup.jpg" alt="Mockup principal de la web médica" class="h-auto w-full object-cover object-center" loading="lazy" />
+                <picture>
+                  <source
+                    type="image/avif"
+                    srcset="/images/portfolio/optimized/web-doctor-device-mockup-384.avif 384w, /images/portfolio/optimized/web-doctor-device-mockup-512.avif 512w"
+                    sizes="50vw"
+                  />
+                  <source
+                    type="image/webp"
+                    srcset="/images/portfolio/optimized/web-doctor-device-mockup-384.webp 384w, /images/portfolio/optimized/web-doctor-device-mockup-512.webp 512w"
+                    sizes="50vw"
+                  />
+                  <img src="/images/portfolio/optimized/web-doctor-device-mockup-512.png" alt="Mockup principal de la web médica" width="512" height="512" class="h-auto w-full object-cover object-center" loading="lazy" decoding="async" />
+                </picture>
               </div>
             </div>
             <div class="rounded-[24px] border border-slate-200/70 dark:border-slate-800 bg-slate-950 p-3 shadow-[0_18px_50px_rgba(15,23,42,0.12)]">
               <div class="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-slate-400 px-1">Servicios</div>
               <div class="overflow-hidden rounded-[18px] border border-white/10 bg-slate-900">
-                <img src="/images/portfolio/web-doctor-services.gif" alt="Mockup de la sección de servicios de la web médica" class="h-auto w-full object-cover object-top" loading="lazy" />
+                <picture>
+                  <source
+                    type="image/avif"
+                    srcset="/images/portfolio/optimized/web-doctor-services-384.avif 384w, /images/portfolio/optimized/web-doctor-services-512.avif 512w"
+                    sizes="50vw"
+                  />
+                  <source
+                    type="image/webp"
+                    srcset="/images/portfolio/optimized/web-doctor-services-384.webp 384w, /images/portfolio/optimized/web-doctor-services-512.webp 512w"
+                    sizes="50vw"
+                  />
+                  <img src="/images/portfolio/optimized/web-doctor-services-512.png" alt="Mockup de la sección de servicios de la web médica" width="512" height="512" class="h-auto w-full object-cover object-top" loading="lazy" decoding="async" />
+                </picture>
               </div>
             </div>
           </div>

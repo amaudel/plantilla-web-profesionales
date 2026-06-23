@@ -3,7 +3,29 @@ import { BriefcaseBusiness, MessageCircle, Phone } from 'lucide-astro';
 ---
 
 <section id="inicio" class="hero-section relative min-h-[90vh] md:min-h-screen overflow-hidden bg-[#071126] text-white">
-  <div class="hero-bg absolute inset-0" aria-hidden="true"></div>
+  <picture class="hero-bg absolute inset-0" aria-hidden="true">
+    <source
+      type="image/avif"
+      srcset="/images/hero/optimized/nicho-digital-hero-premium-512.avif 512w, /images/hero/optimized/nicho-digital-hero-premium-1024.avif 1024w"
+      sizes="100vw"
+    />
+    <source
+      type="image/webp"
+      srcset="/images/hero/optimized/nicho-digital-hero-premium-512.webp 512w, /images/hero/optimized/nicho-digital-hero-premium-1024.webp 1024w"
+      sizes="100vw"
+    />
+    <img
+      src="/images/hero/optimized/nicho-digital-hero-premium-1024.png"
+      srcset="/images/hero/optimized/nicho-digital-hero-premium-512.png 512w, /images/hero/optimized/nicho-digital-hero-premium-1024.png 1024w"
+      sizes="100vw"
+      width="1024"
+      height="1024"
+      alt=""
+      loading="eager"
+      decoding="async"
+      fetchpriority="high"
+    />
+  </picture>
   <div class="hero-overlay absolute inset-0" aria-hidden="true"></div>
   <div class="hero-glow absolute inset-0" aria-hidden="true"></div>
 
@@ -55,13 +77,18 @@ import { BriefcaseBusiness, MessageCircle, Phone } from 'lucide-astro';
 </section>
 
 <style>
-  .hero-bg {
-    background-image: url('/images/hero/optimized/nicho-digital-hero-premium-1024.webp');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: left center;
+  .hero-bg,
+  .hero-bg img {
+    display: block;
+  }
+
+  .hero-bg img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: left center;
     transform: scale(1.02);
-    will-change: transform, background-position;
+    will-change: transform;
   }
 
   .hero-overlay {
@@ -76,16 +103,16 @@ import { BriefcaseBusiness, MessageCircle, Phone } from 'lucide-astro';
   }
 
   @media (max-width: 1023px) {
-    .hero-bg {
+    .hero-bg img {
       transform: scale(1.04);
-      background-position: 22% center;
+      object-position: 22% center;
     }
   }
 
   @media (max-width: 767px) {
-    .hero-bg {
+    .hero-bg img {
       transform: scale(1.01);
-      background-position: 28% center;
+      object-position: 28% center;
     }
 
     .hero-overlay {
@@ -103,8 +130,9 @@ import { BriefcaseBusiness, MessageCircle, Phone } from 'lucide-astro';
 <script>
   const setupHeroParallax = () => {
     const hero = document.querySelector('.hero-section');
-    const bg = hero?.querySelector('.hero-bg');
+    const bg = hero?.querySelector('.hero-bg img');
     if (!hero || !bg) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
     const updateParallax = () => {
       const rect = hero.getBoundingClientRect();

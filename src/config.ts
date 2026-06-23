@@ -107,8 +107,8 @@ function getSocialUrl(key: string): string {
 export const config: Config = {
   app: {
     name: getEnvVar('APP_NAME', 'Nicho Digital'),
-    domain: getEnvVar('APP_DOMAIN', 'tmp-landstro.vercel.app'),
-    url: getEnvVar('APP_URL', 'https://tmp-landstro.vercel.app'),
+    domain: getEnvVar('APP_DOMAIN', 'nicho-digital.vercel.app'),
+    url: getEnvVar('APP_URL', 'https://nicho-digital.vercel.app'),
     adminEmail: getEnvVar('ADMIN_EMAIL', 'contacto@nichodigital.com'),
   },
   analytics: {
@@ -158,4 +158,4 @@ export const config: Config = {
     logFile: getEnvVar('LOG_FILE', '/var/log/caddy/access.log'),
     logFormat: getEnvVar('LOG_FORMAT', 'json') as 'json' | 'console',
   },
-} as const; 
+} as const;

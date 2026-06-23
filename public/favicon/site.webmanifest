@@ -1,6 +1,6 @@
 {
-  "name": "Your Company",
-  "short_name": "Your",
+  "name": "Nicho Digital",
+  "short_name": "Nicho",
   "icons": [
     {
       "src": "/favicon/android-chrome-192x192.png",
@@ -13,7 +13,7 @@
       "type": "image/png"
     }
   ],
-  "theme_color": "#4f46e5",
+  "theme_color": "#2563eb",
   "background_color": "#ffffff",
   "display": "standalone"
 }

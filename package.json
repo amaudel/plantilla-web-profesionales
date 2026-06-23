@@ -1,13 +1,13 @@
 {
-    "name": "landstro",
+    "name": "nicho-digital",
     "type": "module",
     "version": "0.0.1",
-    "description": "Modern landing page starter built with Astro, TailwindCSS, and TypeScript",
-    "author": "benav.io <contact@benav.io> (https://benav.io)",
-    "homepage": "https://github.com/igorbenav/landstro",
+    "description": "Webs premium para profesionales y negocios de servicios",
+    "author": "Nicho Digital",
+    "homepage": "https://github.com/amaudel/plantilla-web-profesionales",
     "repository": {
         "type": "git",
-        "url": "https://github.com/igorbenav/landstro"
+        "url": "https://github.com/amaudel/plantilla-web-profesionales"
     },
     "scripts": {
         "dev": "astro dev",

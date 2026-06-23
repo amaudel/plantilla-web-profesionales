@@ -1,11 +1,11 @@
 {
-    "name": "your-company",
-    "short_name": "your-company",
-    "description": "AI-powered business intelligence",
+    "name": "Nicho Digital",
+    "short_name": "Nicho",
+    "description": "Webs premium para profesionales y negocios de servicios",
     "start_url": "/",
     "display": "standalone",
     "background_color": "#ffffff",
-    "theme_color": "#ffffff",
+    "theme_color": "#2563eb",
     "icons": [
         {
         "src": "/favicon/android-chrome-192x192.png",

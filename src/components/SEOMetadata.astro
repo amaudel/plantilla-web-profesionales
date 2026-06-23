@@ -12,7 +12,7 @@ interface Props {
 const {
   title,
   description,
-  image = '/favicon/android-chrome-512x512.png', // Updated default image
+  image = '/images/hero/optimized/nicho-digital-hero-premium-1024.png',
   canonical = Astro.url.href,
   type = 'website',
   publishedTime,
@@ -29,8 +29,7 @@ const metaDescription = description.length > 160
 
 // Get site URL from Astro.site
 const siteUrl = Astro.site?.toString().replace(/\/$/, '') || '';
-const siteTitle = import.meta.env.APP_NAME || 'Your Company';
-const siteName = import.meta.env.APP_NAME || 'Your Company';
+const siteName = import.meta.env.APP_NAME || 'Nicho Digital';
 
 // Construct full URL for the image
 const imageUrl = image.startsWith('http') 
@@ -42,8 +41,7 @@ const imageUrl = image.startsWith('http')
 <meta name="description" content={metaDescription} />
 <link rel="canonical" href={canonical} />
 
-<!-- Meta keywords tag - IMPORTANT: Replace these with keywords relevant to your business -->
-<meta name="keywords" content="Landing Page, Business Website, Online Services, Product Information, Customer Solutions, Services, Platform" />
+<meta name="keywords" content="webs premium, diseño web profesional, páginas web para médicos, páginas web para abogados, páginas web para psicólogos, webs para negocios de servicios, Nicho Digital" />
 
 <!-- Google Search favicon meta tag -->
 <meta name="google" content="notranslate" />
@@ -67,4 +65,4 @@ const imageUrl = image.startsWith('http')
 
 <!-- Additional SEO tags -->
 <meta name="robots" content="index, follow, max-image-preview:large" />
-<link rel="sitemap" type="application/xml" href="/sitemap-index.xml" /> 
+<link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
