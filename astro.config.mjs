@@ -6,7 +6,7 @@ import vercel from '@astrojs/vercel';
 import sitemap from '@astrojs/sitemap';
 
 // Get site URL from environment variable or default to localhost for development
-const SITE_URL = process.env.SITE_URL || 'http://localhost:4321';
+const SITE_URL = process.env.SITE_URL || 'https://nicho-digital.vercel.app';
 
 // https://astro.build/config
 export default defineConfig({
