@@ -31,44 +31,50 @@ import Layout from '../layouts/Layout.astro';
   <SocialProof />
   <FAQ />
 
-  <section id="contacto" class="py-24 px-6 bg-gray-50 dark:bg-gray-900">
-    <div class="max-w-4xl mx-auto text-center mb-10">
-      <span class="inline-block px-4 py-1.5 rounded-full bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 text-sm font-medium mb-4">
-        Contacto
-      </span>
-      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-        Cuéntame qué vendes y te digo qué web tiene más sentido
-      </h2>
-      <p class="text-lg text-gray-600 dark:text-gray-300">
-        Revisamos tu sector, tu oferta y el tipo de cliente que quieres atraer. Sin formularios largos: empezamos por WhatsApp.
-      </p>
-    </div>
+  <section id="contacto" class="relative overflow-hidden bg-slate-950 px-6 py-24 text-white">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(34,211,238,0.16),_transparent_28%),radial-gradient(circle_at_bottom_right,_rgba(37,99,235,0.24),_transparent_32%)]"></div>
+    <div class="relative mx-auto grid max-w-6xl gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-stretch">
+      <div class="rounded-[34px] border border-white/10 bg-white/6 p-8 shadow-[0_30px_80px_rgba(2,6,23,0.34)] backdrop-blur-xl md:p-10">
+        <span class="inline-block rounded-full border border-cyan-300/20 bg-cyan-300/10 px-4 py-1.5 text-sm font-semibold text-cyan-100">
+          Contacto
+        </span>
+        <h2 class="mt-5 text-3xl font-bold leading-tight tracking-tight md:text-5xl">
+          Cuéntame qué vendes y te digo qué web tiene más sentido
+        </h2>
+        <p class="mt-5 max-w-2xl text-lg leading-relaxed text-slate-200">
+          Revisamos tu sector, tu oferta y el tipo de cliente que quieres atraer. Sin formularios largos: empezamos por WhatsApp.
+        </p>
 
-    <div class="max-w-5xl mx-auto grid md:grid-cols-3 gap-4 mb-8">
-      <div class="bg-white dark:bg-gray-800 rounded-xl border border-blue-100 dark:border-blue-900/30 p-5 text-center">
-        <div class="text-sm text-gray-500 dark:text-gray-400 mb-1">WhatsApp</div>
-        <a href="https://wa.me/593984710898?text=Hola%2C%20quiero%20una%20web%20premium%20para%20mi%20nicho" class="text-blue-600 dark:text-blue-400 font-semibold">098 471 0898</a>
+        <div class="mt-8 grid gap-3 sm:grid-cols-3">
+          <div class="rounded-2xl border border-white/10 bg-white/8 p-4">
+            <div class="text-sm text-slate-300">WhatsApp</div>
+            <a href="https://wa.me/593984710898?text=Hola%2C%20quiero%20una%20web%20premium%20para%20mi%20nicho" class="mt-1 block font-semibold text-cyan-200">098 471 0898</a>
+          </div>
+          <div class="rounded-2xl border border-white/10 bg-white/8 p-4">
+            <div class="text-sm text-slate-300">Ideal para</div>
+            <div class="mt-1 font-semibold text-white">Servicios profesionales</div>
+          </div>
+          <div class="rounded-2xl border border-white/10 bg-white/8 p-4">
+            <div class="text-sm text-slate-300">Objetivo</div>
+            <div class="mt-1 font-semibold text-white">Consultas más calificadas</div>
+          </div>
+        </div>
       </div>
-      <div class="bg-white dark:bg-gray-800 rounded-xl border border-blue-100 dark:border-blue-900/30 p-5 text-center">
-        <div class="text-sm text-gray-500 dark:text-gray-400 mb-1">Ideal para</div>
-        <div class="font-semibold text-gray-900 dark:text-white">Profesionales y negocios de servicios</div>
-      </div>
-      <div class="bg-white dark:bg-gray-800 rounded-xl border border-blue-100 dark:border-blue-900/30 p-5 text-center">
-        <div class="text-sm text-gray-500 dark:text-gray-400 mb-1">Objetivo</div>
-        <div class="font-semibold text-gray-900 dark:text-white">Más autoridad percibida y más consultas calificadas</div>
-      </div>
-    </div>
 
-    <div class="max-w-3xl mx-auto">
-      <div class="rounded-3xl border border-green-100 dark:border-green-900/30 bg-white dark:bg-gray-800 p-8 md:p-10 shadow-sm text-center">
-        <div class="text-sm uppercase tracking-[0.18em] text-green-600 dark:text-green-400 mb-3">Canal directo</div>
-        <h3 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-4">
+      <div class="rounded-[34px] border border-cyan-300/15 bg-[linear-gradient(160deg,rgba(37,99,235,0.94),rgba(8,47,73,0.96))] p-8 shadow-[0_30px_80px_rgba(37,99,235,0.26)] md:p-10">
+        <div class="text-sm font-semibold uppercase tracking-[0.18em] text-cyan-100">Canal directo</div>
+        <h3 class="mt-4 text-2xl font-bold tracking-tight md:text-3xl">
           Escríbeme por WhatsApp y aterrizamos tu idea
         </h3>
-        <p class="text-gray-600 dark:text-gray-300 mb-6 max-w-2xl mx-auto">
+        <p class="mt-4 text-sky-100">
           Te digo qué paquete encaja mejor, qué debería comunicar tu web y qué información necesito para empezar.
         </p>
-        <a href="https://wa.me/593984710898?text=Hola%2C%20quiero%20una%20web%20premium%20para%20mi%20nicho" class="inline-flex items-center rounded-xl bg-green-600 px-7 py-3 text-white font-semibold hover:bg-green-700 transition shadow-sm">
+        <div class="mt-7 space-y-3">
+          <div class="rounded-2xl border border-white/10 bg-white/10 px-4 py-3">1. Me cuentas tu servicio y sector.</div>
+          <div class="rounded-2xl border border-white/10 bg-white/10 px-4 py-3">2. Revisamos qué debe comunicar la web.</div>
+          <div class="rounded-2xl border border-white/10 bg-white/10 px-4 py-3">3. Te propongo el paquete más lógico.</div>
+        </div>
+        <a href="https://wa.me/593984710898?text=Hola%2C%20quiero%20una%20web%20premium%20para%20mi%20nicho" class="mt-8 inline-flex w-full items-center justify-center rounded-2xl bg-white px-7 py-3.5 font-semibold text-blue-700 shadow-lg shadow-cyan-500/10 transition hover:bg-blue-50">
           Hablar por WhatsApp
         </a>
       </div>
