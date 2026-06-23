@@ -1,4 +1,6 @@
 ---
+import { config } from '../config';
+
 interface Props {
   title: string;
   description: string;
@@ -13,7 +15,7 @@ const {
   title,
   description,
   image = '/images/hero/optimized/nicho-digital-hero-premium-1024.png',
-  canonical = Astro.url.href,
+  canonical,
   type = 'website',
   publishedTime,
   tags
@@ -23,7 +25,7 @@ const metaTitle = title;
 const metaDescription = description;
 
 // Get site URL from Astro.site
-const siteUrl = Astro.site?.toString().replace(/\/$/, '') || '';
+const siteUrl = (config.app.url || Astro.site?.toString() || '').replace(/\/$/, '');
 const siteName = import.meta.env.APP_NAME || 'Nicho Digital';
 const canonicalUrl = canonical || `${siteUrl}${Astro.url.pathname}`;
 
