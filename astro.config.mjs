@@ -1,8 +1,6 @@
 import { defineConfig } from 'astro/config';
-import tailwind from '@astrojs/tailwind';
 import react from '@astrojs/react';
 import mdx from '@astrojs/mdx';
-import vercel from '@astrojs/vercel';
 import sitemap from '@astrojs/sitemap';
 
 // Production canonical used by sitemap and SEO metadata.
@@ -10,20 +8,7 @@ const SITE_URL = process.env.SITE_URL || 'https://nicho-digital.vercel.app';
 
 // https://astro.build/config
 export default defineConfig({
-  output: 'server',
-  adapter: vercel(),
   site: SITE_URL,
-  server: {
-    headers: {
-      // These global headers supplement the ones in Layout.astro
-      'Strict-Transport-Security': 'max-age=63072000; includeSubDomains; preload',
-      'X-Content-Type-Options': 'nosniff',
-      'X-XSS-Protection': '1; mode=block',
-      'X-Frame-Options': 'SAMEORIGIN',
-      'Referrer-Policy': 'strict-origin-when-cross-origin',
-      'Permissions-Policy': 'accelerometer=(), camera=(), geolocation=(), microphone=()',
-    }
-  },
   // Image optimization
   image: {
     service: {
@@ -39,7 +24,6 @@ export default defineConfig({
     },
   },
   integrations: [
-    tailwind(),
     react(),
     mdx(),
     sitemap({

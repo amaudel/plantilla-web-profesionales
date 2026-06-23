@@ -1,5 +1,5 @@
 ---
-import { ViewTransitions } from 'astro:transitions';
+import { ClientRouter } from 'astro:transitions';
 import SEOMetadata from '../components/SEOMetadata.astro';
 import { config } from '../config';
 
@@ -24,15 +24,6 @@ const {
 } = Astro.props;
 
 const gaTrackingId = import.meta.env.GA_TRACKING_ID || process.env.GA_TRACKING_ID;
-Astro.response.headers.set('X-Content-Type-Options', 'nosniff');
-Astro.response.headers.set('X-XSS-Protection', '1; mode=block');
-Astro.response.headers.set('X-Frame-Options', 'SAMEORIGIN');
-Astro.response.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin');
-Astro.response.headers.set('Permissions-Policy', 'accelerometer=(), camera=(), geolocation=(), microphone=()');
-Astro.response.headers.set(
-  'Content-Security-Policy',
-  "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://www.google-analytics.com https://www.googletagmanager.com; font-src 'self'; connect-src 'self' https://www.google-analytics.com https://*.cloudflareinsights.com; object-src 'none';"
-);
 
 const siteUrl = Astro.site?.toString().replace(/\/$/, '') || '';
 const defaultImage = `${siteUrl}/images/hero/optimized/nicho-digital-hero-premium-1024.png`;
@@ -84,7 +75,7 @@ const pageStructuredData = {
     <script type="application/ld+json" set:html={JSON.stringify(organizationStructuredData)} />
     <script type="application/ld+json" set:html={JSON.stringify(pageStructuredData)} />
     <meta name="theme-color" content="#2563eb" />
-    <ViewTransitions />
+    <ClientRouter />
     <style is:global>
       html { @apply transition-all duration-150; }
       body { @apply bg-white text-gray-900 transition-all duration-300 dark:bg-gray-900 dark:text-white; }
