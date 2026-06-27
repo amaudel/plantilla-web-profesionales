@@ -29,7 +29,7 @@ export default defineConfig({
     sitemap({
       filter: (page) => {
         const url = new URL(page);
-        return url.pathname === '/';
+        return ['/', '/medicos-cuenca/'].includes(url.pathname);
       },
       changefreq: 'weekly',
       lastmod: new Date(),

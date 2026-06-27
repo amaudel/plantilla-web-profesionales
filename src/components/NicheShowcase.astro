@@ -5,7 +5,7 @@ const niches = [
     angle: 'Una presencia seria para explicar servicios, trayectoria y próximos pasos sin saturar al paciente.',
     bullets: ['Autoridad visible', 'Servicios entendibles', 'Contacto directo'],
     cta: 'Ver demo médica',
-    href: '#contacto',
+    href: '/medicos-cuenca',
   },
   {
     name: 'Abogados y firmas legales',
@@ -69,7 +69,7 @@ const niches = [
           </div>
 
           <a href={niche.href} class="inline-flex items-center rounded-2xl bg-blue-600 px-5 py-3 text-white font-semibold hover:bg-blue-700 transition shadow-lg shadow-blue-500/20">
-            Quiero una web así
+            {niche.cta}
           </a>
         </div>
       ))}

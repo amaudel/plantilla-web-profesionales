@@ -1,0 +1,438 @@
+---
+import {
+  ArrowRight,
+  CheckCircle2,
+  Globe2,
+  MapPin,
+  MessageCircle,
+  Search,
+  ShieldCheck,
+  Stethoscope,
+} from 'lucide-astro';
+import Footer from '../components/Footer.astro';
+import ScrollAnimations from '../components/ScrollAnimations.astro';
+import Layout from '../layouts/Layout.astro';
+
+const whatsappText = encodeURIComponent(
+  'Hola, quiero un diagnóstico digital gratuito para mi presencia médica en Cuenca'
+);
+const whatsappUrl = `https://wa.me/593984710898?text=${whatsappText}`;
+
+const painPoints = [
+  {
+    title: 'Aparece en Google, pero no convierte suficiente',
+    text: 'Muchos pacientes ven la ficha, reseñas o teléfono, pero no encuentran una página personal que explique servicios, trayectoria y cómo agendar.',
+  },
+  {
+    title: 'Su marca depende de clínicas y directorios',
+    text: 'Cuando el paciente busca su nombre y termina en un listado genérico, la confianza se reparte con terceros y usted pierde control del mensaje.',
+  },
+  {
+    title: 'Las consultas llegan con demasiadas dudas',
+    text: 'Una web médica bien estructurada educa antes del WhatsApp: qué trata, dónde atiende, por qué confiar y cuál es el siguiente paso.',
+  },
+];
+
+const services = [
+  'Landing médica personal con dominio propio',
+  'SEO local por especialidad y procedimientos',
+  'Optimización de Google Business Profile',
+  'Botones a WhatsApp y llamada con CTA claros',
+  'Schema médico y estructura lista para buscadores',
+  'Páginas para servicios como hernia, vesícula, rinoplastia o controles',
+];
+
+const specialties = [
+  'Cirugía plástica',
+  'Dermatología',
+  'Otorrinolaringología',
+  'Cirugía general',
+  'Traumatología',
+  'Urología',
+  'Ginecología',
+  'Pediatría privada',
+  'Maxilofacial',
+  'Medicina estética',
+];
+
+const packages = [
+  {
+    name: 'Diagnóstico',
+    price: 'Gratis',
+    description: 'Revisión rápida de presencia pública, ficha de Google y oportunidad de web personal.',
+    items: ['Análisis de visibilidad local', 'Problema digital principal', 'Siguiente paso recomendado'],
+  },
+  {
+    name: 'Presencia Médica',
+    price: 'Desde USD 399',
+    description: 'Landing personal para explicar especialidad, servicios, ubicación y contacto directo.',
+    items: ['Web médica responsive', 'Copy médico comercial', 'SEO técnico base', 'CTA a WhatsApp'],
+    highlighted: true,
+  },
+  {
+    name: 'Captación Local',
+    price: 'Desde USD 599',
+    description: 'Web + páginas por procedimiento + optimización local para captar búsquedas con intención.',
+    items: ['Páginas por servicio', 'Schema y SEO local', 'Google Business Profile', 'Revisión de competencia'],
+  },
+];
+
+const faqs = [
+  {
+    question: '¿Es solo una página web?',
+    answer:
+      'No. La propuesta combina web médica personal, copy de confianza, SEO local, contacto directo y estructura para convertir búsquedas en conversaciones.',
+  },
+  {
+    question: '¿Sirve si ya tengo Google Maps?',
+    answer:
+      'Sí. Google Maps da visibilidad, pero una web personal ayuda a explicar servicios, trayectoria, ubicación y motivos para agendar.',
+  },
+  {
+    question: '¿Puedo usar una web demo antes de decidir?',
+    answer:
+      'Sí. Revisamos su especialidad y le mostramos que estructura tendría una landing médica enfocada en pacientes privados.',
+  },
+];
+
+const faqStructuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((faq) => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.answer,
+    },
+  })),
+};
+
+const serviceStructuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Web médica personal y SEO local para médicos en Cuenca',
+  provider: {
+    '@type': 'Organization',
+    name: 'Nicho Digital',
+    url: 'https://nicho-digital.vercel.app',
+  },
+  areaServed: {
+    '@type': 'City',
+    name: 'Cuenca',
+    addressCountry: 'EC',
+  },
+  serviceType: 'diseño web médico, SEO local y optimización de Google Business Profile',
+  description:
+    'Landing médica personal, SEO local, copy de confianza y optimización de contacto para especialistas médicos en Cuenca.',
+};
+---
+
+<Layout
+  title="Web médica personal + SEO local para médicos en Cuenca | Nicho Digital"
+  description="Creamos páginas web médicas personales para especialistas en Cuenca: landing profesional, SEO local, Google Business Profile y CTA directo a WhatsApp."
+  image="/images/portfolio/optimized/web-doctor-device-mockup-1024.png"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(serviceStructuredData)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqStructuredData)} />
+
+  <header class="fixed inset-x-0 top-0 z-50 px-4 py-4">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between rounded-2xl border border-white/12 bg-slate-950/70 px-4 py-3 text-white shadow-[0_20px_55px_rgba(2,6,23,0.18)] backdrop-blur-xl md:px-6">
+      <a href="/" class="flex items-center gap-3">
+        <img src="/images/icon/logo.png" alt="Nicho Digital" class="h-10 w-10 rounded-xl" width="40" height="40" />
+        <div>
+          <div class="font-bold leading-none tracking-tight">Nicho Digital</div>
+          <div class="mt-1 text-[11px] uppercase tracking-[0.18em] text-cyan-100/80">Médicos en Cuenca</div>
+        </div>
+      </a>
+      <div class="hidden items-center gap-6 text-sm font-medium text-slate-200 md:flex">
+        <a href="#problema" class="transition hover:text-cyan-200">Problema</a>
+        <a href="#demo" class="transition hover:text-cyan-200">Demo</a>
+        <a href="#paquetes" class="transition hover:text-cyan-200">Paquetes</a>
+        <a href="#faq" class="transition hover:text-cyan-200">FAQ</a>
+      </div>
+      <a href={whatsappUrl} class="inline-flex items-center gap-2 rounded-2xl bg-cyan-300 px-4 py-2.5 text-sm font-semibold text-slate-950 shadow-lg shadow-cyan-500/20 transition hover:bg-cyan-200">
+        <MessageCircle class="h-4 w-4" />
+        Diagnóstico
+      </a>
+    </nav>
+  </header>
+
+  <main class="bg-white text-slate-950 dark:bg-slate-950 dark:text-white">
+    <section id="inicio" class="relative isolate overflow-hidden bg-slate-950 px-6 pb-20 pt-36 text-white md:pb-28 md:pt-40">
+      <div class="absolute inset-0 -z-10">
+        <img
+          src="/images/hero/optimized/nicho-digital-hero-premium-1024.webp"
+          alt=""
+          class="h-full w-full object-cover object-left opacity-34"
+          width="1024"
+          height="1024"
+          loading="eager"
+          decoding="async"
+        />
+        <div class="absolute inset-0 bg-[linear-gradient(90deg,rgba(2,6,23,0.92),rgba(2,6,23,0.74)_44%,rgba(8,47,73,0.70))]"></div>
+      </div>
+
+      <div class="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1.02fr_0.98fr] lg:items-center">
+        <div data-reveal>
+          <span class="inline-flex items-center gap-2 rounded-full border border-cyan-300/20 bg-cyan-300/10 px-4 py-2 text-sm font-semibold text-cyan-100">
+            <Stethoscope class="h-4 w-4" />
+            Web médica + SEO local
+          </span>
+          <h1 class="mt-6 max-w-4xl text-4xl font-bold leading-tight tracking-tight md:text-6xl">
+            Web médica personal para que especialistas en Cuenca conviertan búsquedas en consultas
+          </h1>
+          <p class="mt-6 max-w-2xl text-lg leading-relaxed text-slate-200 md:text-xl">
+            Creamos una presencia profesional para médicos que ya tienen reputación, pero necesitan explicar mejor sus servicios, controlar su marca personal y llevar pacientes hacia WhatsApp.
+          </p>
+
+          <div class="mt-8 flex flex-col gap-4 sm:flex-row">
+            <a href={whatsappUrl} class="inline-flex items-center justify-center gap-2 rounded-2xl bg-cyan-300 px-6 py-3.5 font-semibold text-slate-950 shadow-lg shadow-cyan-500/20 transition hover:bg-cyan-200">
+              Solicitar diagnóstico gratuito
+              <ArrowRight class="h-5 w-5" />
+            </a>
+            <a href="#demo" class="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/16 bg-white/8 px-6 py-3.5 font-semibold text-white backdrop-blur transition hover:bg-white/12">
+              Ver ejemplo médico
+            </a>
+          </div>
+
+          <div class="mt-10 grid max-w-2xl gap-3 sm:grid-cols-3">
+            <div class="rounded-2xl border border-white/10 bg-white/8 p-4 backdrop-blur">
+              <div class="text-2xl font-bold text-white">SEO</div>
+              <div class="mt-1 text-sm text-slate-300">por especialidad y ciudad</div>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/8 p-4 backdrop-blur">
+              <div class="text-2xl font-bold text-white">GBP</div>
+              <div class="mt-1 text-sm text-slate-300">Google Business Profile</div>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/8 p-4 backdrop-blur">
+              <div class="text-2xl font-bold text-white">CTA</div>
+              <div class="mt-1 text-sm text-slate-300">WhatsApp y llamada</div>
+            </div>
+          </div>
+        </div>
+
+        <div data-reveal data-reveal-delay="0.12" class="relative">
+          <div class="absolute -inset-6 rounded-[38px] bg-cyan-300/12 blur-3xl"></div>
+          <div class="relative overflow-hidden rounded-[34px] border border-white/12 bg-white/10 p-4 shadow-[0_32px_90px_rgba(2,6,23,0.38)] backdrop-blur-xl">
+            <div class="rounded-[26px] border border-white/10 bg-slate-950 p-3">
+              <div class="mb-3 hidden items-center gap-2 px-2 sm:flex">
+                <span class="h-3 w-3 rounded-full bg-red-400"></span>
+                <span class="h-3 w-3 rounded-full bg-amber-400"></span>
+                <span class="h-3 w-3 rounded-full bg-emerald-400"></span>
+                <span class="ml-3 text-xs text-slate-400">demo médica optimizada</span>
+              </div>
+              <picture>
+                <source
+                  type="image/avif"
+                  srcset="/images/portfolio/optimized/web-doctor-device-mockup-512.avif 512w, /images/portfolio/optimized/web-doctor-device-mockup-1024.avif 1024w"
+                  sizes="(min-width: 1024px) 45vw, 100vw"
+                />
+                <source
+                  type="image/webp"
+                  srcset="/images/portfolio/optimized/web-doctor-device-mockup-512.webp 512w, /images/portfolio/optimized/web-doctor-device-mockup-1024.webp 1024w"
+                  sizes="(min-width: 1024px) 45vw, 100vw"
+                />
+                <img
+                  src="/images/portfolio/optimized/web-doctor-device-mockup-1024.png"
+                  alt="Mockup de una landing médica personal optimizada para pacientes"
+                  width="1024"
+                  height="1024"
+                  class="rounded-[20px] border border-white/10 object-cover"
+                  loading="eager"
+                  decoding="async"
+                />
+              </picture>
+            </div>
+            <div class="grid gap-3 pt-4 sm:grid-cols-3">
+              <div class="rounded-2xl bg-white/10 p-4">
+                <Search class="mb-3 h-5 w-5 text-cyan-200" />
+                <div class="font-semibold">Busqueda local</div>
+              </div>
+              <div class="rounded-2xl bg-white/10 p-4">
+                <ShieldCheck class="mb-3 h-5 w-5 text-cyan-200" />
+                <div class="font-semibold">Confianza médica</div>
+              </div>
+              <div class="rounded-2xl bg-white/10 p-4">
+                <MessageCircle class="mb-3 h-5 w-5 text-cyan-200" />
+                <div class="font-semibold">Agenda directa</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="problema" class="px-6 py-24">
+      <div class="mx-auto max-w-7xl">
+        <div data-reveal class="max-w-3xl">
+          <span class="inline-flex rounded-full bg-blue-50 px-4 py-2 text-sm font-semibold text-blue-700 dark:bg-cyan-300/10 dark:text-cyan-200">El problema comercial</span>
+          <h2 class="mt-5 text-3xl font-bold tracking-tight md:text-5xl">
+            No se trata de tener una página bonita. Se trata de controlar como lo encuentra y evalua el paciente.
+          </h2>
+        </div>
+
+        <div class="mt-12 grid gap-6 lg:grid-cols-3">
+          {painPoints.map((point, index) => (
+            <article data-reveal data-reveal-delay={String(index * 0.06)} class="rounded-[28px] border border-slate-200 bg-slate-50 p-7 shadow-[0_18px_45px_rgba(15,23,42,0.05)] dark:border-slate-800 dark:bg-slate-900/70">
+              <div class="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-950 text-lg font-bold text-white dark:bg-cyan-300 dark:text-slate-950">
+                {index + 1}
+              </div>
+              <h3 class="text-xl font-bold tracking-tight">{point.title}</h3>
+              <p class="mt-4 leading-relaxed text-slate-600 dark:text-slate-300">{point.text}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id="demo" class="bg-slate-50 px-6 py-24 dark:bg-slate-900/70">
+      <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
+        <div data-reveal>
+          <span class="inline-flex rounded-full bg-white px-4 py-2 text-sm font-semibold text-blue-700 shadow-sm dark:bg-slate-950 dark:text-cyan-200">Caso demo</span>
+          <h2 class="mt-5 text-3xl font-bold tracking-tight md:text-5xl">
+            Un ejemplo de landing médica pensada para confianza, servicios y contacto rapido.
+          </h2>
+          <p class="mt-5 text-lg leading-relaxed text-slate-600 dark:text-slate-300">
+            La demo del Dr. Vintimilla muestra como presentar trayectoria, procedimientos, ubicación, preguntas frecuentes y botones directos para agendar. Ese mismo sistema se adapta por especialidad.
+          </p>
+          <div class="mt-8 flex flex-col gap-4 sm:flex-row">
+            <a href="https://web-doctor-orpin.vercel.app/#inicio" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 rounded-2xl bg-blue-600 px-6 py-3.5 font-semibold text-white shadow-lg shadow-blue-500/20 transition hover:bg-blue-700">
+              Ver demo del doctor
+              <Globe2 class="h-5 w-5" />
+            </a>
+            <a href={whatsappUrl} class="inline-flex items-center justify-center gap-2 rounded-2xl border border-slate-200 px-6 py-3.5 font-semibold text-slate-900 transition hover:border-blue-200 hover:bg-white dark:border-slate-700 dark:text-white dark:hover:bg-slate-950">
+              Pedir una version para mi especialidad
+            </a>
+          </div>
+        </div>
+
+        <div data-reveal data-reveal-delay="0.1" class="grid gap-4 sm:grid-cols-2">
+          {services.map((item) => (
+            <div class="rounded-[24px] border border-slate-200 bg-white p-5 shadow-[0_18px_45px_rgba(15,23,42,0.05)] dark:border-slate-800 dark:bg-slate-950">
+              <CheckCircle2 class="mb-4 h-6 w-6 text-blue-600 dark:text-cyan-300" />
+              <div class="font-semibold leading-snug">{item}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id="especialidades" class="px-6 py-24">
+      <div class="mx-auto max-w-7xl">
+        <div data-reveal class="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
+          <div>
+            <span class="inline-flex rounded-full bg-blue-50 px-4 py-2 text-sm font-semibold text-blue-700 dark:bg-cyan-300/10 dark:text-cyan-200">Especialidades con mejor encaje</span>
+            <h2 class="mt-5 text-3xl font-bold tracking-tight md:text-5xl">
+              Pensado para médicos que compiten por confianza, reputación y pacientes privados.
+            </h2>
+          </div>
+          <p class="text-lg leading-relaxed text-slate-600 dark:text-slate-300">
+            El mensaje cambia por especialidad: estética necesita confianza visual, cirugia necesita autoridad y urgencia, urologia o ginecologia necesitan privacidad y cercania.
+          </p>
+        </div>
+
+        <div class="mt-12 flex flex-wrap gap-3">
+          {specialties.map((specialty) => (
+            <span class="rounded-full border border-slate-200 bg-slate-50 px-5 py-3 font-medium text-slate-700 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200">
+              {specialty}
+            </span>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id="paquetes" class="bg-[linear-gradient(180deg,#f8fafc,#ffffff)] px-6 py-24 dark:bg-[linear-gradient(180deg,#0f172a,#020617)]">
+      <div class="mx-auto max-w-7xl">
+        <div data-reveal class="mx-auto max-w-3xl text-center">
+          <span class="inline-flex rounded-full bg-white px-4 py-2 text-sm font-semibold text-blue-700 shadow-sm dark:bg-slate-900 dark:text-cyan-200">Oferta médica</span>
+          <h2 class="mt-5 text-3xl font-bold tracking-tight md:text-5xl">
+            Paquetes simples para empezar con diagnóstico y crecer hacia captacion local.
+          </h2>
+        </div>
+
+        <div class="mt-12 grid gap-6 lg:grid-cols-3">
+          {packages.map((pack) => (
+            <article class:list={[
+              'rounded-[30px] border p-7 shadow-[0_20px_55px_rgba(15,23,42,0.07)]',
+              pack.highlighted
+                ? 'border-blue-300 bg-blue-600 text-white shadow-blue-500/20'
+                : 'border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900',
+            ]}>
+              <h3 class="text-2xl font-bold tracking-tight">{pack.name}</h3>
+              <div class:list={['mt-4 text-3xl font-bold', pack.highlighted ? 'text-cyan-100' : 'text-blue-700 dark:text-cyan-300']}>{pack.price}</div>
+              <p class:list={['mt-4 leading-relaxed', pack.highlighted ? 'text-blue-50' : 'text-slate-600 dark:text-slate-300']}>{pack.description}</p>
+              <div class="mt-7 space-y-3">
+                {pack.items.map((item) => (
+                  <div class:list={['flex gap-3', pack.highlighted ? 'text-white' : 'text-slate-700 dark:text-slate-200']}>
+                    <CheckCircle2 class:list={['mt-0.5 h-5 w-5 flex-none', pack.highlighted ? 'text-cyan-100' : 'text-blue-600 dark:text-cyan-300']} />
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
+              <a href={whatsappUrl} class:list={[
+                'mt-8 inline-flex w-full items-center justify-center gap-2 rounded-2xl px-5 py-3.5 font-semibold transition',
+                pack.highlighted
+                  ? 'bg-white text-blue-700 hover:bg-blue-50'
+                  : 'bg-slate-950 text-white hover:bg-slate-800 dark:bg-cyan-300 dark:text-slate-950 dark:hover:bg-cyan-200',
+              ]}>
+                Solicitar informacion
+                <ArrowRight class="h-5 w-5" />
+              </a>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="px-6 py-24">
+      <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.85fr_1.15fr]">
+        <div data-reveal>
+          <span class="inline-flex rounded-full bg-blue-50 px-4 py-2 text-sm font-semibold text-blue-700 dark:bg-cyan-300/10 dark:text-cyan-200">FAQ</span>
+          <h2 class="mt-5 text-3xl font-bold tracking-tight md:text-5xl">
+            Objeciones que normalmente tiene un médico antes de invertir en su presencia digital.
+          </h2>
+        </div>
+        <div class="space-y-4">
+          {faqs.map((faq) => (
+            <article data-reveal class="rounded-[24px] border border-slate-200 bg-slate-50 p-6 dark:border-slate-800 dark:bg-slate-900">
+              <h3 class="text-xl font-bold tracking-tight">{faq.question}</h3>
+              <p class="mt-3 leading-relaxed text-slate-600 dark:text-slate-300">{faq.answer}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto" class="relative overflow-hidden bg-slate-950 px-6 py-24 text-white">
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(34,211,238,0.16),_transparent_28%),radial-gradient(circle_at_bottom_right,_rgba(37,99,235,0.26),_transparent_34%)]"></div>
+      <div class="relative mx-auto grid max-w-6xl gap-8 lg:grid-cols-[1fr_0.9fr] lg:items-center">
+        <div data-reveal>
+          <span class="inline-flex rounded-full border border-cyan-300/20 bg-cyan-300/10 px-4 py-2 text-sm font-semibold text-cyan-100">Diagnóstico gratuito</span>
+          <h2 class="mt-5 text-3xl font-bold leading-tight tracking-tight md:text-5xl">
+            Revisemos como aparece su especialidad en Google y que página podría convertir mejor.
+          </h2>
+          <p class="mt-5 max-w-2xl text-lg leading-relaxed text-slate-200">
+            Envieme su nombre, especialidad y ciudad. Le devuelvo una lectura breve de presencia digital y la estructura recomendada para su web médica.
+          </p>
+        </div>
+        <div data-reveal data-reveal-delay="0.1" class="rounded-[30px] border border-white/10 bg-white/8 p-8 shadow-[0_30px_80px_rgba(2,6,23,0.32)] backdrop-blur-xl">
+          <div class="flex items-center gap-3">
+            <MapPin class="h-6 w-6 text-cyan-200" />
+            <div>
+              <div class="font-bold">Cuenca, Ecuador</div>
+              <div class="text-sm text-slate-300">campaña enfocada en especialistas privados</div>
+            </div>
+          </div>
+          <a href={whatsappUrl} class="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-cyan-300 px-6 py-4 font-semibold text-slate-950 shadow-lg shadow-cyan-500/20 transition hover:bg-cyan-200">
+            Escribir por WhatsApp
+            <MessageCircle class="h-5 w-5" />
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+  <ScrollAnimations />
+</Layout>
