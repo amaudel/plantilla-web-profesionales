@@ -25,6 +25,7 @@
         "@astrojs/mdx": "^7.0.0",
         "@astrojs/react": "^6.0.0",
         "@astrojs/sitemap": "^3.7.3",
+        "@iconify-json/tabler": "^1.2.35",
         "@tailwindcss/typography": "^0.5.10",
         "@types/react": "^18.2.55",
         "@types/react-dom": "^18.2.19",

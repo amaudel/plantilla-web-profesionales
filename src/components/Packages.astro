@@ -1,6 +1,9 @@
 ---
+import { Icon } from 'astro-icon/components';
+
 const packages = [
   {
+    icon: 'tabler:rocket',
     name: 'Landing Profesional',
     price: 'USD 199',
     note: 'Para validar una oferta concreta y tener una presencia seria sin construir un sitio completo.',
@@ -14,6 +17,7 @@ const packages = [
     href: 'https://wa.me/593984710898?text=Hola%2C%20quiero%20una%20Landing%20Profesional',
   },
   {
+    icon: 'tabler:briefcase-2',
     name: 'Web Profesional',
     price: 'USD 399',
     note: 'Para negocios que necesitan explicar mejor su valor, mostrar más respaldo y recibir consultas más preparadas.',
@@ -28,6 +32,7 @@ const packages = [
     href: 'https://wa.me/593984710898?text=Hola%2C%20quiero%20una%20Web%20Profesional',
   },
   {
+    icon: 'tabler:diamond',
     name: 'Web Premium',
     price: 'USD 599+',
     note: 'Para servicios de mayor valor que necesitan una narrativa más fuerte, visuales más cuidados y más diferenciación.',
@@ -66,8 +71,13 @@ const packages = [
             : "bg-white/78 dark:bg-slate-900/72 border-slate-200/80 dark:border-slate-800"
         ]}>
           <div class="mb-6">
-            <div class:list={["text-sm uppercase tracking-[0.18em] mb-3 font-semibold", item.featured ? "text-cyan-100" : "text-blue-600 dark:text-cyan-300"]}>
-              {item.featured ? 'Más recomendado' : 'Paquete'}
+            <div class="mb-5 flex items-center justify-between gap-4">
+              <div class:list={["flex h-12 w-12 items-center justify-center rounded-2xl border", item.featured ? "border-white/15 bg-white/10 text-white" : "border-blue-100 bg-blue-50 text-blue-700 dark:border-cyan-400/20 dark:bg-cyan-300/10 dark:text-cyan-300"]}>
+                <Icon name={item.icon} class="h-6 w-6" aria-hidden="true" />
+              </div>
+              <div class:list={["text-right text-sm uppercase tracking-[0.18em] font-semibold", item.featured ? "text-cyan-100" : "text-blue-600 dark:text-cyan-300"]}>
+                {item.featured ? 'Más recomendado' : 'Paquete'}
+              </div>
             </div>
             <h3 class:list={["text-2xl font-bold tracking-tight mb-2", item.featured ? "text-white" : "text-gray-900 dark:text-white"]}>{item.name}</h3>
             <div class:list={["text-4xl font-bold mb-3", item.featured ? "text-white" : "text-gray-900 dark:text-white"]}>{item.price}</div>
@@ -76,8 +86,9 @@ const packages = [
 
           <div class="space-y-3 mb-8 flex-1">
             {item.features.map((feature) => (
-              <div class:list={["rounded-2xl px-4 py-3 text-sm leading-relaxed border", item.featured ? "bg-white/8 text-white border-white/12 backdrop-blur-sm" : "bg-slate-50/90 dark:bg-slate-950/60 text-gray-700 dark:text-gray-300 border-slate-200/70 dark:border-slate-800"]}>
-                {feature}
+              <div class:list={["flex items-start gap-3 rounded-2xl px-4 py-3 text-sm leading-relaxed border", item.featured ? "bg-white/8 text-white border-white/12 backdrop-blur-sm" : "bg-slate-50/90 dark:bg-slate-950/60 text-gray-700 dark:text-gray-300 border-slate-200/70 dark:border-slate-800"]}>
+                <Icon name="tabler:circle-check" class:list={["mt-0.5 h-4 w-4 shrink-0", item.featured ? "text-cyan-100" : "text-blue-600 dark:text-cyan-300"]} aria-hidden="true" />
+                <span>{feature}</span>
               </div>
             ))}
           </div>

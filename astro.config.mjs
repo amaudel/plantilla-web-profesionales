@@ -2,6 +2,7 @@ import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
+import icon from 'astro-icon';
 
 // Production canonical used by sitemap and SEO metadata.
 const SITE_URL = process.env.SITE_URL || 'https://nicho-digital.vercel.app';
@@ -26,6 +27,7 @@ export default defineConfig({
   integrations: [
     react(),
     mdx(),
+    icon(),
     sitemap({
       filter: (page) => {
         const url = new URL(page);
