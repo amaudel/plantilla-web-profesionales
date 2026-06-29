@@ -33,27 +33,51 @@ const benefits = [
 ];
 ---
 
-<section id="inicio" class="relative overflow-x-hidden bg-[#030816] px-6 pt-24 text-white md:pt-32">
-  <div class="absolute inset-0" aria-hidden="true">
-    <div class="absolute inset-0 bg-[radial-gradient(circle_at_78%_28%,rgba(14,165,233,0.28),transparent_30%),radial-gradient(circle_at_16%_18%,rgba(34,211,238,0.16),transparent_24%),linear-gradient(180deg,#030816_0%,#071126_58%,#030816_100%)]"></div>
-    <div class="absolute right-[-12%] top-20 h-72 w-72 rounded-full border border-cyan-400/15"></div>
-    <div class="absolute bottom-16 right-0 h-px w-[58vw] rotate-[-18deg] bg-gradient-to-r from-transparent via-cyan-300/40 to-transparent"></div>
-    <div class="absolute bottom-36 right-[-8vw] h-px w-[72vw] rotate-[-10deg] bg-gradient-to-r from-transparent via-blue-500/40 to-transparent"></div>
+<section id="inicio" class="relative isolate overflow-x-hidden bg-[#030816] px-6 pt-24 text-white md:pt-32">
+  <picture class="absolute inset-0 -z-20 block" aria-hidden="true">
+    <source
+      type="image/avif"
+      srcset="/images/hero/optimized/nicho-digital-hero-device-system-512.avif 512w, /images/hero/optimized/nicho-digital-hero-device-system-1024.avif 1024w"
+      sizes="100vw"
+    />
+    <source
+      type="image/webp"
+      srcset="/images/hero/optimized/nicho-digital-hero-device-system-512.webp 512w, /images/hero/optimized/nicho-digital-hero-device-system-1024.webp 1024w"
+      sizes="100vw"
+    />
+    <img
+      src="/images/hero/nicho-digital-hero-device-system.jpg"
+      alt=""
+      width="1280"
+      height="819"
+      class="h-full w-full object-cover object-[60%_center] opacity-90 md:object-[67%_center]"
+      loading="eager"
+      decoding="async"
+      fetchpriority="high"
+    />
+  </picture>
+
+  <div class="absolute inset-0 -z-10" aria-hidden="true">
+    <div class="absolute inset-0 bg-[linear-gradient(90deg,rgba(3,8,22,0.96)_0%,rgba(3,8,22,0.86)_34%,rgba(3,8,22,0.50)_62%,rgba(3,8,22,0.22)_100%)]"></div>
+    <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(3,8,22,0.82)_0%,rgba(3,8,22,0.25)_42%,#030816_100%)]"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_18%_24%,rgba(34,211,238,0.20),transparent_28%),radial-gradient(circle_at_74%_35%,rgba(14,165,233,0.18),transparent_30%)]"></div>
+    <div class="absolute bottom-16 right-0 h-px w-[58vw] rotate-[-18deg] bg-gradient-to-r from-transparent via-cyan-300/36 to-transparent"></div>
+    <div class="absolute bottom-36 right-[-8vw] h-px w-[72vw] rotate-[-10deg] bg-gradient-to-r from-transparent via-blue-500/32 to-transparent"></div>
   </div>
 
   <div class="relative z-10 mx-auto max-w-7xl">
-    <div class="grid items-center gap-2 pb-8 lg:min-h-[calc(100vh-7rem)] lg:grid-cols-[0.94fr_1.06fr] lg:gap-16 lg:pb-10">
+    <div class="flex min-h-[calc(100vh-10rem)] items-center pb-10 pt-8 md:min-h-[calc(100vh-8rem)] lg:pb-16">
       <div class="max-w-2xl">
         <span data-reveal class="mb-5 inline-flex items-center gap-2 rounded-full border border-cyan-300/20 bg-cyan-300/10 px-4 py-2 text-sm font-semibold text-cyan-100 shadow-[0_0_30px_rgba(34,211,238,0.12)] backdrop-blur md:mb-6">
           <MonitorSmartphone class="h-4 w-4" />
           Agencia digital especializada
         </span>
 
-        <h1 data-reveal data-reveal-delay="0.06" class="max-w-2xl text-4xl font-bold leading-[1.06] tracking-tight text-white md:text-6xl">
+        <h1 data-reveal data-reveal-delay="0.06" class="max-w-2xl text-4xl font-bold leading-[1.06] tracking-tight text-white [text-shadow:0_2px_24px_rgba(2,6,23,0.74)] md:text-6xl">
           Diseñamos sitios web que <span class="text-cyan-300">generan confianza</span> y atraen clientes
         </h1>
 
-        <p data-reveal data-reveal-delay="0.12" class="mt-5 max-w-xl text-base leading-relaxed text-slate-300 md:mt-7 md:text-lg">
+        <p data-reveal data-reveal-delay="0.12" class="mt-5 max-w-xl text-base leading-relaxed text-slate-200 [text-shadow:0_2px_18px_rgba(2,6,23,0.78)] md:mt-7 md:text-lg">
           Creamos páginas web estratégicas, rápidas y visualmente impactantes para profesionales y negocios que quieren destacar en su nicho.
         </p>
 
@@ -69,33 +93,6 @@ const benefits = [
         </div>
       </div>
 
-      <div data-reveal data-reveal-delay="0.16" class="relative -mx-6 -mt-2 w-[calc(100%+3rem)] overflow-hidden sm:mx-auto sm:mt-1 sm:w-full sm:max-w-2xl lg:mt-0 lg:max-w-none">
-        <div class="absolute inset-x-8 bottom-10 h-20 rounded-full bg-cyan-400/18 blur-3xl"></div>
-        <div class="absolute right-8 top-12 h-56 w-56 rounded-full bg-blue-500/14 blur-3xl"></div>
-
-        <picture class="relative block">
-          <source
-            type="image/avif"
-            srcset="/images/hero/optimized/nicho-digital-hero-device-system-512.avif 512w, /images/hero/optimized/nicho-digital-hero-device-system-1024.avif 1024w"
-            sizes="(min-width: 1024px) 54vw, 100vw"
-          />
-          <source
-            type="image/webp"
-            srcset="/images/hero/optimized/nicho-digital-hero-device-system-512.webp 512w, /images/hero/optimized/nicho-digital-hero-device-system-1024.webp 1024w"
-            sizes="(min-width: 1024px) 54vw, 100vw"
-          />
-          <img
-            src="/images/hero/nicho-digital-hero-device-system.jpg"
-            alt="Mockup premium de sitio web responsive con paneles digitales y WhatsApp"
-            width="1280"
-            height="819"
-            class="hero-device-image w-[220%] max-w-none -translate-x-[38%] object-contain drop-shadow-[0_38px_90px_rgba(14,165,233,0.22)] sm:ml-auto sm:w-full sm:max-w-[760px] sm:translate-x-0"
-            loading="eager"
-            decoding="async"
-            fetchpriority="high"
-          />
-        </picture>
-      </div>
     </div>
 
     <div data-reveal data-reveal-delay="0.24" class="relative z-20 grid overflow-hidden rounded-2xl border border-cyan-300/14 bg-slate-950/78 shadow-[0_26px_80px_rgba(2,6,23,0.42)] backdrop-blur-xl sm:grid-cols-2 lg:-mb-10 lg:grid-cols-4">
