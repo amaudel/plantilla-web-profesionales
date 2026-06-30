@@ -28,7 +28,7 @@ const {
 const gaTrackingId = import.meta.env.GA_TRACKING_ID || process.env.GA_TRACKING_ID;
 
 const siteUrl = Astro.site?.toString().replace(/\/$/, '') || '';
-const defaultImage = `${siteUrl}/images/hero/optimized/nicho-digital-hero-device-system-1024.png`;
+const defaultImage = `${siteUrl}/images/hero/optimized/nicho-digital-hero-device-system-1280.png`;
 const structuredImage = image
   ? image.startsWith('http') ? image : `${siteUrl}${image}`
   : defaultImage;
@@ -65,8 +65,8 @@ const pageStructuredData = {
     <link
       rel="preload"
       as="image"
-      href="/images/hero/optimized/nicho-digital-hero-device-system-1024.avif"
-      imagesrcset="/images/hero/optimized/nicho-digital-hero-device-system-512.avif 512w, /images/hero/optimized/nicho-digital-hero-device-system-1024.avif 1024w"
+      href="/images/hero/optimized/nicho-digital-hero-device-system-1280.avif"
+      imagesrcset="/images/hero/optimized/nicho-digital-hero-device-system-512.avif 512w, /images/hero/optimized/nicho-digital-hero-device-system-1024.avif 1024w, /images/hero/optimized/nicho-digital-hero-device-system-1280.avif 1280w"
       imagesizes="100vw"
       type="image/avif"
       fetchpriority="high"
