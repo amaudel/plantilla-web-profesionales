@@ -1,89 +1,82 @@
 ---
 ---
 
+<style is:global>
+  @media (prefers-reduced-motion: no-preference) {
+    [data-reveal-pending] {
+      opacity: 0;
+      transform: translate3d(0, var(--reveal-distance, 22px), 0);
+    }
+
+    [data-reveal-ready] {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+      transition:
+        opacity 520ms ease,
+        transform 620ms cubic-bezier(0.22, 1, 0.36, 1);
+      transition-delay: var(--reveal-delay, 0ms);
+      will-change: opacity, transform;
+    }
+
+    [data-reveal-done] {
+      will-change: auto;
+    }
+  }
+</style>
+
 <script>
-  let cleanupAnimations;
-  let gsapInstance;
-  let scrollTriggerPlugin;
-  let loadingGsap;
+  let revealObserver;
 
-  const loadGsap = async () => {
-    if (gsapInstance && scrollTriggerPlugin) return;
+  const revealElement = (element) => {
+    element.removeAttribute('data-reveal-pending');
+    element.setAttribute('data-reveal-ready', '');
+    revealObserver?.unobserve(element);
 
-    loadingGsap ||= Promise.all([
-      import('gsap'),
-      import('gsap/ScrollTrigger'),
-    ]).then(([gsapModule, scrollTriggerModule]) => {
-      gsapInstance = gsapModule.gsap;
-      scrollTriggerPlugin = scrollTriggerModule.ScrollTrigger;
-      gsapInstance.registerPlugin(scrollTriggerPlugin);
-    });
-
-    await loadingGsap;
+    window.setTimeout(() => {
+      element.setAttribute('data-reveal-done', '');
+    }, 900);
   };
 
-  const setupScrollAnimations = async () => {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    await loadGsap();
+  const setupScrollAnimations = () => {
+    const revealItems = Array.from(document.querySelectorAll('[data-reveal]'));
 
-    cleanupAnimations?.();
-    scrollTriggerPlugin.getAll()
-      .filter((trigger) => String(trigger.vars.id || '').startsWith('nd-'))
-      .forEach((trigger) => trigger.kill());
-
-    const context = gsapInstance.context(() => {
-      const revealItems = gsapInstance.utils.toArray('[data-reveal]');
-
-      revealItems.forEach((item, index) => {
-        const element = item as HTMLElement;
-        const distance = Number(element.getAttribute('data-reveal-distance') || 24);
-        const delay = Number(element.getAttribute('data-reveal-delay') || 0);
-
-        gsapInstance.fromTo(
-          element,
-          { autoAlpha: 0, y: distance },
-          {
-            autoAlpha: 1,
-            y: 0,
-            duration: 0.75,
-            delay,
-            ease: 'power3.out',
-            clearProps: 'transform,visibility,opacity',
-            scrollTrigger: {
-              id: `nd-reveal-${index}`,
-              trigger: element,
-              start: 'top 88%',
-              once: true,
-            },
-          }
-        );
-      });
-
-      gsapInstance.utils.toArray('[data-float-soft]').forEach((item, index) => {
-        gsapInstance.to(item, {
-          y: index % 2 === 0 ? -8 : 8,
-          duration: 3.8 + index * 0.2,
-          ease: 'sine.inOut',
-          repeat: -1,
-          yoyo: true,
-        });
-      });
-    }, document.body);
-
-    cleanupAnimations = () => context.revert();
-    scrollTriggerPlugin.refresh();
-  };
-
-  const scheduleAnimations = () => {
-    if ('requestIdleCallback' in window) {
-      window.requestIdleCallback(() => setupScrollAnimations(), { timeout: 1600 });
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) {
+      revealItems.forEach(revealElement);
       return;
     }
 
-    window.setTimeout(() => setupScrollAnimations(), 300);
+    revealObserver?.disconnect();
+    revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) revealElement(entry.target);
+        });
+      },
+      {
+        rootMargin: '0px 0px -8% 0px',
+        threshold: 0.08,
+      }
+    );
+
+    revealItems.forEach((element) => {
+      const rect = element.getBoundingClientRect();
+      const distance = Number(element.getAttribute('data-reveal-distance') || 22);
+      const delay = Number(element.getAttribute('data-reveal-delay') || 0);
+
+      element.style.setProperty('--reveal-distance', `${distance}px`);
+      element.style.setProperty('--reveal-delay', `${Math.round(delay * 1000)}ms`);
+
+      if (rect.top < window.innerHeight * 0.92) {
+        revealElement(element);
+        return;
+      }
+
+      element.setAttribute('data-reveal-pending', '');
+      revealObserver.observe(element);
+    });
   };
 
-  scheduleAnimations();
-  document.addEventListener('astro:page-load', scheduleAnimations);
-  document.addEventListener('astro:before-swap', () => cleanupAnimations?.());
+  setupScrollAnimations();
+  document.addEventListener('astro:page-load', setupScrollAnimations);
+  document.addEventListener('astro:before-swap', () => revealObserver?.disconnect());
 </script>
