@@ -64,9 +64,9 @@ const pageStructuredData = {
     <link
       rel="preload"
       as="image"
-      href="/images/hero/optimized/nicho-digital-hero-ai-premium-1024.avif"
-      imagesrcset="/images/hero/optimized/nicho-digital-hero-ai-premium-512.avif 512w, /images/hero/optimized/nicho-digital-hero-ai-premium-1024.avif 1024w, /images/hero/optimized/nicho-digital-hero-ai-premium-1280.avif 1280w"
-      imagesizes="(min-width: 1024px) 1024px, 100vw"
+      href="/images/hero/optimized/nicho-digital-hero-ai-premium-1280.avif"
+      imagesrcset="/images/hero/optimized/nicho-digital-hero-ai-premium-512.avif 512w, /images/hero/optimized/nicho-digital-hero-ai-premium-1024.avif 1024w, /images/hero/optimized/nicho-digital-hero-ai-premium-1280.avif 1280w, /images/hero/optimized/nicho-digital-hero-ai-premium-1920.avif 1920w"
+      imagesizes="(min-width: 1440px) 1440px, 100vw"
       type="image/avif"
       fetchpriority="high"
     >
@@ -91,6 +91,9 @@ const pageStructuredData = {
       })();
       if (theme === 'dark') document.documentElement.classList.add('dark');
       window.localStorage.setItem('theme', theme);
+      document.addEventListener('astro:after-swap', () => {
+        if (localStorage.getItem('theme') === 'dark') document.documentElement.classList.add('dark');
+      });
     </script>
   </head>
   <body>
