@@ -1,5 +1,4 @@
 ---
-import { ClientRouter } from 'astro:transitions';
 import SEOMetadata from '../components/SEOMetadata.astro';
 import FloatingWhatsApp from '../components/FloatingWhatsApp.astro';
 import { config } from '../config';
@@ -65,9 +64,9 @@ const pageStructuredData = {
     <link
       rel="preload"
       as="image"
-      href="/images/hero/optimized/nicho-digital-hero-ai-premium-1920.avif"
-      imagesrcset="/images/hero/optimized/nicho-digital-hero-ai-premium-512.avif 512w, /images/hero/optimized/nicho-digital-hero-ai-premium-1024.avif 1024w, /images/hero/optimized/nicho-digital-hero-ai-premium-1280.avif 1280w, /images/hero/optimized/nicho-digital-hero-ai-premium-1920.avif 1920w, /images/hero/optimized/nicho-digital-hero-ai-premium-2560.avif 2560w"
-      imagesizes="100vw"
+      href="/images/hero/optimized/nicho-digital-hero-ai-premium-1280.avif"
+      imagesrcset="/images/hero/optimized/nicho-digital-hero-ai-premium-512.avif 512w, /images/hero/optimized/nicho-digital-hero-ai-premium-1024.avif 1024w, /images/hero/optimized/nicho-digital-hero-ai-premium-1280.avif 1280w, /images/hero/optimized/nicho-digital-hero-ai-premium-1920.avif 1920w"
+      imagesizes="(min-width: 1440px) 1440px, 100vw"
       type="image/avif"
       fetchpriority="high"
     >
@@ -77,10 +76,9 @@ const pageStructuredData = {
     <script type="application/ld+json" set:html={JSON.stringify(organizationStructuredData)} />
     <script type="application/ld+json" set:html={JSON.stringify(pageStructuredData)} />
     <meta name="theme-color" content="#2563eb" />
-    <ClientRouter />
     <style is:global>
-      html { @apply transition-all duration-150; }
-      body { @apply bg-white text-gray-900 transition-all duration-300 dark:bg-gray-900 dark:text-white; }
+      html { background: #030816; }
+      body { @apply bg-white text-gray-900 dark:bg-gray-900 dark:text-white; }
     </style>
     <script>
       const theme = (() => {
