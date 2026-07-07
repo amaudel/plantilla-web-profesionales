@@ -48,18 +48,21 @@ const packages = [
     price: 'Gratis',
     description: 'Revisión rápida de presencia pública, ficha de Google y oportunidad de web personal.',
     items: ['Análisis de visibilidad local', 'Problema digital principal', 'Siguiente paso recomendado'],
+    icon: Stethoscope,
   },
   {
     name: 'Landing Profesional',
     price: 'USD 199',
     description: 'Página profesional de entrada para presentar servicios, confianza básica y contacto directo.',
     items: ['Landing responsive', 'Copy comercial base', 'CTA a WhatsApp', 'Estructura clara de servicios'],
+    icon: Globe2,
   },
   {
     name: 'Presencia Médica',
     price: 'Desde USD 399',
     description: 'Landing médica completa para explicar especialidad, trayectoria, ubicación y contacto directo.',
     items: ['Web médica responsive', 'Copy médico comercial', 'SEO técnico base', 'CTA a WhatsApp', 'Google Business Profile inicial'],
+    icon: ShieldCheck,
     highlighted: true,
   },
   {
@@ -67,12 +70,32 @@ const packages = [
     price: 'Desde USD 599',
     description: 'Web + páginas por procedimiento + optimización local para captar búsquedas con intención.',
     items: ['5 a 8 páginas por servicio', 'Schema y SEO local', 'Google Business Profile', 'Revisión de competencia'],
+    icon: Search,
   },
   {
     name: 'SEO Local Mensual',
     price: 'Desde USD 150/mes',
     description: 'Soporte y mejora continua para mantener la presencia médica activa y medible.',
     items: ['Cambios menores', 'Publicaciones GBP', 'Monitoreo SEO básico', 'Reporte simple mensual'],
+    icon: MapPin,
+  },
+];
+
+const packageBenefits = [
+  {
+    title: 'Especializado en médicos',
+    text: 'Estructura pensada para especialidad, confianza y agenda.',
+    icon: Stethoscope,
+  },
+  {
+    title: 'Transparencia y resultados',
+    text: 'Paquetes claros, entregables definidos y foco comercial.',
+    icon: ShieldCheck,
+  },
+  {
+    title: 'Acompañamiento cercano',
+    text: 'Soporte directo para ajustar, medir y mejorar.',
+    icon: MessageCircle,
   },
 ];
 
@@ -541,45 +564,107 @@ const serviceStructuredData = {
       </div>
     </section>
 
-    <section id="paquetes" class="bg-[linear-gradient(180deg,#f8fafc,#ffffff)] px-6 py-24 dark:bg-[linear-gradient(180deg,#0f172a,#020617)]">
-      <div class="mx-auto max-w-7xl">
-        <div data-reveal class="mx-auto max-w-3xl text-center">
-          <span class="inline-flex rounded-full bg-white px-4 py-2 text-sm font-semibold text-blue-700 shadow-sm dark:bg-slate-900 dark:text-cyan-200">Oferta médica</span>
+    <section id="paquetes" class="relative overflow-hidden bg-[linear-gradient(180deg,#f8fbff_0%,#eef7ff_48%,#ffffff_100%)] px-6 py-24 dark:bg-[linear-gradient(180deg,#0f172a_0%,#08111f_52%,#020617_100%)]">
+      <div class="absolute inset-x-0 top-0 h-40 bg-[radial-gradient(circle_at_50%_0%,rgba(34,211,238,0.18),transparent_58%)] dark:bg-[radial-gradient(circle_at_50%_0%,rgba(37,99,235,0.28),transparent_60%)]"></div>
+      <div class="relative mx-auto max-w-7xl">
+        <div data-reveal class="mx-auto max-w-4xl text-center">
+          <span class="inline-flex rounded-full border border-blue-100 bg-white/90 px-4 py-2 text-sm font-semibold text-blue-700 shadow-sm shadow-blue-900/5 dark:border-cyan-300/15 dark:bg-slate-900/80 dark:text-cyan-200">Oferta médica</span>
           <h2 class="mt-5 text-3xl font-bold tracking-tight md:text-5xl">
-            Paquetes simples para empezar con diagnóstico y crecer hacia captación local.
+            Paquetes simples para empezar con <span class="text-blue-700 dark:text-cyan-300">diagnóstico</span> y crecer hacia <span class="text-blue-700 dark:text-cyan-300">captación local</span>.
           </h2>
+          <p class="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-slate-600 dark:text-slate-300 md:text-lg">
+            Elija el nivel de presencia digital que necesita su consulta: claridad, confianza y pacientes mejor informados antes de escribir por WhatsApp.
+          </p>
         </div>
 
-        <div class="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
-          {packages.map((pack) => (
-            <article class:list={[
-              'rounded-[30px] border p-7 shadow-[0_20px_55px_rgba(15,23,42,0.07)]',
-              pack.highlighted
-                ? 'border-blue-300 bg-blue-600 text-white shadow-blue-500/20'
-                : 'border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900',
-            ]}>
-              <h3 class="text-2xl font-bold tracking-tight">{pack.name}</h3>
-              <div class:list={['mt-4 text-3xl font-bold', pack.highlighted ? 'text-cyan-100' : 'text-blue-700 dark:text-cyan-300']}>{pack.price}</div>
-              <p class:list={['mt-4 leading-relaxed', pack.highlighted ? 'text-blue-50' : 'text-slate-600 dark:text-slate-300']}>{pack.description}</p>
-              <div class="mt-7 space-y-3">
-                {pack.items.map((item) => (
-                  <div class:list={['flex gap-3', pack.highlighted ? 'text-white' : 'text-slate-700 dark:text-slate-200']}>
-                    <CheckCircle2 class:list={['mt-0.5 h-5 w-5 flex-none', pack.highlighted ? 'text-cyan-100' : 'text-blue-600 dark:text-cyan-300']} />
-                    <span>{item}</span>
-                  </div>
-                ))}
-              </div>
-              <a href={whatsappUrl} class:list={[
-                'mt-8 inline-flex w-full items-center justify-center gap-2 rounded-2xl px-5 py-3.5 font-semibold transition',
+        <div class="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+          {packages.map((pack) => {
+            const Icon = pack.icon;
+
+            return (
+              <article data-reveal class:list={[
+                'relative flex min-h-full flex-col overflow-hidden rounded-[28px] border p-6 transition duration-300 hover:-translate-y-1 md:p-7',
                 pack.highlighted
-                  ? 'bg-white text-blue-700 hover:bg-blue-50'
-                  : 'bg-slate-950 text-white hover:bg-slate-800 dark:bg-cyan-300 dark:text-slate-950 dark:hover:bg-cyan-200',
+                  ? 'border-blue-400/40 bg-[linear-gradient(155deg,#0ea5e9_0%,#2563eb_48%,#1d4ed8_100%)] text-white shadow-[0_28px_70px_rgba(37,99,235,0.34)]'
+                  : 'border-slate-200/80 bg-white/92 text-slate-950 shadow-[0_22px_60px_rgba(15,23,42,0.08)] hover:border-blue-200 hover:shadow-[0_26px_70px_rgba(37,99,235,0.13)] dark:border-slate-800 dark:bg-slate-900/92 dark:text-white dark:hover:border-cyan-300/30',
               ]}>
-                Solicitar información
-                <ArrowRight class="h-5 w-5" />
-              </a>
-            </article>
-          ))}
+                {pack.highlighted && (
+                  <>
+                    <div class="absolute inset-x-0 top-0 h-24 bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.32),transparent_68%)]"></div>
+                    <div class="absolute right-4 top-4 rounded-full bg-white/18 px-3 py-1 text-xs font-bold uppercase tracking-[0.14em] text-white ring-1 ring-white/30">
+                      MÁS ELEGIDO
+                    </div>
+                  </>
+                )}
+
+                <div class:list={[
+                  'relative flex h-14 w-14 items-center justify-center rounded-2xl shadow-sm',
+                  pack.highlighted
+                    ? 'bg-white/18 text-white ring-1 ring-white/25'
+                    : 'bg-blue-50 text-blue-700 ring-1 ring-blue-100 dark:bg-cyan-300/10 dark:text-cyan-200 dark:ring-cyan-300/15',
+                ]}>
+                  <Icon class="h-7 w-7" />
+                </div>
+
+                <div class="relative mt-6">
+                  <h3 class="text-xl font-bold leading-tight tracking-tight md:text-2xl">{pack.name}</h3>
+                  <div class:list={[
+                    'mt-3 inline-flex rounded-full px-4 py-2 text-2xl font-bold leading-none md:text-[1.65rem]',
+                    pack.highlighted
+                      ? 'bg-white text-blue-700 shadow-sm'
+                      : 'bg-blue-50 text-blue-700 dark:bg-cyan-300/10 dark:text-cyan-200',
+                  ]}>{pack.price}</div>
+                  <p class:list={[
+                    'mt-5 min-h-[5.5rem] text-sm leading-relaxed md:text-[0.95rem]',
+                    pack.highlighted ? 'text-blue-50' : 'text-slate-600 dark:text-slate-300',
+                  ]}>{pack.description}</p>
+                </div>
+
+                <div class="relative mt-7 flex-1 space-y-3">
+                  {pack.items.map((item) => (
+                    <div class:list={[
+                      'flex gap-3 text-sm leading-relaxed',
+                      pack.highlighted ? 'text-white' : 'text-slate-700 dark:text-slate-200',
+                    ]}>
+                      <CheckCircle2 class:list={[
+                        'mt-0.5 h-5 w-5 flex-none',
+                        pack.highlighted ? 'text-cyan-100' : 'text-blue-600 dark:text-cyan-300',
+                      ]} />
+                      <span>{item}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <a href={whatsappUrl} class:list={[
+                  'relative mt-8 inline-flex w-full items-center justify-center gap-2 rounded-2xl px-5 py-3.5 text-sm font-bold transition',
+                  pack.highlighted
+                    ? 'bg-white text-blue-700 shadow-lg shadow-blue-950/10 hover:bg-blue-50'
+                    : 'bg-slate-950 text-white shadow-lg shadow-slate-950/10 hover:bg-slate-800 dark:bg-cyan-300 dark:text-slate-950 dark:hover:bg-cyan-200',
+                ]}>
+                  Solicitar información
+                  <ArrowRight class="h-5 w-5" />
+                </a>
+              </article>
+            );
+          })}
+        </div>
+
+        <div data-reveal class="mx-auto mt-10 grid max-w-5xl gap-4 rounded-[28px] border border-slate-200/80 bg-white/88 p-4 shadow-[0_24px_70px_rgba(15,23,42,0.08)] backdrop-blur md:grid-cols-3 md:p-5 dark:border-slate-800 dark:bg-slate-900/78">
+          {packageBenefits.map((benefit) => {
+            const Icon = benefit.icon;
+
+            return (
+              <div class="flex items-start gap-4 rounded-2xl p-3">
+                <span class="inline-flex h-12 w-12 flex-none items-center justify-center rounded-2xl bg-blue-50 text-blue-700 ring-1 ring-blue-100 dark:bg-cyan-300/10 dark:text-cyan-200 dark:ring-cyan-300/15">
+                  <Icon class="h-6 w-6" />
+                </span>
+                <span>
+                  <span class="block font-bold text-slate-950 dark:text-white">{benefit.title}</span>
+                  <span class="mt-1 block text-sm leading-relaxed text-slate-600 dark:text-slate-300">{benefit.text}</span>
+                </span>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
