@@ -1,6 +1,6 @@
 ---
 import { Sparkles } from 'lucide-astro';
-import DiagnosticQuiz from './funnel/DiagnosticQuiz';
+import { funnelQuestions, funnelResults, whatsappPhone } from '../data/funnelConfig';
 ---
 
 <section
@@ -30,8 +30,202 @@ import DiagnosticQuiz from './funnel/DiagnosticQuiz';
       </p>
     </div>
 
-    <div data-reveal>
-      <DiagnosticQuiz client:load />
+    <div id="diagnostico-quiz" class="scroll-mt-28" data-reveal>
+      <div
+        id="diagnostic-app"
+        class="rounded-[30px] border border-slate-200 bg-white/88 p-5 shadow-[0_24px_70px_rgba(15,23,42,0.08)] backdrop-blur-xl dark:border-slate-800 dark:bg-slate-900/80 md:p-8"
+        data-questions={JSON.stringify(funnelQuestions)}
+        data-results={JSON.stringify(funnelResults)}
+        data-phone={whatsappPhone}
+      >
+        <div class="mb-5 flex flex-col gap-3 text-sm font-semibold text-slate-500 dark:text-slate-400 sm:flex-row sm:items-center sm:justify-between">
+          <span data-funnel-step>Pregunta 1 de {funnelQuestions.length}</span>
+          <span data-funnel-count>0 respuestas</span>
+        </div>
+
+        <div class="mb-8 h-2 overflow-hidden rounded-full bg-slate-100 dark:bg-slate-800" aria-hidden="true">
+          <span data-funnel-progress class="block h-full rounded-full bg-[linear-gradient(90deg,#2563eb,#22d3ee)] transition-[width] duration-300" style="width:0%"></span>
+        </div>
+
+        <div data-funnel-screen aria-live="polite"></div>
+
+        <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+          <button
+            data-funnel-back
+            class="inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-3 font-semibold text-slate-700 transition hover:border-blue-300 hover:text-blue-700 disabled:cursor-not-allowed disabled:opacity-45 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-200 dark:hover:border-cyan-300"
+            type="button"
+            disabled
+          >
+            Volver
+          </button>
+          <button
+            data-funnel-restart
+            class="inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-3 font-semibold text-slate-700 transition hover:border-blue-300 hover:text-blue-700 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-200 dark:hover:border-cyan-300"
+            type="button"
+          >
+            Reiniciar
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </section>
+
+<script>
+  const app = document.getElementById('diagnostic-app');
+
+  if (app) {
+    const questions = JSON.parse(app.dataset.questions || '[]');
+    const results = JSON.parse(app.dataset.results || '{}');
+    const phone = app.dataset.phone || '';
+    const screen = app.querySelector('[data-funnel-screen]');
+    const step = app.querySelector('[data-funnel-step]');
+    const count = app.querySelector('[data-funnel-count]');
+    const progress = app.querySelector('[data-funnel-progress]');
+    const backButton = app.querySelector('[data-funnel-back]');
+    const restartButton = app.querySelector('[data-funnel-restart]');
+    let index = 0;
+    let answers = [];
+
+    const optionClass = 'min-h-[9rem] rounded-2xl border border-slate-200 bg-white p-5 text-left transition hover:-translate-y-0.5 hover:border-blue-300 hover:shadow-[0_18px_42px_rgba(37,99,235,0.10)] focus:outline-none focus:ring-4 focus:ring-cyan-300/25 dark:border-slate-700 dark:bg-slate-950 dark:hover:border-cyan-300';
+    const answerClass = 'rounded-2xl border border-slate-200 bg-slate-50 p-4 dark:border-slate-700 dark:bg-slate-950';
+
+    function escapeHtml(value) {
+      return String(value)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+
+    function resultKey() {
+      const score = { landing: 0, profesional: 0, premium: 0 };
+      for (const answer of answers) {
+        for (const [key, value] of Object.entries(answer.weights || {})) {
+          score[key] += value || 0;
+        }
+      }
+      return Object.entries(score).sort((a, b) => b[1] - a[1])[0][0];
+    }
+
+    function whatsappUrl(result) {
+      const answerText = answers
+        .map((answer, answerIndex) => `${answerIndex + 1}. ${answer.question}: ${answer.label}`)
+        .join('\n');
+      const message = `Hola, hice el diagnóstico gratuito de Nixgo Digital.\n\nResultado desbloqueado: ${result.title}\nPaquete recomendado: ${result.package} (${result.price})\n\nMis respuestas:\n${answerText}\n\nQuiero que me recomienden el siguiente paso.`;
+      return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+    }
+
+    function updateShell(complete) {
+      const total = questions.length;
+      step.textContent = complete ? 'Diagnóstico completo' : `Pregunta ${Math.min(index + 1, total)} de ${total}`;
+      count.textContent = `${answers.length} ${answers.length === 1 ? 'respuesta' : 'respuestas'}`;
+      progress.style.width = `${(answers.length / total) * 100}%`;
+      backButton.disabled = index === 0 || complete;
+    }
+
+    function renderQuestion() {
+      const current = questions[index];
+      updateShell(false);
+      screen.innerHTML = `
+        <div>
+          <h3 class="text-2xl font-bold tracking-tight text-slate-950 dark:text-white md:text-3xl">${escapeHtml(current.title)}</h3>
+          <p class="mt-3 max-w-2xl text-slate-600 dark:text-slate-300">${escapeHtml(current.subtitle)}</p>
+          <div class="mt-7 grid gap-3 md:grid-cols-3">
+            ${current.options.map((option, optionIndex) => `
+              <button class="${optionClass}" type="button" data-option-index="${optionIndex}">
+                <span class="block font-bold text-slate-950 dark:text-white">${escapeHtml(option.label)}</span>
+                <span class="mt-2 block text-sm leading-relaxed text-slate-600 dark:text-slate-300">${escapeHtml(option.detail)}</span>
+              </button>
+            `).join('')}
+          </div>
+        </div>
+      `;
+    }
+
+    function renderResult() {
+      const result = results[resultKey()];
+      updateShell(true);
+      screen.innerHTML = `
+        <div class="grid gap-6">
+          <div class="rounded-[26px] border border-cyan-300/20 bg-[linear-gradient(135deg,rgba(37,99,235,0.10),rgba(34,211,238,0.12))] p-5 dark:border-cyan-300/15 dark:bg-cyan-300/10 md:p-6">
+            <span class="inline-flex w-max rounded-full border border-cyan-300/25 bg-white/70 px-4 py-1.5 text-sm font-semibold text-blue-700 dark:border-cyan-300/20 dark:bg-slate-950/50 dark:text-cyan-100">Resultado desbloqueado</span>
+            <p class="mt-5 text-sm font-semibold uppercase tracking-[0.18em] text-blue-700 dark:text-cyan-300">Recomendación</p>
+            <h3 class="mt-2 text-3xl font-bold leading-tight tracking-tight text-slate-950 dark:text-white md:text-5xl">${escapeHtml(result.title)}</h3>
+            <p class="mt-4 max-w-3xl text-lg leading-relaxed text-slate-600 dark:text-slate-300">${escapeHtml(result.reason)}</p>
+            <div class="mt-5 flex flex-col gap-2 rounded-2xl border border-white/70 bg-white/78 p-4 dark:border-slate-700 dark:bg-slate-950/70 sm:flex-row sm:items-center sm:justify-between">
+              <span class="font-semibold text-slate-700 dark:text-slate-200">Paquete recomendado</span>
+              <span class="flex flex-col text-xl font-bold text-blue-700 dark:text-cyan-300 sm:flex-row sm:gap-2">
+                <span>${escapeHtml(result.package)}</span>
+                <span>${escapeHtml(result.price)}</span>
+              </span>
+            </div>
+          </div>
+          <dl class="grid gap-3 md:grid-cols-2">
+            ${answers.map((answer) => `
+              <div class="${answerClass}">
+                <dt class="text-sm font-semibold text-slate-500 dark:text-slate-400">${escapeHtml(answer.question)}</dt>
+                <dd class="mt-1 font-semibold text-slate-950 dark:text-white">${escapeHtml(answer.label)}</dd>
+              </div>
+            `).join('')}
+          </dl>
+          <div class="flex flex-col gap-3 sm:flex-row">
+            <a class="inline-flex min-h-12 items-center justify-center gap-3 rounded-2xl bg-blue-600 px-6 py-3.5 font-semibold text-white shadow-lg shadow-blue-500/20 transition hover:bg-blue-700" href="${whatsappUrl(result)}" target="_blank" rel="noopener noreferrer">Enviar diagnóstico por WhatsApp</a>
+            <button class="inline-flex min-h-12 items-center justify-center rounded-2xl border border-slate-200 bg-white px-6 py-3.5 font-semibold text-slate-700 transition hover:border-blue-300 hover:text-blue-700 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-200" type="button" data-funnel-restart-inline>Hacer otra vez</button>
+          </div>
+        </div>
+      `;
+      requestAnimationFrame(() => {
+        window.scrollTo({
+          top: app.getBoundingClientRect().top + window.scrollY - 170,
+          behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+        });
+      });
+    }
+
+    screen.addEventListener('click', (event) => {
+      const optionButton = event.target.closest('[data-option-index]');
+      if (optionButton) {
+        const current = questions[index];
+        const option = current.options[Number(optionButton.dataset.optionIndex)];
+        answers = [
+          ...answers.slice(0, index),
+          {
+            question: current.title,
+            label: option.label,
+            value: option.value,
+            weights: option.weights,
+          },
+        ];
+        if (index < questions.length - 1) {
+          index += 1;
+          renderQuestion();
+        } else {
+          renderResult();
+        }
+      }
+
+      if (event.target.closest('[data-funnel-restart-inline]')) {
+        restart();
+      }
+    });
+
+    function back() {
+      if (index === 0 || answers.length === questions.length) return;
+      answers = answers.slice(0, -1);
+      index -= 1;
+      renderQuestion();
+    }
+
+    function restart() {
+      index = 0;
+      answers = [];
+      renderQuestion();
+    }
+
+    backButton.addEventListener('click', back);
+    restartButton.addEventListener('click', restart);
+    renderQuestion();
+  }
+</script>

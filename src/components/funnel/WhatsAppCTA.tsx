@@ -8,9 +8,9 @@ type Props = {
 
 export default function WhatsAppCTA({ result, answers }: Props) {
   const answerText = answers
-    .map((answer) => `${answer.question}: ${answer.label}`)
-    .join(' | ');
-  const message = `Hola, hice el diagnóstico de Nixgo Digital. Mi resultado fue: ${result.title}. Paquete recomendado: ${result.package}. Respuestas: ${answerText}. Quiero que me recomienden el siguiente paso.`;
+    .map((answer, index) => `${index + 1}. ${answer.question}: ${answer.label}`)
+    .join('\n');
+  const message = `Hola, hice el diagnóstico gratuito de Nixgo Digital.\n\nResultado desbloqueado: ${result.title}\nPaquete recomendado: ${result.package} (${result.price})\n\nMis respuestas:\n${answerText}\n\nQuiero que me recomienden el siguiente paso.`;
   const url = `https://wa.me/${whatsappPhone}?text=${encodeURIComponent(message)}`;
 
   return (

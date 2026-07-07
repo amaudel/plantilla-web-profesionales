@@ -24,6 +24,7 @@ export type FunnelAnswer = {
 export type FunnelResult = {
   title: string;
   package: string;
+  price: string;
   reason: string;
 };
 
@@ -160,19 +161,22 @@ export const funnelQuestions: FunnelQuestion[] = [
 export const funnelResults: Record<ResultKey, FunnelResult> = {
   landing: {
     title: 'Landing Profesional',
-    package: 'Landing Profesional desde USD 199',
+    package: 'Landing Profesional',
+    price: 'USD 199',
     reason:
       'Tu prioridad es lanzar una oferta clara, reducir fricción y llevar visitantes a WhatsApp sin una estructura compleja.',
   },
   profesional: {
     title: 'Web Profesional',
-    package: 'Web Profesional desde USD 399',
+    package: 'Web Profesional',
+    price: 'USD 399',
     reason:
       'Necesitas ordenar servicios, elevar confianza y preparar mejor al cliente antes del primer mensaje.',
   },
   premium: {
     title: 'Web Premium',
-    package: 'Web Premium desde USD 599',
+    package: 'Web Premium',
+    price: 'USD 599+',
     reason:
       'Tu venta depende de autoridad, percepción y detalle. Conviene una presencia más completa para tickets altos.',
   },

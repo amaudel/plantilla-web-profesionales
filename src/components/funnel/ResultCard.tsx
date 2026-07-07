@@ -10,19 +10,28 @@ type Props = {
 export default function ResultCard({ result, answers, onRestart }: Props) {
   return (
     <div className="grid gap-6">
-      <span className="w-max rounded-full border border-cyan-300/20 bg-cyan-300/10 px-4 py-1.5 text-sm font-semibold text-blue-700 dark:text-cyan-100">
-        Resultado desbloqueado
-      </span>
-      <div>
-        <h3 className="text-3xl font-bold leading-tight tracking-tight text-slate-950 dark:text-white md:text-5xl">
+      <div className="rounded-[26px] border border-cyan-300/20 bg-[linear-gradient(135deg,rgba(37,99,235,0.10),rgba(34,211,238,0.12))] p-5 dark:border-cyan-300/15 dark:bg-cyan-300/10 md:p-6">
+        <span className="inline-flex w-max rounded-full border border-cyan-300/25 bg-white/70 px-4 py-1.5 text-sm font-semibold text-blue-700 dark:border-cyan-300/20 dark:bg-slate-950/50 dark:text-cyan-100">
+          Resultado desbloqueado
+        </span>
+        <p className="mt-5 text-sm font-semibold uppercase tracking-[0.18em] text-blue-700 dark:text-cyan-300">
+          Recomendación
+        </p>
+        <h3 className="mt-2 text-3xl font-bold leading-tight tracking-tight text-slate-950 dark:text-white md:text-5xl">
           {result.title}
         </h3>
         <p className="mt-4 max-w-3xl text-lg leading-relaxed text-slate-600 dark:text-slate-300">
           {result.reason}
         </p>
-        <p className="mt-4 text-xl font-bold text-blue-700 dark:text-cyan-300">
-          {result.package}
-        </p>
+        <div className="mt-5 flex flex-col gap-2 rounded-2xl border border-white/70 bg-white/78 p-4 dark:border-slate-700 dark:bg-slate-950/70 sm:flex-row sm:items-center sm:justify-between">
+          <span className="font-semibold text-slate-700 dark:text-slate-200">
+            Paquete recomendado
+          </span>
+          <span className="flex flex-col text-xl font-bold text-blue-700 dark:text-cyan-300 sm:flex-row sm:gap-2">
+            <span>{result.package}</span>
+            <span>{result.price}</span>
+          </span>
+        </div>
       </div>
       <dl className="grid gap-3 md:grid-cols-2">
         {answers.map((answer) => (
