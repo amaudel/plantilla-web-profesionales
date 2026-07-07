@@ -89,7 +89,7 @@ async function generateFavicons() {
     const manifestPath = path.join(FAVICON_DIR, 'site.webmanifest');
     
     // Use company name from env if available
-    const appName = process.env.APP_NAME || 'Nicho Digital';
+    const appName = process.env.APP_NAME || 'Nixgo Digital';
     const shortName = appName.split(' ')[0] || 'App';
     
     const manifestContent = {
