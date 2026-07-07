@@ -50,8 +50,8 @@ function getSocialUrl(key: string): string {
 export const config: Config = {
   app: {
     name: getEnvVar('APP_NAME', 'Nicho Digital'),
-    domain: getEnvVar('APP_DOMAIN', 'nicho-digital.vercel.app'),
-    url: getEnvVar('APP_URL', 'https://nicho-digital.vercel.app'),
+    domain: getEnvVar('APP_DOMAIN', 'nixgodigital.com'),
+    url: getEnvVar('APP_URL', 'https://nixgodigital.com'),
     adminEmail: getEnvVar('ADMIN_EMAIL', 'contacto@nichodigital.com'),
   },
   analytics: {
