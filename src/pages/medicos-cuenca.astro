@@ -50,15 +50,21 @@ const packages = [
     items: ['Análisis de visibilidad local', 'Problema digital principal', 'Siguiente paso recomendado'],
   },
   {
+    name: 'Landing Profesional',
+    price: 'USD 199',
+    description: 'Página profesional de entrada para presentar servicios, confianza básica y contacto directo.',
+    items: ['Landing responsive', 'Copy comercial base', 'CTA a WhatsApp', 'Estructura clara de servicios'],
+  },
+  {
     name: 'Presencia Médica',
-    price: 'Desde USD 699',
-    description: 'Landing médica completa para explicar especialidad, servicios, ubicación y contacto directo.',
+    price: 'Desde USD 399',
+    description: 'Landing médica completa para explicar especialidad, trayectoria, ubicación y contacto directo.',
     items: ['Web médica responsive', 'Copy médico comercial', 'SEO técnico base', 'CTA a WhatsApp', 'Google Business Profile inicial'],
     highlighted: true,
   },
   {
     name: 'Captación Médica SEO',
-    price: 'Desde USD 1.200',
+    price: 'Desde USD 599',
     description: 'Web + páginas por procedimiento + optimización local para captar búsquedas con intención.',
     items: ['5 a 8 páginas por servicio', 'Schema y SEO local', 'Google Business Profile', 'Revisión de competencia'],
   },
@@ -78,17 +84,17 @@ const medicalFunnelQuestions = [
       {
         label: 'Consulta privada',
         detail: 'Quiero que más pacientes entiendan mi especialidad y agenden valoración.',
-        weights: { diagnostico: 1, presencia: 3, captacion: 1, mensual: 0 },
+        weights: { diagnostico: 1, landing: 2, presencia: 3, captacion: 1, mensual: 0 },
       },
       {
         label: 'Procedimientos de alto valor',
         detail: 'Necesito explicar cirugías, tratamientos o servicios con más confianza.',
-        weights: { diagnostico: 0, presencia: 2, captacion: 3, mensual: 0 },
+        weights: { diagnostico: 0, landing: 0, presencia: 2, captacion: 3, mensual: 0 },
       },
       {
         label: 'Clínica o varias especialidades',
         detail: 'Hay varios servicios, doctores o líneas de atención que ordenar.',
-        weights: { diagnostico: 0, presencia: 1, captacion: 3, mensual: 1 },
+        weights: { diagnostico: 0, landing: 0, presencia: 1, captacion: 3, mensual: 1 },
       },
     ],
   },
@@ -99,17 +105,17 @@ const medicalFunnelQuestions = [
       {
         label: 'Solo Google Maps/redes',
         detail: 'Me encuentran, pero no tengo una página propia que explique mi oferta.',
-        weights: { diagnostico: 1, presencia: 3, captacion: 1, mensual: 0 },
+        weights: { diagnostico: 1, landing: 2, presencia: 3, captacion: 1, mensual: 0 },
       },
       {
         label: 'Tengo web desactualizada',
         detail: 'Existe una web, pero no comunica bien, no se ve actual o no genera consultas.',
-        weights: { diagnostico: 0, presencia: 3, captacion: 2, mensual: 0 },
+        weights: { diagnostico: 0, landing: 1, presencia: 3, captacion: 2, mensual: 0 },
       },
       {
         label: 'Tengo base, quiero crecer SEO',
         detail: 'Ya hay presencia, pero quiero captar búsquedas por especialidad o procedimiento.',
-        weights: { diagnostico: 0, presencia: 1, captacion: 3, mensual: 2 },
+        weights: { diagnostico: 0, landing: 0, presencia: 1, captacion: 3, mensual: 2 },
       },
     ],
   },
@@ -120,17 +126,17 @@ const medicalFunnelQuestions = [
       {
         label: 'Recibir más WhatsApp calificados',
         detail: 'Quiero que el paciente llegue con menos dudas y pida cita.',
-        weights: { diagnostico: 0, presencia: 3, captacion: 1, mensual: 0 },
+        weights: { diagnostico: 0, landing: 2, presencia: 3, captacion: 1, mensual: 0 },
       },
       {
         label: 'Posicionarme en Google local',
         detail: 'Necesito aparecer por especialidad, ciudad y servicios médicos.',
-        weights: { diagnostico: 0, presencia: 1, captacion: 3, mensual: 2 },
+        weights: { diagnostico: 0, landing: 0, presencia: 1, captacion: 3, mensual: 2 },
       },
       {
         label: 'Vender procedimientos específicos',
         detail: 'Quiero páginas claras para servicios como hernia, vesícula, estética o controles.',
-        weights: { diagnostico: 0, presencia: 2, captacion: 3, mensual: 1 },
+        weights: { diagnostico: 0, landing: 0, presencia: 2, captacion: 3, mensual: 1 },
       },
     ],
   },
@@ -141,17 +147,17 @@ const medicalFunnelQuestions = [
       {
         label: 'Primero quiero claridad',
         detail: 'Necesito saber qué falla y qué estructura conviene antes de invertir.',
-        weights: { diagnostico: 4, presencia: 1, captacion: 0, mensual: 0 },
+        weights: { diagnostico: 4, landing: 1, presencia: 1, captacion: 0, mensual: 0 },
       },
       {
         label: 'Quiero lanzar pronto',
         detail: 'Me interesa tener una web médica lista y funcional en poco tiempo.',
-        weights: { diagnostico: 0, presencia: 3, captacion: 1, mensual: 0 },
+        weights: { diagnostico: 0, landing: 4, presencia: 2, captacion: 1, mensual: 0 },
       },
       {
         label: 'Quiero crecimiento sostenido',
         detail: 'Me interesa una base web más SEO y optimización mensual.',
-        weights: { diagnostico: 0, presencia: 1, captacion: 2, mensual: 3 },
+        weights: { diagnostico: 0, landing: 0, presencia: 1, captacion: 2, mensual: 3 },
       },
     ],
   },
@@ -162,17 +168,17 @@ const medicalFunnelQuestions = [
       {
         label: 'Tengo información básica',
         detail: 'Especialidad, ubicación y contacto, pero falta ordenar el mensaje.',
-        weights: { diagnostico: 1, presencia: 3, captacion: 1, mensual: 0 },
+        weights: { diagnostico: 1, landing: 3, presencia: 2, captacion: 1, mensual: 0 },
       },
       {
         label: 'Tengo servicios definidos',
         detail: 'Puedo listar procedimientos, beneficios, preguntas y casos frecuentes.',
-        weights: { diagnostico: 0, presencia: 2, captacion: 3, mensual: 1 },
+        weights: { diagnostico: 0, landing: 0, presencia: 2, captacion: 3, mensual: 1 },
       },
       {
         label: 'Necesito estructura completa',
         detail: 'Hay que definir copy, jerarquía, SEO local y llamadas a la acción.',
-        weights: { diagnostico: 1, presencia: 2, captacion: 3, mensual: 0 },
+        weights: { diagnostico: 1, landing: 0, presencia: 2, captacion: 3, mensual: 0 },
       },
     ],
   },
@@ -186,17 +192,24 @@ const medicalFunnelResults = {
     reason:
       'Conviene empezar con una lectura rápida de presencia pública, Google Business Profile y oportunidad de web antes de definir inversión.',
   },
-  presencia: {
-    title: 'Landing médica profesional',
-    package: 'Presencia Médica',
-    price: 'Desde USD 699',
+  landing: {
+    title: 'Landing profesional para empezar',
+    package: 'Landing Profesional',
+    price: 'USD 199',
     reason:
-      'Necesita una página personal que explique especialidad, trayectoria, servicios, ubicación y contacto directo con pacientes.',
+      'Conviene empezar con una landing clara, rápida y enfocada en presentar servicios, generar confianza básica y llevar al paciente a WhatsApp.',
+  },
+  presencia: {
+    title: 'Presencia médica profesional',
+    package: 'Presencia Médica',
+    price: 'Desde USD 399',
+    reason:
+      'Necesita una presencia médica más completa que explique especialidad, trayectoria, servicios, ubicación y contacto directo con pacientes.',
   },
   captacion: {
     title: 'Web médica con captación SEO',
     package: 'Captación Médica SEO',
-    price: 'Desde USD 1.200',
+    price: 'Desde USD 599',
     reason:
       'Su caso requiere más profundidad: páginas por servicio o procedimiento, SEO local y una estructura pensada para búsquedas con intención.',
   },
@@ -537,7 +550,7 @@ const serviceStructuredData = {
           </h2>
         </div>
 
-        <div class="mt-12 grid gap-6 lg:grid-cols-4">
+        <div class="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
           {packages.map((pack) => (
             <article class:list={[
               'rounded-[30px] border p-7 shadow-[0_20px_55px_rgba(15,23,42,0.07)]',
@@ -653,10 +666,10 @@ const serviceStructuredData = {
       }
 
       function resultKey() {
-        const score = { diagnostico: 0, presencia: 0, captacion: 0, mensual: 0 };
+        const score = Object.fromEntries(Object.keys(results).map((key) => [key, 0]));
         for (const answer of answers) {
           for (const [key, value] of Object.entries(answer.weights || {})) {
-            score[key] += value || 0;
+            if (key in score) score[key] += value || 0;
           }
         }
         return Object.entries(score).sort((a, b) => b[1] - a[1])[0][0];
