@@ -568,9 +568,9 @@ const serviceStructuredData = {
       <div class="absolute inset-x-0 top-0 h-40 bg-[radial-gradient(circle_at_50%_0%,rgba(34,211,238,0.18),transparent_58%)] dark:bg-[radial-gradient(circle_at_50%_0%,rgba(37,99,235,0.28),transparent_60%)]"></div>
       <div class="relative mx-auto max-w-7xl">
         <div data-reveal class="mx-auto max-w-4xl text-center">
-          <span class="inline-flex rounded-full border border-blue-100 bg-white/90 px-4 py-2 text-sm font-semibold text-blue-700 shadow-sm shadow-blue-900/5 dark:border-cyan-300/15 dark:bg-slate-900/80 dark:text-cyan-200">Oferta médica</span>
+          <span class="inline-flex rounded-full border border-sky-100 bg-white/90 px-4 py-2 text-sm font-semibold text-sky-700 shadow-sm shadow-sky-900/5 dark:border-cyan-300/15 dark:bg-slate-900/80 dark:text-cyan-200">Oferta médica</span>
           <h2 class="mt-5 text-3xl font-bold tracking-tight md:text-5xl">
-            Paquetes simples para empezar con <span class="text-blue-700 dark:text-cyan-300">diagnóstico</span> y crecer hacia <span class="text-blue-700 dark:text-cyan-300">captación local</span>.
+            Paquetes simples para empezar con <span class="text-sky-500 dark:text-cyan-300">diagnóstico</span> y crecer hacia <span class="text-sky-500 dark:text-cyan-300">captación local</span>.
           </h2>
           <p class="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-slate-600 dark:text-slate-300 md:text-lg">
             Elija el nivel de presencia digital que necesita su consulta: claridad, confianza y pacientes mejor informados antes de escribir por WhatsApp.
@@ -583,15 +583,15 @@ const serviceStructuredData = {
 
             return (
               <article data-reveal class:list={[
-                'relative flex min-h-full flex-col overflow-hidden rounded-[28px] border p-6 transition duration-300 hover:-translate-y-1 md:p-7',
+                'relative flex min-h-full flex-col rounded-[28px] border p-6 transition duration-300 hover:-translate-y-1 md:p-7',
                 pack.highlighted
-                  ? 'border-blue-400/40 bg-[linear-gradient(155deg,#0ea5e9_0%,#2563eb_48%,#1d4ed8_100%)] text-white shadow-[0_28px_70px_rgba(37,99,235,0.34)]'
-                  : 'border-slate-200/80 bg-white/92 text-slate-950 shadow-[0_22px_60px_rgba(15,23,42,0.08)] hover:border-blue-200 hover:shadow-[0_26px_70px_rgba(37,99,235,0.13)] dark:border-slate-800 dark:bg-slate-900/92 dark:text-white dark:hover:border-cyan-300/30',
+                  ? 'pt-11 border-sky-300/60 bg-[linear-gradient(155deg,#22d3ee_0%,#0ea5e9_36%,#2563eb_100%)] text-white shadow-[0_28px_70px_rgba(14,165,233,0.34)]'
+                  : 'overflow-hidden border-slate-200/80 bg-white/92 text-slate-950 shadow-[0_22px_60px_rgba(15,23,42,0.08)] hover:border-sky-200 hover:shadow-[0_26px_70px_rgba(14,165,233,0.13)] dark:border-slate-800 dark:bg-slate-900/92 dark:text-white dark:hover:border-cyan-300/30',
               ]}>
                 {pack.highlighted && (
                   <>
                     <div class="absolute inset-x-0 top-0 h-24 bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.32),transparent_68%)]"></div>
-                    <div class="absolute right-4 top-4 rounded-full bg-white/18 px-3 py-1 text-xs font-bold uppercase tracking-[0.14em] text-white ring-1 ring-white/30">
+                    <div class="absolute left-1/2 top-0 z-10 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap rounded-full bg-white px-4 py-1.5 text-[0.7rem] font-extrabold uppercase tracking-[0.16em] text-sky-600 shadow-[0_14px_32px_rgba(2,132,199,0.26)] ring-1 ring-sky-100">
                       MÁS ELEGIDO
                     </div>
                   </>
@@ -601,7 +601,7 @@ const serviceStructuredData = {
                   'relative flex h-14 w-14 items-center justify-center rounded-2xl shadow-sm',
                   pack.highlighted
                     ? 'bg-white/18 text-white ring-1 ring-white/25'
-                    : 'bg-blue-50 text-blue-700 ring-1 ring-blue-100 dark:bg-cyan-300/10 dark:text-cyan-200 dark:ring-cyan-300/15',
+                    : 'bg-sky-50 text-sky-700 ring-1 ring-sky-100 dark:bg-cyan-300/10 dark:text-cyan-200 dark:ring-cyan-300/15',
                 ]}>
                   <Icon class="h-7 w-7" />
                 </div>
@@ -611,8 +611,8 @@ const serviceStructuredData = {
                   <div class:list={[
                     'mt-3 inline-flex rounded-full px-4 py-2 text-2xl font-bold leading-none md:text-[1.65rem]',
                     pack.highlighted
-                      ? 'bg-white text-blue-700 shadow-sm'
-                      : 'bg-blue-50 text-blue-700 dark:bg-cyan-300/10 dark:text-cyan-200',
+                      ? 'bg-white text-sky-700 shadow-sm'
+                      : 'bg-sky-50 text-sky-700 dark:bg-cyan-300/10 dark:text-cyan-200',
                   ]}>{pack.price}</div>
                   <p class:list={[
                     'mt-5 min-h-[5.5rem] text-sm leading-relaxed md:text-[0.95rem]',
@@ -628,7 +628,7 @@ const serviceStructuredData = {
                     ]}>
                       <CheckCircle2 class:list={[
                         'mt-0.5 h-5 w-5 flex-none',
-                        pack.highlighted ? 'text-cyan-100' : 'text-blue-600 dark:text-cyan-300',
+                        pack.highlighted ? 'text-cyan-100' : 'text-sky-600 dark:text-cyan-300',
                       ]} />
                       <span>{item}</span>
                     </div>
@@ -638,7 +638,7 @@ const serviceStructuredData = {
                 <a href={whatsappUrl} class:list={[
                   'relative mt-8 inline-flex w-full items-center justify-center gap-2 rounded-2xl px-5 py-3.5 text-sm font-bold transition',
                   pack.highlighted
-                    ? 'bg-white text-blue-700 shadow-lg shadow-blue-950/10 hover:bg-blue-50'
+                    ? 'bg-white text-sky-700 shadow-lg shadow-blue-950/10 hover:bg-sky-50'
                     : 'bg-slate-950 text-white shadow-lg shadow-slate-950/10 hover:bg-slate-800 dark:bg-cyan-300 dark:text-slate-950 dark:hover:bg-cyan-200',
                 ]}>
                   Solicitar información
@@ -655,7 +655,7 @@ const serviceStructuredData = {
 
             return (
               <div class="flex items-start gap-4 rounded-2xl p-3">
-                <span class="inline-flex h-12 w-12 flex-none items-center justify-center rounded-2xl bg-blue-50 text-blue-700 ring-1 ring-blue-100 dark:bg-cyan-300/10 dark:text-cyan-200 dark:ring-cyan-300/15">
+                <span class="inline-flex h-12 w-12 flex-none items-center justify-center rounded-2xl bg-sky-50 text-sky-700 ring-1 ring-sky-100 dark:bg-cyan-300/10 dark:text-cyan-200 dark:ring-cyan-300/15">
                   <Icon class="h-6 w-6" />
                 </span>
                 <span>
