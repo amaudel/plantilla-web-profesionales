@@ -33,24 +33,24 @@ const benefits = [
 ];
 ---
 
-<section id="inicio" class="relative isolate [overflow-x:clip] [overflow-y:visible] bg-[#030816] px-6 pt-24 text-white md:pt-28">
-  <picture class="absolute inset-0 -z-20 block" aria-hidden="true">
+<section id="inicio" data-hero-scroll class="relative isolate [overflow-x:clip] [overflow-y:visible] bg-[#030816] px-6 pt-24 text-white md:pt-28">
+  <picture data-hero-visual class="hero-visual absolute inset-0 -z-20 block" aria-hidden="true">
     <source
       type="image/avif"
-      srcset="/images/hero/optimized/nicho-digital-hero-ai-premium-512.avif 512w, /images/hero/optimized/nicho-digital-hero-ai-premium-1024.avif 1024w, /images/hero/optimized/nicho-digital-hero-ai-premium-1280.avif 1280w, /images/hero/optimized/nicho-digital-hero-ai-premium-1920.avif 1920w"
-      sizes="(min-width: 1440px) 1440px, 100vw"
+      srcset="/images/hero/optimized/nixgo-digital-experience-v2-512.avif 512w, /images/hero/optimized/nixgo-digital-experience-v2-1024.avif 1024w, /images/hero/optimized/nixgo-digital-experience-v2-1280.avif 1280w, /images/hero/optimized/nixgo-digital-experience-v2-1672.avif 1672w"
+      sizes="100vw"
     />
     <source
       type="image/webp"
-      srcset="/images/hero/optimized/nicho-digital-hero-ai-premium-512.webp 512w, /images/hero/optimized/nicho-digital-hero-ai-premium-1024.webp 1024w, /images/hero/optimized/nicho-digital-hero-ai-premium-1280.webp 1280w, /images/hero/optimized/nicho-digital-hero-ai-premium-1920.webp 1920w"
-      sizes="(min-width: 1440px) 1440px, 100vw"
+      srcset="/images/hero/optimized/nixgo-digital-experience-v2-512.webp 512w, /images/hero/optimized/nixgo-digital-experience-v2-1024.webp 1024w, /images/hero/optimized/nixgo-digital-experience-v2-1280.webp 1280w, /images/hero/optimized/nixgo-digital-experience-v2-1672.webp 1672w"
+      sizes="100vw"
     />
     <img
-      src="/images/hero/nicho-digital-hero-ai-premium.jpg"
+      src="/images/hero/nixgo-digital-experience-v2.jpg"
       alt=""
-      width="2560"
-      height="1440"
-      class="h-full w-full object-cover object-[60%_center] md:object-[67%_center]"
+      width="1672"
+      height="940"
+      class="h-full w-full object-cover object-[64%_center] md:object-center"
       loading="eager"
       decoding="async"
       fetchpriority="high"
@@ -61,6 +61,7 @@ const benefits = [
     <div class="absolute inset-0 bg-[linear-gradient(90deg,rgba(3,8,22,0.96)_0%,rgba(3,8,22,0.84)_30%,rgba(3,8,22,0.34)_55%,rgba(3,8,22,0.00)_78%)]"></div>
     <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(3,8,22,0.35)_0%,rgba(3,8,22,0.06)_42%,rgba(3,8,22,0.18)_100%)]"></div>
     <div class="absolute inset-0 bg-[radial-gradient(circle_at_18%_24%,rgba(34,211,238,0.12),transparent_26%)]"></div>
+    <div data-hero-glow class="hero-glow absolute -right-[8%] top-[18%] h-[24rem] w-[24rem] rounded-full bg-cyan-300/[0.08] blur-3xl"></div>
   </div>
 
   <div class="relative z-10 mx-auto max-w-7xl">
@@ -111,3 +112,60 @@ const benefits = [
     </div>
   </div>
 </section>
+
+<style>
+  .hero-visual {
+    transform: translate3d(0, calc(var(--hero-progress, 0) * 20px), 0) scale(calc(1.035 + var(--hero-progress, 0) * 0.025));
+    transform-origin: center right;
+    will-change: transform;
+  }
+
+  .hero-glow {
+    opacity: calc(0.6 + var(--hero-progress, 0) * 0.4);
+    transform: translate3d(calc(var(--hero-progress, 0) * -32px), calc(var(--hero-progress, 0) * 18px), 0);
+    will-change: transform, opacity;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-visual,
+    .hero-glow {
+      transform: none;
+      will-change: auto;
+    }
+  }
+</style>
+
+<script>
+  let heroFrame;
+
+  const setupHeroScroll = () => {
+    const hero = document.querySelector('[data-hero-scroll]');
+    if (!(hero instanceof HTMLElement) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const update = () => {
+      const rect = hero.getBoundingClientRect();
+      const distance = Math.max(hero.offsetHeight, 1);
+      const progress = Math.min(1, Math.max(0, -rect.top / distance));
+      hero.style.setProperty('--hero-progress', progress.toFixed(3));
+      heroFrame = undefined;
+    };
+
+    const requestUpdate = () => {
+      if (heroFrame) return;
+      heroFrame = window.requestAnimationFrame(update);
+    };
+
+    update();
+    window.addEventListener('scroll', requestUpdate, { passive: true });
+    window.addEventListener('resize', requestUpdate, { passive: true });
+
+    document.addEventListener('astro:before-swap', () => {
+      window.removeEventListener('scroll', requestUpdate);
+      window.removeEventListener('resize', requestUpdate);
+      if (heroFrame) window.cancelAnimationFrame(heroFrame);
+    }, { once: true });
+  };
+
+  setupHeroScroll();
+  document.addEventListener('astro:page-load', setupHeroScroll);
+</script>
