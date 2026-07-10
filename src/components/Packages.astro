@@ -5,7 +5,7 @@ const packages = [
   {
     icon: 'tabler:rocket',
     name: 'Landing Profesional',
-    price: 'USD 199',
+    price: 'Desde USD 199',
     note: 'Para validar una oferta concreta y tener una presencia seria sin construir un sitio completo.',
     features: [
       '1 página enfocada en una oferta',
@@ -19,7 +19,7 @@ const packages = [
   {
     icon: 'tabler:briefcase-2',
     name: 'Web Profesional',
-    price: 'USD 399',
+    price: 'Desde USD 399',
     note: 'Para negocios que necesitan explicar mejor su valor, mostrar más respaldo y recibir consultas más preparadas.',
     featured: true,
     features: [
@@ -34,7 +34,7 @@ const packages = [
   {
     icon: 'tabler:diamond',
     name: 'Web Premium',
-    price: 'USD 599+',
+    price: 'Desde USD 599',
     note: 'Para servicios de mayor valor que necesitan una narrativa más fuerte, visuales más cuidados y más diferenciación.',
     features: [
       'Mayor personalización visual',
@@ -93,11 +93,14 @@ const packages = [
             ))}
           </div>
 
-          <a href={item.href} class:list={["inline-flex w-full justify-center rounded-2xl px-6 py-3.5 font-semibold transition", item.featured ? "bg-white text-blue-700 hover:bg-blue-50" : "bg-blue-600 text-white hover:bg-blue-700 shadow-lg shadow-blue-500/20"]}>
+          <a href={item.href} data-track={`package_${index + 1}`} class:list={["inline-flex w-full justify-center rounded-2xl px-6 py-3.5 font-semibold transition", item.featured ? "bg-white text-blue-700 hover:bg-blue-50" : "bg-blue-600 text-white hover:bg-blue-700 shadow-lg shadow-blue-500/20"]}>
             {item.cta}
           </a>
         </div>
       ))}
     </div>
+    <p class="mx-auto mt-8 max-w-3xl text-center text-sm leading-relaxed text-slate-500 dark:text-slate-400">
+      El alcance final se confirma antes de empezar. Dominio, servicios recurrentes e integraciones externas se cotizan por separado cuando apliquen.
+    </p>
   </div>
 </section>

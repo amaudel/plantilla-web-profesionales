@@ -40,11 +40,11 @@ const faqs = [
     <div class="space-y-6">
       {faqs.map((faq, index) => (
         <div data-reveal data-reveal-delay={String(Math.min(index * 0.04, 0.16))} class="faq-item bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden transition-all duration-200 hover:shadow-md">
-          <button type="button" class="w-full flex items-center justify-between p-6 text-left group" aria-expanded="false">
+          <button type="button" class="w-full flex items-center justify-between p-6 text-left group" aria-expanded="false" aria-controls={`faq-answer-${index}`}>
             <span class="text-lg font-semibold text-gray-900 dark:text-white group-hover:text-blue-500 dark:group-hover:text-blue-400 transition-colors">{faq.question}</span>
             <ChevronDown className="w-5 h-5 text-blue-500 dark:text-blue-400 transition-transform duration-200" />
           </button>
-          <div class="faq-content hidden">
+          <div id={`faq-answer-${index}`} class="faq-content hidden">
             <div class="px-6 pb-6 text-gray-600 dark:text-gray-300">{faq.answer}</div>
           </div>
         </div>
