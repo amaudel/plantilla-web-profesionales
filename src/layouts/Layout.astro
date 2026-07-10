@@ -27,7 +27,7 @@ const {
 const gaTrackingId = import.meta.env.GOOGLE_ANALYTICS_ID || config.analytics.googleAnalyticsId;
 
 const siteUrl = Astro.site?.toString().replace(/\/$/, '') || '';
-const defaultImage = `${siteUrl}/images/hero/optimized/nicho-digital-hero-ai-premium-1280.png`;
+const defaultImage = `${siteUrl}/images/hero/optimized/nixgo-digital-experience-v2-1280.png`;
 const structuredImage = image
   ? image.startsWith('http') ? image : `${siteUrl}${image}`
   : defaultImage;
@@ -64,9 +64,9 @@ const pageStructuredData = {
     <link
       rel="preload"
       as="image"
-      href="/images/hero/optimized/nicho-digital-hero-ai-premium-1280.avif"
-      imagesrcset="/images/hero/optimized/nicho-digital-hero-ai-premium-512.avif 512w, /images/hero/optimized/nicho-digital-hero-ai-premium-1024.avif 1024w, /images/hero/optimized/nicho-digital-hero-ai-premium-1280.avif 1280w, /images/hero/optimized/nicho-digital-hero-ai-premium-1920.avif 1920w"
-      imagesizes="(min-width: 1440px) 1440px, 100vw"
+      href="/images/hero/optimized/nixgo-digital-experience-v2-1280.avif"
+      imagesrcset="/images/hero/optimized/nixgo-digital-experience-v2-512.avif 512w, /images/hero/optimized/nixgo-digital-experience-v2-1024.avif 1024w, /images/hero/optimized/nixgo-digital-experience-v2-1280.avif 1280w, /images/hero/optimized/nixgo-digital-experience-v2-1672.avif 1672w"
+      imagesizes="100vw"
       type="image/avif"
       fetchpriority="high"
     >
