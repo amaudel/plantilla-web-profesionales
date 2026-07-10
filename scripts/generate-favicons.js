@@ -42,7 +42,7 @@ async function generateFavicons() {
       return;
     }
 
-    // Generate the main SVG favicon in both supported locations.
+    // Generate the main SVG favicon in the public directory
     const svgFaviconPath = path.join(PUBLIC_DIR, 'favicon.svg');
     if (!fs.existsSync(svgFaviconPath) || isSourceNewer(ORIGINAL_PATH, svgFaviconPath)) {
       console.log('Generating favicon.svg in public directory...');
@@ -54,9 +54,9 @@ async function generateFavicons() {
 
     const nestedSvgFaviconPath = path.join(FAVICON_DIR, 'favicon.svg');
     if (!fs.existsSync(nestedSvgFaviconPath) || isSourceNewer(ORIGINAL_PATH, nestedSvgFaviconPath)) {
-      console.log('Generating favicon/favicon.svg...');
+      console.log('Generating favicon.svg in favicon directory...');
       await generateSvgFavicon(ORIGINAL_PATH, nestedSvgFaviconPath, 32);
-      console.log('Generated favicon/favicon.svg');
+      console.log('Generated favicon.svg in favicon directory');
     } else {
       console.log('Skipping favicon/favicon.svg (already up to date)');
     }

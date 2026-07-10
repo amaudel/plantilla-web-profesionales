@@ -6,12 +6,13 @@ const packages = [
     icon: 'tabler:rocket',
     name: 'Landing Profesional',
     price: 'Desde USD 199',
-    note: 'Para validar una oferta concreta y tener una presencia seria sin construir un sitio completo.',
+    ideal: 'Para empezar rápido',
+    note: 'Para presentar una oferta puntual, campaña o servicio con una página clara y lista para WhatsApp.',
     features: [
       '1 página enfocada en una oferta',
       'CTA directo a WhatsApp',
-      'Copy comercial enfocado',
-      'Look profesional adaptado al nicho',
+      'Mensaje claro para explicar tu servicio',
+      'Diseño adaptado a tu sector',
     ],
     cta: 'Quiero mi landing',
     href: 'https://wa.me/593984710898?text=Hola%2C%20quiero%20una%20Landing%20Profesional',
@@ -20,13 +21,14 @@ const packages = [
     icon: 'tabler:briefcase-2',
     name: 'Web Profesional',
     price: 'Desde USD 399',
-    note: 'Para negocios que necesitan explicar mejor su valor, mostrar más respaldo y recibir consultas más preparadas.',
+    ideal: 'Mejor opción inicial',
+    note: 'Para negocios que quieren presentar varios servicios, generar confianza y recibir consultas mejor preparadas.',
     featured: true,
     features: [
       'Sitio completo tipo landing extendida',
       'Estructura clara para presentar tus servicios',
-      'Servicios, proceso, prueba y CTA',
-      'Base premium lista para campañas o redes',
+      'Bloques de confianza, proceso y prueba',
+      'Lista para compartir en redes o campañas',
     ],
     cta: 'Quiero una web profesional',
     href: 'https://wa.me/593984710898?text=Hola%2C%20quiero%20una%20Web%20Profesional',
@@ -35,12 +37,13 @@ const packages = [
     icon: 'tabler:diamond',
     name: 'Web Premium',
     price: 'Desde USD 599',
-    note: 'Para servicios de mayor valor que necesitan una narrativa más fuerte, visuales más cuidados y más diferenciación.',
+    ideal: 'Para servicios de alto valor',
+    note: 'Para marcas y profesionales que necesitan una presencia más completa, diferencial y premium.',
     features: [
       'Mayor personalización visual',
-      'Assets, bloques y narrativa más premium',
+      'Assets y secciones más cuidadas',
       'Más señales de autoridad',
-      'Experiencia pensada para tickets más altos',
+      'Experiencia pensada para tickets altos',
     ],
     cta: 'Quiero una web premium',
     href: 'https://wa.me/593984710898?text=Hola%2C%20quiero%20una%20Web%20Premium',
@@ -55,10 +58,10 @@ const packages = [
         Paquetes base
       </span>
       <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-gray-900 dark:text-white mb-4">
-        Elige según la claridad que necesita tu oferta
+        Elige la web según la etapa de tu negocio
       </h2>
       <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-        Si necesitas validar rápido, empieza pequeño. Si vendes un servicio de mayor valor, conviene una web con más argumento, prueba y narrativa.
+        Paquetes claros para lanzar tu presencia online, presentar tus servicios y convertir visitas en mensajes por WhatsApp.
       </p>
     </div>
 
@@ -80,6 +83,9 @@ const packages = [
               </div>
             </div>
             <h3 class:list={["text-2xl font-bold tracking-tight mb-2", item.featured ? "text-white" : "text-gray-900 dark:text-white"]}>{item.name}</h3>
+            <div class:list={["mb-3 inline-flex rounded-full px-3 py-1 text-xs font-semibold", item.featured ? "bg-cyan-300/15 text-cyan-50" : "bg-blue-50 text-blue-700 dark:bg-cyan-300/10 dark:text-cyan-200"]}>
+              {item.ideal}
+            </div>
             <div class:list={["text-4xl font-bold mb-3", item.featured ? "text-white" : "text-gray-900 dark:text-white"]}>{item.price}</div>
             <p class:list={["leading-relaxed", item.featured ? "text-sky-100" : "text-gray-600 dark:text-gray-300"]}>{item.note}</p>
           </div>
@@ -93,14 +99,17 @@ const packages = [
             ))}
           </div>
 
-          <a href={item.href} data-track={`package_${index + 1}`} class:list={["inline-flex w-full justify-center rounded-2xl px-6 py-3.5 font-semibold transition", item.featured ? "bg-white text-blue-700 hover:bg-blue-50" : "bg-blue-600 text-white hover:bg-blue-700 shadow-lg shadow-blue-500/20"]}>
+          <a href={item.href} class:list={["inline-flex w-full justify-center rounded-2xl px-6 py-3.5 font-semibold transition", item.featured ? "bg-white text-blue-700 hover:bg-blue-50" : "bg-blue-600 text-white hover:bg-blue-700 shadow-lg shadow-blue-500/20"]}>
             {item.cta}
           </a>
         </div>
       ))}
     </div>
-    <p class="mx-auto mt-8 max-w-3xl text-center text-sm leading-relaxed text-slate-500 dark:text-slate-400">
-      El alcance final se confirma antes de empezar. Dominio, servicios recurrentes e integraciones externas se cotizan por separado cuando apliquen.
-    </p>
+
+    <div data-reveal class="mt-10 rounded-[28px] border border-blue-100 bg-white/80 p-6 text-center shadow-[0_18px_45px_rgba(15,23,42,0.05)] dark:border-cyan-400/15 dark:bg-slate-900/70">
+      <p class="text-base font-semibold text-gray-900 dark:text-white">
+        ¿No sabes cuál elegir? Escríbenos por WhatsApp y revisamos qué opción encaja mejor con tu negocio, presupuesto y urgencia.
+      </p>
+    </div>
   </div>
 </section>

@@ -3,80 +3,127 @@
 
 <style is:global>
   @media (prefers-reduced-motion: no-preference) {
-    [data-reveal-pending] {
-      opacity: 0;
-      transform: translate3d(0, var(--reveal-distance, 22px), 0);
-    }
-
-    [data-reveal-ready] {
-      opacity: 1;
-      transform: translate3d(0, 0, 0);
-      transition:
-        opacity 520ms ease,
-        transform 620ms cubic-bezier(0.22, 1, 0.36, 1);
-      transition-delay: var(--reveal-delay, 0ms);
+    [data-motion-ready] [data-hero-reveal],
+    [data-motion-ready] [data-reveal] {
       will-change: opacity, transform;
     }
 
-    [data-reveal-done] {
+    [data-motion-done] {
       will-change: auto;
     }
   }
 </style>
 
 <script>
-  let revealObserver;
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-  const revealElement = (element) => {
-    element.removeAttribute('data-reveal-pending');
-    element.setAttribute('data-reveal-ready', '');
-    revealObserver?.unobserve(element);
+  gsap.registerPlugin(ScrollTrigger);
 
-    window.setTimeout(() => {
-      element.setAttribute('data-reveal-done', '');
-    }, 900);
+  let motionContext;
+
+  const toNumber = (value, fallback) => {
+    const parsed = Number(value);
+    return Number.isFinite(parsed) ? parsed : fallback;
+  };
+
+  const revealImmediately = () => {
+    gsap.set('[data-hero-reveal], [data-reveal]', {
+      autoAlpha: 1,
+      clearProps: 'transform,filter,willChange',
+    });
   };
 
   const setupScrollAnimations = () => {
-    const revealItems = Array.from(document.querySelectorAll('[data-reveal]'));
+    motionContext?.revert();
+    ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
 
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) {
-      revealItems.forEach(revealElement);
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const animatedItems = document.querySelectorAll('[data-hero-reveal], [data-reveal]');
+
+    if (reduceMotion || animatedItems.length === 0) {
+      revealImmediately();
       return;
     }
 
-    revealObserver?.disconnect();
-    revealObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) revealElement(entry.target);
+    document.documentElement.setAttribute('data-motion-ready', '');
+
+    motionContext = gsap.context(() => {
+      const heroItems = gsap.utils.toArray('[data-hero-reveal]');
+
+      if (heroItems.length) {
+        gsap.set(heroItems, { autoAlpha: 0, y: 22, filter: 'blur(8px)' });
+
+        gsap.timeline({
+          defaults: { ease: 'power3.out', duration: 0.82 },
+          onComplete: () => {
+            heroItems.forEach((item) => item.setAttribute('data-motion-done', ''));
+          },
+        })
+          .to(heroItems, {
+            autoAlpha: 1,
+            y: 0,
+            filter: 'blur(0px)',
+            stagger: 0.08,
+            clearProps: 'filter',
+          }, 0.12);
+      }
+
+      gsap.utils.toArray('[data-reveal]').forEach((element) => {
+        const distance = toNumber(element.getAttribute('data-reveal-distance'), 28);
+        const delay = toNumber(element.getAttribute('data-reveal-delay'), 0);
+        const isCard = element.matches('article, .group, [class*="rounded"]');
+
+        gsap.fromTo(element,
+          {
+            autoAlpha: 0,
+            y: distance,
+            scale: isCard ? 0.985 : 1,
+            filter: 'blur(8px)',
+          },
+          {
+            autoAlpha: 1,
+            y: 0,
+            scale: 1,
+            filter: 'blur(0px)',
+            duration: 0.78,
+            delay,
+            ease: 'power3.out',
+            clearProps: 'filter,transform,willChange',
+            scrollTrigger: {
+              trigger: element,
+              start: 'top 86%',
+              once: true,
+            },
+            onComplete: () => {
+              element.setAttribute('data-motion-done', '');
+            },
+          }
+        );
+      });
+
+      gsap.utils.toArray('[data-parallax-soft]').forEach((element) => {
+        gsap.to(element, {
+          yPercent: -6,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: element.closest('section') || element,
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: 0.7,
+          },
         });
-      },
-      {
-        rootMargin: '0px 0px -8% 0px',
-        threshold: 0.08,
-      }
-    );
+      });
 
-    revealItems.forEach((element) => {
-      const rect = element.getBoundingClientRect();
-      const distance = Number(element.getAttribute('data-reveal-distance') || 22);
-      const delay = Number(element.getAttribute('data-reveal-delay') || 0);
-
-      element.style.setProperty('--reveal-distance', `${distance}px`);
-      element.style.setProperty('--reveal-delay', `${Math.round(delay * 1000)}ms`);
-
-      if (rect.top < window.innerHeight * 0.92) {
-        revealElement(element);
-        return;
-      }
-
-      element.setAttribute('data-reveal-pending', '');
-      revealObserver.observe(element);
+      ScrollTrigger.refresh();
     });
   };
 
   setupScrollAnimations();
   document.addEventListener('astro:page-load', setupScrollAnimations);
-  document.addEventListener('astro:before-swap', () => revealObserver?.disconnect());
+  document.addEventListener('astro:before-swap', () => {
+    motionContext?.revert();
+    ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    document.documentElement.removeAttribute('data-motion-ready');
+  });
 </script>
