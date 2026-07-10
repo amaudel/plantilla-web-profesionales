@@ -24,7 +24,7 @@ const {
   canonical,
 } = Astro.props;
 
-const gaTrackingId = import.meta.env.GA_TRACKING_ID || process.env.GA_TRACKING_ID;
+const gaTrackingId = import.meta.env.GOOGLE_ANALYTICS_ID || config.analytics.googleAnalyticsId;
 
 const siteUrl = Astro.site?.toString().replace(/\/$/, '') || '';
 const defaultImage = `${siteUrl}/images/hero/optimized/nicho-digital-hero-ai-premium-1280.png`;
@@ -117,5 +117,17 @@ const pageStructuredData = {
         });
       </script>
     )}
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      document.addEventListener('click', function (event) {
+        const target = event.target instanceof Element ? event.target.closest('[data-track]') : null;
+        if (!target) return;
+        window.dataLayer.push({
+          event: 'nixgo_cta_click',
+          cta_name: target.getAttribute('data-track'),
+          page_path: window.location.pathname,
+        });
+      });
+    </script>
   </body>
 </html>

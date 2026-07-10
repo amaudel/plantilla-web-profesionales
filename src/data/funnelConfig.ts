@@ -162,21 +162,21 @@ export const funnelResults: Record<ResultKey, FunnelResult> = {
   landing: {
     title: 'Landing Profesional',
     package: 'Landing Profesional',
-    price: 'USD 199',
+    price: 'Desde USD 199',
     reason:
       'Tu prioridad es lanzar una oferta clara, reducir fricción y llevar visitantes a WhatsApp sin una estructura compleja.',
   },
   profesional: {
     title: 'Web Profesional',
     package: 'Web Profesional',
-    price: 'USD 399',
+    price: 'Desde USD 399',
     reason:
       'Necesitas ordenar servicios, elevar confianza y preparar mejor al cliente antes del primer mensaje.',
   },
   premium: {
     title: 'Web Premium',
     package: 'Web Premium',
-    price: 'USD 599+',
+    price: 'Desde USD 599',
     reason:
       'Tu venta depende de autoridad, percepción y detalle. Conviene una presencia más completa para tickets altos.',
   },

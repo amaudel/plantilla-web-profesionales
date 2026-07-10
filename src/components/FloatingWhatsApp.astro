@@ -7,14 +7,34 @@ const whatsappUrl =
 
 <a
   data-whatsapp-float
+  data-track="floating_whatsapp"
   href={whatsappUrl}
   target="_blank"
   rel="noopener noreferrer"
   aria-label="Escribir por WhatsApp"
   title="Escribir por WhatsApp"
-  class="fixed bottom-4 right-4 z-[80] inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_12px_28px_rgba(37,211,102,0.24)] ring-1 ring-white/30 transition-colors duration-200 hover:bg-[#1ebe5d] focus:outline-none focus:ring-4 focus:ring-[#25D366]/30 md:bottom-6 md:right-6 md:h-16 md:w-16"
+  class="fixed bottom-3 left-4 right-4 z-[80] inline-flex h-14 translate-y-24 items-center justify-center gap-2 rounded-2xl bg-[#25D366] px-5 font-semibold text-white opacity-0 shadow-[0_12px_28px_rgba(37,211,102,0.24)] ring-1 ring-white/30 transition duration-300 hover:bg-[#1ebe5d] focus:outline-none focus:ring-4 focus:ring-[#25D366]/30 md:bottom-6 md:left-auto md:right-6 md:h-16 md:w-16 md:translate-y-0 md:rounded-full md:px-0 md:opacity-100"
 >
   <span data-whatsapp-icon class="inline-flex items-center justify-center">
     <Icon name="tabler:brand-whatsapp" class="h-6 w-6 md:h-8 md:w-8" aria-hidden="true" />
   </span>
+  <span class="md:hidden">Hablar por WhatsApp</span>
 </a>
+
+<script>
+  const setupFloatingWhatsApp = () => {
+    const button = document.querySelector('[data-whatsapp-float]');
+    if (!button) return;
+    const update = () => {
+      const visible = window.scrollY > 560;
+      button.classList.toggle('translate-y-24', !visible);
+      button.classList.toggle('opacity-0', !visible);
+      button.classList.toggle('translate-y-0', visible);
+      button.classList.toggle('opacity-100', visible);
+    };
+    window.addEventListener('scroll', update, { passive: true });
+    update();
+  };
+  setupFloatingWhatsApp();
+  document.addEventListener('astro:page-load', setupFloatingWhatsApp);
+</script>
