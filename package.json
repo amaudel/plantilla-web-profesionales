@@ -1,9 +1,9 @@
 {
-    "name": "nicho-digital",
+    "name": "nixgo-digital",
     "type": "module",
     "version": "0.0.1",
     "description": "Webs premium para profesionales y negocios de servicios",
-    "author": "Nicho Digital",
+    "author": "Nixgo Digital",
     "homepage": "https://github.com/amaudel/plantilla-web-profesionales",
     "repository": {
         "type": "git",

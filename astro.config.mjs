@@ -5,7 +5,7 @@ import sitemap from '@astrojs/sitemap';
 import icon from 'astro-icon';
 
 // Production canonical used by sitemap and SEO metadata.
-const SITE_URL = process.env.SITE_URL || 'https://nicho-digital.vercel.app';
+const SITE_URL = process.env.SITE_URL || 'https://nixgodigital.com';
 
 // https://astro.build/config
 export default defineConfig({

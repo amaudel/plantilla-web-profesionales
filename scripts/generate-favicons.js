@@ -42,7 +42,7 @@ async function generateFavicons() {
       return;
     }
 
-    // Generate the main SVG favicon in the public directory
+    // Generate the main SVG favicon in both supported locations.
     const svgFaviconPath = path.join(PUBLIC_DIR, 'favicon.svg');
     if (!fs.existsSync(svgFaviconPath) || isSourceNewer(ORIGINAL_PATH, svgFaviconPath)) {
       console.log('Generating favicon.svg in public directory...');
@@ -50,6 +50,15 @@ async function generateFavicons() {
       console.log('Generated favicon.svg in public directory');
     } else {
       console.log('Skipping favicon.svg (already up to date)');
+    }
+
+    const nestedSvgFaviconPath = path.join(FAVICON_DIR, 'favicon.svg');
+    if (!fs.existsSync(nestedSvgFaviconPath) || isSourceNewer(ORIGINAL_PATH, nestedSvgFaviconPath)) {
+      console.log('Generating favicon/favicon.svg...');
+      await generateSvgFavicon(ORIGINAL_PATH, nestedSvgFaviconPath, 32);
+      console.log('Generated favicon/favicon.svg');
+    } else {
+      console.log('Skipping favicon/favicon.svg (already up to date)');
     }
 
     // Process each favicon
@@ -89,7 +98,7 @@ async function generateFavicons() {
     const manifestPath = path.join(FAVICON_DIR, 'site.webmanifest');
     
     // Use company name from env if available
-    const appName = process.env.APP_NAME || 'Nicho Digital';
+    const appName = process.env.APP_NAME || 'Nixgo Digital';
     const shortName = appName.split(' ')[0] || 'App';
     
     const manifestContent = {

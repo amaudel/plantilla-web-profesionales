@@ -26,7 +26,7 @@ const metaDescription = description;
 
 // Get site URL from Astro.site
 const siteUrl = (config.app.url || Astro.site?.toString() || '').replace(/\/$/, '');
-const siteName = import.meta.env.APP_NAME || 'Nicho Digital';
+const siteName = import.meta.env.APP_NAME || 'Nixgo Digital';
 const canonicalUrl = canonical || `${siteUrl}${Astro.url.pathname}`;
 
 // Construct full URL for the image
@@ -39,7 +39,7 @@ const imageUrl = image.startsWith('http')
 <meta name="description" content={metaDescription} />
 <link rel="canonical" href={canonicalUrl} />
 
-<meta name="keywords" content="webs premium, diseño web profesional, páginas web para médicos, páginas web para abogados, páginas web para psicólogos, webs para negocios de servicios, Nicho Digital" />
+<meta name="keywords" content="webs premium, diseño web profesional, páginas web para médicos, páginas web para abogados, páginas web para psicólogos, webs para negocios de servicios, Nixgo Digital" />
 
 <!-- Google Search favicon meta tag -->
 <meta name="google" content="notranslate" />

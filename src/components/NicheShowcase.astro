@@ -11,21 +11,21 @@ const niches = [
     name: 'Abogados y firmas legales',
     angle: 'Una web sobria para ordenar áreas de práctica, mostrar criterio y facilitar consultas mejor perfiladas.',
     bullets: ['Imagen seria', 'Áreas claras', 'Consultas calificadas'],
-    cta: 'Ver enfoque legal',
+    cta: 'Consultar enfoque legal',
     href: '#contacto',
   },
   {
     name: 'Psicología y bienestar',
     angle: 'Un tono humano y cuidado para que el visitante entienda si eres la opción correcta para su situación.',
     bullets: ['Tono cercano', 'Oferta guiada', 'Menos fricción'],
-    cta: 'Ver enfoque bienestar',
+    cta: 'Consultar enfoque bienestar',
     href: '#contacto',
   },
   {
     name: 'Consultores y servicios premium',
     angle: 'Una estructura comercial para vender experiencia, método y resultado sin depender solo de una llamada.',
     bullets: ['Posicionamiento', 'Método claro', 'CTA a reunión'],
-    cta: 'Ver enfoque consultoría',
+    cta: 'Consultar enfoque consultoría',
     href: '#contacto',
   },
 ];
@@ -70,7 +70,7 @@ const niches = [
             ))}
           </div>
 
-          <a href={niche.href} class="relative z-10 inline-flex items-center rounded-2xl bg-blue-600 px-5 py-3 text-white font-semibold hover:bg-blue-700 transition shadow-lg shadow-blue-500/20">
+          <a href={niche.href} data-track={`sector_${index + 1}`} class="relative z-10 inline-flex items-center rounded-2xl bg-blue-600 px-5 py-3 text-white font-semibold hover:bg-blue-700 transition shadow-lg shadow-blue-500/20">
             {niche.cta}
           </a>
         </div>

@@ -1,9 +1,10 @@
 ---
 import Navbar from '../components/Navbar.astro';
 import Hero from '../components/Hero.astro';
+import DiagnosticFunnel from '../components/DiagnosticFunnel.astro';
 import NicheShowcase from '../components/NicheShowcase.astro';
-import VisualBuildout from '../components/VisualBuildout.astro';
 import PortfolioCase from '../components/PortfolioCase.astro';
+import Process from '../components/Process.astro';
 import Packages from '../components/Packages.astro';
 import FAQ from '../components/FAQ.astro';
 import Footer from '../components/Footer.astro';
@@ -18,14 +19,15 @@ const whatsappUrl = `https://wa.me/593984710898?text=${whatsappText}`;
 ---
 
 <Layout
-  title="Nicho Digital | Webs premium para profesionales y negocios de servicios"
-  description="Nicho Digital crea webs premium para profesionales que quieren verse más confiables, explicar mejor su valor y recibir más consultas por WhatsApp."
+  title="Nixgo Digital | Webs premium para profesionales y negocios de servicios"
+  description="Nixgo Digital crea webs premium para profesionales que quieren verse más confiables, explicar mejor su valor y recibir más consultas por WhatsApp."
 >
   <Navbar />
   <Hero />
-  <VisualBuildout />
-  <NicheShowcase />
   <PortfolioCase />
+  <DiagnosticFunnel />
+  <Process />
+  <NicheShowcase />
   <Packages />
   <FAQ />
 
@@ -44,7 +46,7 @@ const whatsappUrl = `https://wa.me/593984710898?text=${whatsappText}`;
         </p>
 
         <div class="mt-8 grid gap-3 sm:grid-cols-3">
-          <a href="tel:+593984710898" class="group flex min-h-[126px] flex-col justify-between rounded-2xl border border-white/10 bg-slate-900/70 p-4 transition hover:border-blue-300/35 hover:bg-slate-900">
+          <a href="tel:+593984710898" data-track="contact_phone" class="group flex min-h-[126px] flex-col justify-between rounded-2xl border border-white/10 bg-slate-900/70 p-4 transition hover:border-blue-300/35 hover:bg-slate-900">
             <span class="flex items-start justify-between gap-3">
               <span class="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-blue-500 text-white">
                 <Phone class="h-5 w-5" />
@@ -56,7 +58,7 @@ const whatsappUrl = `https://wa.me/593984710898?text=${whatsappText}`;
               <span class="mt-1 block font-semibold text-white">Llamar directo</span>
             </span>
           </a>
-          <a href={whatsappUrl} class="group flex min-h-[126px] flex-col justify-between rounded-2xl border border-emerald-300/20 bg-emerald-500/12 p-4 transition hover:border-emerald-300/45 hover:bg-emerald-500/16">
+          <a href={whatsappUrl} data-track="contact_whatsapp" class="group flex min-h-[126px] flex-col justify-between rounded-2xl border border-emerald-300/20 bg-emerald-500/12 p-4 transition hover:border-emerald-300/45 hover:bg-emerald-500/16">
             <span class="flex items-start justify-between gap-3">
               <span class="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-400 text-slate-950">
                 <MessageCircle class="h-5 w-5" />
@@ -68,7 +70,7 @@ const whatsappUrl = `https://wa.me/593984710898?text=${whatsappText}`;
               <span class="mt-1 block font-semibold text-white">WhatsApp</span>
             </span>
           </a>
-          <a href={whatsappUrl} class="group flex min-h-[126px] flex-col justify-between rounded-2xl border border-cyan-300/20 bg-cyan-500/12 p-4 transition hover:border-cyan-300/45 hover:bg-cyan-500/16">
+          <a href={whatsappUrl} data-track="contact_schedule_request" class="group flex min-h-[126px] flex-col justify-between rounded-2xl border border-cyan-300/20 bg-cyan-500/12 p-4 transition hover:border-cyan-300/45 hover:bg-cyan-500/16">
             <span class="flex items-start justify-between gap-3">
               <span class="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-cyan-300 text-slate-950">
                 <CalendarDays class="h-5 w-5" />
@@ -77,7 +79,7 @@ const whatsappUrl = `https://wa.me/593984710898?text=${whatsappText}`;
             </span>
             <span>
               <span class="block text-sm text-cyan-100/80">Revisión de tu idea</span>
-              <span class="mt-1 block font-semibold text-white">Agendar</span>
+              <span class="mt-1 block font-semibold text-white">Solicitar horario</span>
             </span>
           </a>
         </div>
@@ -106,7 +108,7 @@ const whatsappUrl = `https://wa.me/593984710898?text=${whatsappText}`;
           <div class="rounded-2xl border border-white/10 bg-white/10 px-4 py-3">2. Revisamos qué debe comunicar la web.</div>
           <div class="rounded-2xl border border-white/10 bg-white/10 px-4 py-3">3. Te propongo el paquete más lógico.</div>
         </div>
-        <a href={whatsappUrl} class="mt-8 inline-flex w-full items-center justify-center rounded-2xl bg-white px-7 py-3.5 font-semibold text-blue-700 shadow-lg shadow-cyan-500/10 transition hover:bg-blue-50">
+        <a href={whatsappUrl} data-track="contact_whatsapp_final" class="mt-8 inline-flex w-full items-center justify-center rounded-2xl bg-white px-7 py-3.5 font-semibold text-blue-700 shadow-lg shadow-cyan-500/10 transition hover:bg-blue-50">
           Hablar por WhatsApp
         </a>
       </div>
