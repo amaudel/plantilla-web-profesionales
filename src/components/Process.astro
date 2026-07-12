@@ -2,36 +2,45 @@
 const steps = [
   {
     number: '01',
-    title: 'Entiendo tu oferta',
-    description: 'Aterrizamos qué vendes, a quién quieres atraer y qué dudas necesita resolver tu web antes del primer mensaje.',
+    title: 'Diagnóstico',
+    description: 'Revisamos tu sector, oferta, competencia básica y el tipo de cliente que quieres atraer antes de definir la estructura.',
   },
   {
     number: '02',
-    title: 'Construyo el argumento',
-    description: 'Ordeno el mensaje para que el visitante entienda tu valor, vea señales de confianza y sepa qué hacer después.',
+    title: 'Mensaje y secciones',
+    description: 'Ordenamos titular, servicios, pruebas, objeciones, CTA y el recorrido que llevará al visitante hacia WhatsApp.',
   },
   {
     number: '03',
-    title: 'Diseño la experiencia',
-    description: 'Trabajo el look, la jerarquía y los CTA para que todo se sienta serio, claro y alineado con tu nicho.',
+    title: 'Diseño y construcción',
+    description: 'Construimos una web responsive, rápida y visualmente alineada al nicho, con una experiencia clara en móvil y escritorio.',
   },
   {
     number: '04',
-    title: 'Publicamos y ajustamos',
-    description: 'Dejo la web lista para compartir, revisar con clientes reales y mejorarla con lo que el mercado responda.',
+    title: 'Publicación y medición',
+    description: 'Publicamos con dominio, metadata, sitemap y medición de clics a WhatsApp para saber qué mensajes generan más intención.',
   },
+];
+
+const deliverables = [
+  'Copy orientado a conversión',
+  'Diseño responsive',
+  'CTA a WhatsApp',
+  'SEO técnico base',
+  'Dominio y publicación',
+  'Medición de clics',
 ];
 ---
 
 <section id="proceso" class="py-24 bg-white dark:bg-gray-950">
   <div class="max-w-7xl mx-auto px-6">
     <div data-reveal class="text-center mb-16">
-      <span class="inline-block px-4 py-1.5 rounded-full bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 text-sm font-medium mb-4">Proceso</span>
+      <span class="inline-block px-4 py-1.5 rounded-full bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 text-sm font-medium mb-4">Proceso y entregables</span>
       <h2 class="text-3xl md:text-5xl font-bold tracking-tight text-gray-900 dark:text-white mb-4">
-        Un proceso simple para pasar de idea a web vendible
+        De una oferta dispersa a una web lista para vender por WhatsApp
       </h2>
       <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-        La web se construye alrededor de tu oferta, no alrededor de bloques bonitos sin estrategia.
+        Trabajamos el mensaje, la experiencia visual y la base técnica para que la página no solo se vea bien: también explique, filtre y convierta.
       </p>
     </div>
 
@@ -51,9 +60,14 @@ const steps = [
     </div>
 
     <div data-reveal class="mt-10 rounded-[28px] border border-blue-100 bg-blue-50/80 p-6 text-center dark:border-cyan-400/20 dark:bg-slate-900/80 md:p-8">
-      <div class="text-sm font-semibold uppercase tracking-[0.18em] text-blue-700 dark:text-cyan-300">Resultado</div>
-      <p class="mx-auto mt-3 max-w-3xl text-lg text-gray-700 dark:text-gray-300">
-        Una web que se puede enviar por WhatsApp, poner en redes o usar en campañas sin tener que explicar todo desde cero.
+      <div class="text-sm font-semibold uppercase tracking-[0.18em] text-blue-700 dark:text-cyan-300">Qué queda listo</div>
+      <div class="mt-5 flex flex-wrap justify-center gap-3">
+        {deliverables.map((item) => (
+          <span class="rounded-full border border-blue-100 bg-white px-4 py-2 text-sm font-semibold text-gray-700 shadow-sm dark:border-cyan-400/15 dark:bg-slate-950/60 dark:text-gray-200">{item}</span>
+        ))}
+      </div>
+      <p class="mx-auto mt-5 max-w-3xl text-lg text-gray-700 dark:text-gray-300">
+        Una web que se puede enviar por WhatsApp, publicar en redes o usar en campañas sin tener que explicar todo desde cero.
       </p>
     </div>
   </div>

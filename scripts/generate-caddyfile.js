@@ -27,6 +27,9 @@ const caddyfileTemplate = `{
   # Enable HSTS
   header Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
 
+  # Keep the common sitemap URL available for crawlers and SEO tools
+  redir /sitemap.xml /sitemap-index.xml 301
+
   # Security headers
   header {
     X-Content-Type-Options "nosniff"
@@ -116,4 +119,4 @@ async function generateCaddyfile() {
   }
 }
 
-generateCaddyfile(); 
+generateCaddyfile();

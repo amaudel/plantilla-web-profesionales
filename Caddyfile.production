@@ -25,6 +25,9 @@
   # Enable HSTS with preload
   header Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
 
+  # Keep the common sitemap URL available for crawlers and SEO tools
+  redir /sitemap.xml /sitemap-index.xml 301
+
   # Enhanced security headers
   header {
     X-Content-Type-Options "nosniff"
@@ -157,4 +160,4 @@
       }
     }
   }
-} 
+}

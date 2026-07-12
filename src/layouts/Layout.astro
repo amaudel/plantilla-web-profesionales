@@ -25,9 +25,10 @@ const {
 } = Astro.props;
 
 const gaTrackingId = import.meta.env.GOOGLE_ANALYTICS_ID || config.analytics.googleAnalyticsId;
+const googleSiteVerification = import.meta.env.GOOGLE_SITE_VERIFICATION;
 
 const siteUrl = Astro.site?.toString().replace(/\/$/, '') || '';
-const defaultImage = `${siteUrl}/images/hero/optimized/nixgo-digital-experience-v2-1280.png`;
+const defaultImage = `${siteUrl}/images/hero/optimized/nixgo-digital-experience-v2-1280.webp`;
 const structuredImage = image
   ? image.startsWith('http') ? image : `${siteUrl}${image}`
   : defaultImage;
@@ -71,6 +72,7 @@ const pageStructuredData = {
       fetchpriority="high"
     >
     <meta name="generator" content={Astro.generator} />
+    {googleSiteVerification && <meta name="google-site-verification" content={googleSiteVerification} />}
     <title>{title}</title>
     <SEOMetadata title={title} description={description} image={image} type={type} publishedTime={publishedTime} tags={tags} canonical={canonical} />
     <script type="application/ld+json" set:html={JSON.stringify(organizationStructuredData)} />
@@ -109,9 +111,9 @@ const pageStructuredData = {
             document.head.appendChild(gtmScript);
             gtmScript.onload = function() {
               window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', gaTrackingId);
+              window.gtag = function(){dataLayer.push(arguments);}
+              window.gtag('js', new Date());
+              window.gtag('config', gaTrackingId);
             };
           }, 1000);
         });
@@ -120,7 +122,26 @@ const pageStructuredData = {
     <script is:inline>
       window.dataLayer = window.dataLayer || [];
       document.addEventListener('click', function (event) {
-        const target = event.target instanceof Element ? event.target.closest('[data-track]') : null;
+        const clickedElement = event.target instanceof Element ? event.target : null;
+        const target = clickedElement ? clickedElement.closest('[data-track]') : null;
+        const whatsappLink = clickedElement ? clickedElement.closest('a[href*="wa.me"], a[href*="whatsapp.com"]') : null;
+        if (whatsappLink) {
+          const eventData = {
+            event: 'whatsapp_click',
+            cta_name: whatsappLink.getAttribute('data-track') || 'whatsapp_link',
+            page_path: window.location.pathname,
+            link_url: whatsappLink.getAttribute('href'),
+          };
+          window.dataLayer.push(eventData);
+          if (typeof window.gtag === 'function') {
+            window.gtag('event', 'whatsapp_click', {
+              event_category: 'lead',
+              event_label: eventData.cta_name,
+              page_path: eventData.page_path,
+              link_url: eventData.link_url,
+            });
+          }
+        }
         if (!target) return;
         window.dataLayer.push({
           event: 'nixgo_cta_click',

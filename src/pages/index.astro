@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar.astro';
 import Hero from '../components/Hero.astro';
 import NicheShowcase from '../components/NicheShowcase.astro';
 import VisualBuildout from '../components/VisualBuildout.astro';
+import Process from '../components/Process.astro';
 import PortfolioCase from '../components/PortfolioCase.astro';
 import Packages from '../components/Packages.astro';
 import FAQ from '../components/FAQ.astro';
@@ -12,19 +13,20 @@ import Layout from '../layouts/Layout.astro';
 import { CalendarDays, MessageCircle, Phone, ShieldCheck } from 'lucide-astro';
 
 const whatsappText = encodeURIComponent(
-  'Hola, quiero saber qué web necesita mi negocio'
+  'Hola, quiero un diagnóstico gratis para mejorar la web de mi negocio'
 );
 const whatsappUrl = `https://wa.me/593984710898?text=${whatsappText}`;
 ---
 
 <Layout
   title="Nixgo Digital | Webs premium para profesionales y negocios de servicios"
-  description="Nixgo Digital crea webs premium para profesionales que quieren verse más confiables, explicar mejor su valor y recibir más consultas por WhatsApp."
+  description="Nixgo Digital crea páginas web premium para médicos, abogados, psicólogos, consultores, clínicas y negocios de servicios que quieren verse más confiables y recibir más consultas por WhatsApp."
 >
   <Navbar />
   <Hero />
   <VisualBuildout />
   <NicheShowcase />
+  <Process />
   <PortfolioCase />
   <Packages />
   <FAQ />

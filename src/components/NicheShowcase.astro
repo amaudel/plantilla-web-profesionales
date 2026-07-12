@@ -2,28 +2,40 @@
 const niches = [
   {
     name: 'Médicos y especialistas',
-    angle: 'Una presencia seria para explicar servicios, trayectoria y próximos pasos sin saturar al paciente.',
-    bullets: ['Autoridad visible', 'Servicios entendibles', 'Contacto directo'],
+    keyword: 'Páginas web para médicos',
+    angle: 'Una presencia seria para explicar especialidades, trayectoria, ubicación y próximos pasos sin saturar al paciente.',
+    bullets: ['Autoridad visible', 'Servicios entendibles', 'WhatsApp directo'],
     cta: 'Ver demo médica',
     href: '/medicos-cuenca',
   },
   {
     name: 'Abogados y firmas legales',
-    angle: 'Una web sobria para ordenar áreas de práctica, mostrar criterio y facilitar consultas mejor perfiladas.',
-    bullets: ['Imagen seria', 'Áreas claras', 'Consultas calificadas'],
+    keyword: 'Diseño web para abogados',
+    angle: 'Una web sobria para ordenar áreas de práctica, mostrar criterio profesional y facilitar consultas mejor perfiladas.',
+    bullets: ['Imagen seria', 'Áreas legales claras', 'Consultas calificadas'],
     cta: 'Consultar enfoque legal',
     href: '#contacto',
   },
   {
     name: 'Psicología y bienestar',
-    angle: 'Un tono humano y cuidado para que el visitante entienda si eres la opción correcta para su situación.',
+    keyword: 'Páginas web para psicólogos',
+    angle: 'Un tono humano y cuidado para que el visitante entienda tu enfoque, modalidad de atención y si eres la opción correcta.',
     bullets: ['Tono cercano', 'Oferta guiada', 'Menos fricción'],
     cta: 'Consultar enfoque bienestar',
     href: '#contacto',
   },
   {
+    name: 'Clínicas y centros privados',
+    keyword: 'Diseño web para clínicas',
+    angle: 'Una estructura clara para presentar especialidades, profesionales, ubicación, agenda y canales de contacto sin perder seriedad.',
+    bullets: ['Especialidades ordenadas', 'Equipo visible', 'Agenda y contacto'],
+    cta: 'Consultar enfoque clínico',
+    href: '#contacto',
+  },
+  {
     name: 'Consultores y servicios premium',
-    angle: 'Una estructura comercial para vender experiencia, método y resultado sin depender solo de una llamada.',
+    keyword: 'Webs para consultores',
+    angle: 'Una estructura comercial para vender experiencia, método y resultado sin depender solo de una llamada de explicación.',
     bullets: ['Posicionamiento', 'Método claro', 'CTA a reunión'],
     cta: 'Consultar enfoque consultoría',
     href: '#contacto',
@@ -35,13 +47,13 @@ const niches = [
   <div class="max-w-7xl mx-auto">
     <div data-reveal class="text-center mb-16">
       <span class="inline-block px-4 py-1.5 rounded-full border border-blue-200/70 dark:border-cyan-400/20 bg-white/80 dark:bg-slate-900/70 text-blue-700 dark:text-cyan-300 text-sm font-semibold mb-4 backdrop-blur">
-        Copy y diseño por nicho
+        Nichos con intención comercial
       </span>
       <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-gray-900 dark:text-white mb-4">
-        Cada nicho necesita señales de confianza distintas
+        Creamos páginas web para sectores donde la confianza decide la venta
       </h2>
       <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-        Adaptamos el mensaje, la jerarquía y las pruebas según cómo decide tu cliente: autoridad, cercanía, urgencia o valor percibido.
+        Adaptamos el mensaje, la jerarquía y las pruebas según cómo decide tu cliente: autoridad, cercanía, urgencia, claridad técnica o valor percibido.
       </p>
     </div>
 
@@ -57,6 +69,7 @@ const niches = [
             <div>
               <div class="text-sm uppercase tracking-[0.18em] text-blue-600 dark:text-cyan-300 mb-2 font-semibold">Sector {String(index + 1).padStart(2, '0')}</div>
               <h3 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{niche.name}</h3>
+              <p class="mt-2 text-sm font-semibold text-blue-700 dark:text-cyan-200">{niche.keyword}</p>
             </div>
           </div>
 
