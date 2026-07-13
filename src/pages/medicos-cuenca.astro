@@ -14,14 +14,14 @@ import ScrollAnimations from '../components/ScrollAnimations.astro';
 import Layout from '../layouts/Layout.astro';
 
 const whatsappText = encodeURIComponent(
-  'Hola, quiero un diagnóstico digital gratuito para mi presencia médica en Cuenca'
+  'Hola, quiero optimizar mi presencia médica en Cuenca y recibir un diagnóstico gratuito'
 );
 const whatsappUrl = `https://wa.me/593984710898?text=${whatsappText}`;
 
 const painPoints = [
   {
     title: 'Aparece en Google, pero no convierte suficiente',
-    text: 'Sus pacientes pueden encontrar su ficha, reseñas o teléfono, pero necesitan una página clara que explique sus servicios, trayectoria y cómo agendar.',
+    text: 'Sus pacientes pueden encontrar su ficha, reseñas o teléfono, pero necesitan una página clara que explique especialidad, servicios, trayectoria y cómo agendar.',
   },
   {
     title: 'Su marca depende de clínicas y directorios',
@@ -29,41 +29,45 @@ const painPoints = [
   },
   {
     title: 'Las consultas llegan con demasiadas dudas',
-    text: 'Una web médica bien estructurada educa antes del WhatsApp: qué trata, dónde atiende, por qué confiar y cuál es el siguiente paso.',
+    text: 'Una web médica bien estructurada filtra mejor antes del WhatsApp: qué trata, dónde atiende, por qué confiar y qué información enviar para agendar.',
   },
 ];
 
 const services = [
-  'Landing médica personal con dominio propio',
-  'SEO local por especialidad y procedimientos',
-  'Optimización de Google Business Profile',
-  'Botones a WhatsApp y llamada con CTA claros',
-  'Schema médico y estructura lista para buscadores',
-  'Páginas para servicios como hernia, vesícula, rinoplastia o controles',
+  'Landing médica personal con dominio propio y mensaje por especialidad',
+  'SEO local para búsquedas como médico en Cuenca y procedimientos específicos',
+  'Optimización de Google Business Profile conectada a la web',
+  'Botones a WhatsApp y llamada con mensajes prellenados',
+  'Schema médico, FAQ y estructura lista para indexación',
+  'Base para páginas de servicios como hernia, vesícula, rinoplastia o controles',
 ];
 
 const packages = [
   {
     name: 'Diagnóstico',
+    track: 'diagnostico',
     price: 'Gratis',
     description: 'Revisión rápida de presencia pública, ficha de Google y oportunidad de web personal.',
     items: ['Análisis de visibilidad local', 'Problema digital principal', 'Siguiente paso recomendado'],
   },
   {
     name: 'Presencia Médica',
+    track: 'presencia_medica',
     price: 'Desde USD 699',
-    description: 'Landing médica completa para explicar especialidad, servicios, ubicación y contacto directo.',
-    items: ['Web médica responsive', 'Copy médico comercial', 'SEO técnico base', 'CTA a WhatsApp', 'Google Business Profile inicial'],
+    description: 'Landing médica completa para explicar especialidad, servicios, ubicación, confianza y contacto directo.',
+    items: ['Web médica responsive', 'Copy médico comercial', 'SEO técnico base', 'CTA a WhatsApp medible', 'Google Business Profile inicial'],
     highlighted: true,
   },
   {
     name: 'Captación Médica SEO',
+    track: 'captacion_medica_seo',
     price: 'Desde USD 1.200',
     description: 'Web + páginas por procedimiento + optimización local para captar búsquedas con intención.',
-    items: ['5 a 8 páginas por servicio', 'Schema y SEO local', 'Google Business Profile', 'Revisión de competencia'],
+    items: ['5 a 8 páginas por servicio', 'Schema y SEO local', 'Google Business Profile', 'Revisión de competencia médica'],
   },
   {
     name: 'SEO Local Mensual',
+    track: 'seo_local_mensual',
     price: 'Desde USD 150/mes',
     description: 'Soporte y mejora continua para mantener la presencia médica activa y medible.',
     items: ['Cambios menores', 'Publicaciones GBP', 'Monitoreo SEO básico', 'Reporte simple mensual'],
@@ -79,12 +83,17 @@ const faqs = [
   {
     question: '¿Sirve si ya tengo Google Maps?',
     answer:
-      'Sí. Google Maps da visibilidad, pero una web personal ayuda a explicar servicios, trayectoria, ubicación y motivos para agendar.',
+      'Sí. Google Maps da visibilidad, pero una web personal ayuda a explicar servicios, trayectoria, ubicación, especialidad y motivos para agendar.',
   },
   {
     question: '¿Puedo usar una web demo antes de decidir?',
     answer:
       'Sí. Revisamos su especialidad y le mostramos qué estructura tendría una landing médica enfocada en pacientes privados.',
+  },
+  {
+    question: '¿La página se puede ampliar por procedimientos médicos?',
+    answer:
+      'Sí. La landing base queda preparada para crecer con páginas por procedimiento, especialidad o ciudad cuando haya datos de búsqueda suficientes.',
   },
 ];
 
@@ -116,14 +125,22 @@ const serviceStructuredData = {
     addressCountry: 'EC',
   },
   serviceType: 'diseño web médico, SEO local y optimización de Google Business Profile',
+  url: 'https://nixgodigital.com/medicos-cuenca/',
   description:
-    'Landing médica personal, SEO local, copy de confianza y optimización de contacto para especialistas médicos en Cuenca.',
+    'Landing médica personal, SEO local, copy de confianza, estructura de servicios y optimización de contacto para especialistas médicos en Cuenca.',
+  offers: {
+    '@type': 'Offer',
+    priceCurrency: 'USD',
+    price: '699',
+    availability: 'https://schema.org/InStock',
+    url: 'https://nixgodigital.com/medicos-cuenca/',
+  },
 };
 ---
 
 <Layout
-  title="Web médica personal + SEO local para médicos en Cuenca | Nixgo Digital"
-  description="Creamos páginas web médicas personales para especialistas en Cuenca: landing profesional, SEO local, Google Business Profile y CTA directo a WhatsApp."
+  title="Diseño web para médicos en Cuenca | Web médica + SEO local"
+  description="Optimiza tu presencia médica en Cuenca con una landing profesional: especialidad clara, SEO local, Google Business Profile, FAQ médico y WhatsApp directo."
   image="/images/portfolio/optimized/web-doctor-device-mockup-1024.png"
 >
   <script type="application/ld+json" set:html={JSON.stringify(serviceStructuredData)} />
@@ -144,7 +161,7 @@ const serviceStructuredData = {
         <a href="#paquetes" class="transition hover:text-cyan-200">Paquetes</a>
         <a href="#faq" class="transition hover:text-cyan-200">FAQ</a>
       </div>
-      <a href={whatsappUrl} class="inline-flex items-center gap-2 rounded-2xl bg-cyan-300 px-4 py-2.5 text-sm font-semibold text-slate-950 shadow-lg shadow-cyan-500/20 transition hover:bg-cyan-200">
+      <a href={whatsappUrl} data-track="medical_nav_whatsapp" class="inline-flex items-center gap-2 rounded-2xl bg-cyan-300 px-4 py-2.5 text-sm font-semibold text-slate-950 shadow-lg shadow-cyan-500/20 transition hover:bg-cyan-200">
         <MessageCircle class="h-4 w-4" />
         Diagnóstico
       </a>
@@ -174,14 +191,14 @@ const serviceStructuredData = {
             Web médica + SEO local
           </span>
           <h1 data-hero-reveal class="mt-6 max-w-4xl text-4xl font-bold leading-tight tracking-tight md:text-6xl">
-            Web médica personal para que especialistas en Cuenca conviertan búsquedas en consultas
+            Diseño web para médicos en Cuenca que convierte búsquedas locales en consultas
           </h1>
           <p data-hero-reveal class="mt-6 max-w-2xl text-lg leading-relaxed text-slate-200 md:text-xl">
-            Si ya tiene reputación, su web debe explicar mejor sus servicios, reforzar su marca personal y llevar pacientes hacia WhatsApp con menos fricción.
+            Si ya tiene reputación, su web debe explicar mejor su especialidad, ordenar servicios, reforzar confianza y llevar pacientes hacia WhatsApp con menos fricción.
           </p>
 
           <div data-hero-reveal class="mt-8 flex flex-col gap-4 sm:flex-row">
-            <a href={whatsappUrl} class="inline-flex items-center justify-center gap-2 rounded-2xl bg-cyan-300 px-6 py-3.5 font-semibold text-slate-950 shadow-lg shadow-cyan-500/20 transition hover:bg-cyan-200">
+            <a href={whatsappUrl} data-track="medical_hero_whatsapp" class="inline-flex items-center justify-center gap-2 rounded-2xl bg-cyan-300 px-6 py-3.5 font-semibold text-slate-950 shadow-lg shadow-cyan-500/20 transition hover:bg-cyan-200">
               Solicitar diagnóstico gratuito
               <ArrowRight class="h-5 w-5" />
             </a>
@@ -262,7 +279,7 @@ const serviceStructuredData = {
         <div data-reveal class="max-w-3xl">
           <span class="inline-flex rounded-full bg-blue-50 px-4 py-2 text-sm font-semibold text-blue-700 dark:bg-cyan-300/10 dark:text-cyan-200">El problema comercial</span>
           <h2 class="mt-5 text-3xl font-bold tracking-tight md:text-5xl">
-            No se trata de tener una página bonita. Se trata de controlar cómo lo encuentra y evalúa el paciente.
+            No se trata solo de tener una página bonita. Se trata de controlar cómo lo encuentra, entiende y evalúa el paciente.
           </h2>
         </div>
 
@@ -285,17 +302,17 @@ const serviceStructuredData = {
         <div data-reveal>
           <span class="inline-flex rounded-full bg-white px-4 py-2 text-sm font-semibold text-blue-700 shadow-sm dark:bg-slate-950 dark:text-cyan-200">Caso demo</span>
           <h2 class="mt-5 text-3xl font-bold tracking-tight md:text-5xl">
-            Un ejemplo de landing médica pensada para confianza, servicios y contacto rápido.
+            Un ejemplo de landing médica pensada para confianza, servicios, SEO local y contacto rápido.
           </h2>
           <p class="mt-5 text-lg leading-relaxed text-slate-600 dark:text-slate-300">
-            La demo del Dr. Vintimilla muestra cómo presentar trayectoria, procedimientos, ubicación, preguntas frecuentes y botones directos para agendar. Ese mismo sistema se adapta por especialidad.
+            La demo del Dr. Vintimilla muestra cómo presentar trayectoria, procedimientos, ubicación, preguntas frecuentes y botones directos para agendar. Ese sistema se adapta por especialidad y se amplía con páginas por servicio cuando convenga posicionar más búsquedas.
           </p>
           <div class="mt-8 flex flex-col gap-4 sm:flex-row">
-            <a href="https://web-doctor-orpin.vercel.app/#inicio" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 rounded-2xl bg-blue-600 px-6 py-3.5 font-semibold text-white shadow-lg shadow-blue-500/20 transition hover:bg-blue-700">
+            <a href="https://web-doctor-orpin.vercel.app/#inicio" target="_blank" rel="noopener noreferrer" data-track="medical_demo_click" class="inline-flex items-center justify-center gap-2 rounded-2xl bg-blue-600 px-6 py-3.5 font-semibold text-white shadow-lg shadow-blue-500/20 transition hover:bg-blue-700">
               Ver demo médica
               <Globe2 class="h-5 w-5" />
             </a>
-            <a href={whatsappUrl} class="inline-flex items-center justify-center gap-2 rounded-2xl border border-slate-200 px-6 py-3.5 font-semibold text-slate-900 transition hover:border-blue-200 hover:bg-white dark:border-slate-700 dark:text-white dark:hover:bg-slate-950">
+            <a href={whatsappUrl} data-track="medical_specialty_whatsapp" class="inline-flex items-center justify-center gap-2 rounded-2xl border border-slate-200 px-6 py-3.5 font-semibold text-slate-900 transition hover:border-blue-200 hover:bg-white dark:border-slate-700 dark:text-white dark:hover:bg-slate-950">
               Pedir una versión para mi especialidad
             </a>
           </div>
@@ -340,7 +357,7 @@ const serviceStructuredData = {
                   </div>
                 ))}
               </div>
-              <a href={whatsappUrl} class:list={[
+              <a href={whatsappUrl} data-track={`medical_package_${pack.track}_whatsapp`} class:list={[
                 'mt-8 inline-flex w-full items-center justify-center gap-2 rounded-2xl px-5 py-3.5 font-semibold transition',
                 pack.highlighted
                   ? 'bg-white text-blue-700 hover:bg-blue-50'
@@ -394,7 +411,7 @@ const serviceStructuredData = {
               <div class="text-sm text-slate-300">campaña enfocada en especialistas privados</div>
             </div>
           </div>
-          <a href={whatsappUrl} class="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-cyan-300 px-6 py-4 font-semibold text-slate-950 shadow-lg shadow-cyan-500/20 transition hover:bg-cyan-200">
+          <a href={whatsappUrl} data-track="medical_final_whatsapp" class="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-cyan-300 px-6 py-4 font-semibold text-slate-950 shadow-lg shadow-cyan-500/20 transition hover:bg-cyan-200">
             Escribir por WhatsApp
             <MessageCircle class="h-5 w-5" />
           </a>
