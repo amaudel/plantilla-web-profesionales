@@ -51,19 +51,26 @@ const packages = [
     items: ['Análisis de visibilidad local', 'Problema digital principal', 'Siguiente paso recomendado'],
   },
   {
-    name: 'Presencia Médica',
-    track: 'presencia_medica',
-    price: 'Desde USD 699',
-    description: 'Landing médica completa para explicar especialidad, servicios, ubicación, confianza y contacto directo.',
-    items: ['Web médica responsive', 'Copy médico comercial', 'SEO técnico base', 'CTA a WhatsApp medible', 'Google Business Profile inicial'],
+    name: 'Landing Profesional',
+    track: 'landing_profesional',
+    price: 'Desde USD 199',
+    description: 'Para presentar una oferta puntual, campaña o servicio médico con una página clara y lista para WhatsApp.',
+    items: ['1 página enfocada en una oferta', 'CTA directo a WhatsApp', 'Mensaje claro para explicar tu servicio', 'Diseño adaptado a tu especialidad'],
+  },
+  {
+    name: 'Web Profesional',
+    track: 'web_profesional',
+    price: 'Desde USD 399',
+    description: 'Para médicos que quieren presentar varios servicios, generar confianza y recibir consultas mejor preparadas.',
+    items: ['Sitio completo tipo landing extendida', 'Estructura clara para presentar servicios', 'Bloques de confianza, proceso y prueba', 'Lista para compartir en redes o campañas'],
     highlighted: true,
   },
   {
-    name: 'Captación Médica SEO',
-    track: 'captacion_medica_seo',
-    price: 'Desde USD 1.200',
-    description: 'Web + páginas por procedimiento + optimización local para captar búsquedas con intención.',
-    items: ['5 a 8 páginas por servicio', 'Schema y SEO local', 'Google Business Profile', 'Revisión de competencia médica'],
+    name: 'Web Premium',
+    track: 'web_premium',
+    price: 'Desde USD 599',
+    description: 'Para marcas médicas y especialistas que necesitan una presencia más completa, diferencial y premium.',
+    items: ['Mayor personalización visual', 'Assets y secciones más cuidadas', 'Más señales de autoridad', 'Experiencia pensada para tickets altos'],
   },
   {
     name: 'SEO Local Mensual',
@@ -131,7 +138,7 @@ const serviceStructuredData = {
   offers: {
     '@type': 'Offer',
     priceCurrency: 'USD',
-    price: '699',
+    price: '399',
     availability: 'https://schema.org/InStock',
     url: 'https://nixgodigital.com/medicos-cuenca/',
   },
@@ -338,7 +345,7 @@ const serviceStructuredData = {
           </h2>
         </div>
 
-        <div class="mt-12 grid gap-6 lg:grid-cols-4">
+        <div class="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-5">
           {packages.map((pack, index) => (
             <article data-reveal data-reveal-delay={String(Math.min(index * 0.05, 0.18))} class:list={[
               'rounded-[30px] border p-7 shadow-[0_20px_55px_rgba(15,23,42,0.07)]',
