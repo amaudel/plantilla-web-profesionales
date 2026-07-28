@@ -32,7 +32,7 @@ const benefits = [
   },
 ];
 
-const whatsappUrl = 'https://wa.me/593984710898?text=Hola%2C%20quiero%20un%20diagn%C3%B3stico%20para%20mejorar%20la%20web%20de%20mi%20negocio';
+const diagnosticUrl = '#diagnostico';
 ---
 
 <section id="inicio" data-hero-scroll class="relative isolate [overflow-x:clip] [overflow-y:visible] bg-[#030816] px-6 pt-24 text-white md:pt-28">
@@ -83,8 +83,8 @@ const whatsappUrl = 'https://wa.me/593984710898?text=Hola%2C%20quiero%20un%20dia
         </p>
 
         <div data-hero-reveal class="mt-6 flex flex-col gap-3 sm:flex-row md:mt-8 md:gap-4">
-          <a href={whatsappUrl} class="inline-flex items-center justify-center gap-3 rounded-xl bg-cyan-400 px-6 py-3.5 font-semibold text-slate-950 shadow-[0_18px_48px_rgba(34,211,238,0.22)] transition hover:bg-cyan-300">
-            Pedir diagnóstico gratis por WhatsApp
+          <a href={diagnosticUrl} data-track="hero_diagnostic" class="inline-flex items-center justify-center gap-3 rounded-xl bg-cyan-400 px-6 py-3.5 font-semibold text-slate-950 shadow-[0_18px_48px_rgba(34,211,238,0.22)] transition hover:bg-cyan-300">
+            Iniciar diagnóstico gratuito
             <ArrowRight class="h-5 w-5" />
           </a>
           <a href="#paquetes" class="inline-flex items-center justify-center gap-3 rounded-xl border border-cyan-300/20 bg-slate-950/70 px-6 py-3.5 font-semibold text-white transition hover:border-cyan-300/40 hover:bg-cyan-300/10">
