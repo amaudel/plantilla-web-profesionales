@@ -9,6 +9,8 @@ const packages = [
     monthly: 'USD 39/mes',
     ideal: 'Emprendedores y pequeños negocios',
     usage: '300 conversaciones incluidas',
+    bestFor: 'FAQ, horarios y captura simple',
+    payback: 'Se paga con 1 cliente pequeño adicional',
     note: 'Un chatbot sencillo y rápido de implementar para página web o Telegram, sin obligarte a configurar WhatsApp oficial desde el inicio.',
     features: [
       'Hasta 30 preguntas frecuentes',
@@ -28,6 +30,8 @@ const packages = [
     monthly: 'USD 79/mes',
     ideal: 'Más elegido',
     usage: '1.000 conversaciones incluidas',
+    bestFor: 'IA, citas y prospectos clasificados',
+    payback: 'Pensado para recuperar la inversión con 1 venta media',
     note: 'El paquete principal para consultorios, abogados y empresas pequeñas que necesitan captar, clasificar y enviar prospectos al equipo comercial.',
     featured: true,
     features: [
@@ -48,6 +52,8 @@ const packages = [
     monthly: 'Desde USD 149/mes',
     ideal: 'Empresas e integraciones',
     usage: '3.000 conversaciones incluidas',
+    bestFor: 'Varios canales, áreas e integraciones',
+    payback: 'Para operaciones donde cada lead tiene mayor valor',
     note: 'Para empresas con varios canales, sucursales, formularios conectados o una operación comercial que requiere seguimiento automático.',
     features: [
       'Hasta tres canales',
@@ -61,26 +67,68 @@ const packages = [
     href: 'https://wa.me/593984710898?text=Hola%2C%20quiero%20cotizar%20Nixgo%20Chat%20Empresa%20para%20mi%20negocio',
   },
 ];
+
+const comparisonRows = [
+  ['Conversaciones incluidas', '300', '1.000', '3.000'],
+  ['Canales', 'Web o Telegram', 'Web + canal compatible', 'Hasta 3 canales'],
+  ['Base de conocimiento', '30 FAQs', '100 FAQs/documentos', 'Ampliada'],
+  ['Ajustes mensuales', '1 ajuste', '2 ajustes', 'Optimización mensual'],
+  ['Mejor para vender', 'Negocio local', 'Servicios profesionales', 'Equipos e integraciones'],
+];
 ---
 
 <section id="chatbots" class="relative overflow-hidden px-6 py-24 bg-[radial-gradient(circle_at_top_left,_rgba(59,130,246,0.08),_transparent_28%),linear-gradient(to_bottom,_#ffffff,_#eff6ff)] dark:bg-[radial-gradient(circle_at_top_left,_rgba(34,211,238,0.08),_transparent_28%),linear-gradient(to_bottom,_#0f172a,_#020617)]">
   <div class="absolute inset-0 bg-[radial-gradient(circle_at_82%_12%,rgba(34,211,238,0.08),transparent_24%)]" aria-hidden="true"></div>
   <div class="mx-auto max-w-7xl">
-    <div data-reveal class="relative mb-16 grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
+    <div data-reveal class="relative mb-12 grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-end">
       <div>
         <span class="inline-flex items-center rounded-full border border-blue-200/70 bg-white/80 px-4 py-1.5 text-sm font-semibold text-blue-700 backdrop-blur dark:border-cyan-400/20 dark:bg-slate-900/70 dark:text-cyan-300">
           Servicio de chatbots
         </span>
         <h2 class="mt-5 text-3xl font-bold tracking-tight text-gray-900 dark:text-white md:text-4xl">
-          Chatbots para atender, agendar y capturar clientes
+          Chatbots que atienden y convierten prospectos
         </h2>
       </div>
-      <p class="max-w-2xl text-lg leading-relaxed text-gray-600 dark:text-gray-300">
-        Implementamos asistentes para web, Telegram o canales compatibles que explican tus servicios, resuelven dudas frecuentes y dejan el prospecto listo para cerrar con una persona.
-      </p>
+      <div class="rounded-[28px] border border-blue-100 bg-white/82 p-5 shadow-[0_18px_45px_rgba(15,23,42,0.05)] backdrop-blur dark:border-cyan-400/15 dark:bg-slate-900/72">
+        <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+          Implementamos asistentes para web, Telegram o canales compatibles que explican tus servicios, filtran interesados y dejan la conversación lista para cerrar con una persona.
+        </p>
+        <div class="mt-4 grid gap-3 text-sm sm:grid-cols-3">
+          <div class="rounded-2xl bg-blue-50 px-4 py-3 text-blue-800 dark:bg-cyan-300/10 dark:text-cyan-100">
+            <strong class="block text-gray-950 dark:text-white">24/7</strong>
+            Atiende fuera de horario
+          </div>
+          <div class="rounded-2xl bg-blue-50 px-4 py-3 text-blue-800 dark:bg-cyan-300/10 dark:text-cyan-100">
+            <strong class="block text-gray-950 dark:text-white">Lead listo</strong>
+            Nombre, teléfono y necesidad
+          </div>
+          <div class="rounded-2xl bg-blue-50 px-4 py-3 text-blue-800 dark:bg-cyan-300/10 dark:text-cyan-100">
+            <strong class="block text-gray-950 dark:text-white">ROI simple</strong>
+            Una venta puede cubrir el bot
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="relative grid grid-cols-1 gap-6 lg:grid-cols-3">
+    <div data-reveal class="relative mb-8 grid gap-4 rounded-[28px] border border-blue-100 bg-white/80 p-4 shadow-[0_18px_45px_rgba(15,23,42,0.05)] dark:border-cyan-400/15 dark:bg-slate-900/70 md:grid-cols-3">
+      <div class="rounded-2xl bg-slate-950 px-5 py-4 text-white dark:bg-white dark:text-slate-950">
+        <div class="text-xs font-semibold uppercase tracking-[0.16em] text-cyan-200 dark:text-blue-700">Oferta de lanzamiento</div>
+        <div class="mt-1 text-2xl font-bold">30% menos</div>
+        <p class="mt-1 text-sm text-slate-300 dark:text-slate-600">En implementación para los primeros 5 clientes.</p>
+      </div>
+      <div class="rounded-2xl border border-slate-200/80 bg-slate-50 px-5 py-4 dark:border-slate-800 dark:bg-slate-950/60">
+        <div class="text-xs font-semibold uppercase tracking-[0.16em] text-blue-600 dark:text-cyan-300">Plan recomendado</div>
+        <div class="mt-1 text-2xl font-bold text-gray-900 dark:text-white">Profesional</div>
+        <p class="mt-1 text-sm text-gray-600 dark:text-gray-300">Mejor balance entre IA, citas, leads y mensualidad.</p>
+      </div>
+      <div class="rounded-2xl border border-slate-200/80 bg-slate-50 px-5 py-4 dark:border-slate-800 dark:bg-slate-950/60">
+        <div class="text-xs font-semibold uppercase tracking-[0.16em] text-blue-600 dark:text-cyan-300">Forma de pago</div>
+        <div class="mt-1 text-2xl font-bold text-gray-900 dark:text-white">50/50</div>
+        <p class="mt-1 text-sm text-gray-600 dark:text-gray-300">50% al iniciar y 50% al publicar el bot.</p>
+      </div>
+    </div>
+
+    <div class="relative grid grid-cols-1 gap-6 lg:grid-cols-3 lg:items-stretch">
       {packages.map((item, index) => (
         <div data-reveal data-reveal-delay={String(Math.min(index * 0.06, 0.18))} class:list={[
           "group relative flex h-full flex-col rounded-[30px] border p-7 shadow-[0_18px_45px_rgba(15,23,42,0.06)] transition-all duration-300 hover:-translate-y-1",
@@ -98,6 +146,7 @@ const packages = [
           </div>
 
           <h3 class:list={["text-2xl font-bold tracking-tight", item.featured ? "text-white" : "text-gray-900 dark:text-white"]}>{item.name}</h3>
+          <p class:list={["mt-2 text-sm font-semibold", item.featured ? "text-cyan-100" : "text-blue-700 dark:text-cyan-200"]}>{item.bestFor}</p>
           <div class="mt-5 grid gap-3">
             <div>
               <div class:list={["text-xs font-semibold uppercase tracking-[0.16em]", item.featured ? "text-cyan-100" : "text-blue-600 dark:text-cyan-300"]}>Implementación</div>
@@ -109,6 +158,9 @@ const packages = [
             </div>
           </div>
           <div class:list={["mt-4 inline-flex w-fit rounded-full px-3 py-1 text-xs font-semibold", item.featured ? "bg-white/10 text-cyan-50" : "bg-blue-50 text-blue-700 dark:bg-cyan-300/10 dark:text-cyan-200"]}>{item.usage}</div>
+          <div class:list={["mt-3 rounded-2xl border px-4 py-3 text-sm font-semibold", item.featured ? "border-white/12 bg-white/8 text-cyan-50" : "border-emerald-100 bg-emerald-50 text-emerald-800 dark:border-emerald-400/15 dark:bg-emerald-400/10 dark:text-emerald-100"]}>
+            {item.payback}
+          </div>
           <p class:list={["mt-5 leading-relaxed", item.featured ? "text-sky-100" : "text-gray-600 dark:text-gray-300"]}>{item.note}</p>
 
           <div class="mt-8 flex-1 space-y-3">
@@ -138,6 +190,41 @@ const packages = [
       </div>
       <div class="rounded-2xl bg-blue-600 px-4 py-3 text-sm font-semibold text-white dark:bg-cyan-300 dark:text-slate-950">
         50% al iniciar / 50% al publicar
+      </div>
+    </div>
+
+    <div data-reveal class="relative mt-8 overflow-hidden rounded-[28px] border border-blue-100 bg-white/82 shadow-[0_18px_45px_rgba(15,23,42,0.05)] dark:border-cyan-400/15 dark:bg-slate-900/72">
+      <div class="grid gap-4 border-b border-slate-200/70 p-6 dark:border-slate-800 md:grid-cols-[0.85fr_1.15fr] md:items-end">
+        <div>
+          <div class="text-sm font-semibold uppercase tracking-[0.16em] text-blue-600 dark:text-cyan-300">Comparación rápida</div>
+          <h3 class="mt-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Elige por etapa, no solo por precio</h3>
+        </div>
+        <p class="text-sm leading-relaxed text-gray-600 dark:text-gray-300">
+          Esta vista ayuda a que el cliente entienda rápido qué recibe, qué límite tiene y cuándo conviene subir de plan.
+        </p>
+      </div>
+      <div class="overflow-x-auto">
+        <table class="w-full min-w-[760px] text-left text-sm">
+          <thead class="bg-blue-50/80 text-xs uppercase tracking-[0.14em] text-blue-700 dark:bg-slate-950/60 dark:text-cyan-200">
+            <tr>
+              <th class="px-5 py-4 font-semibold">Criterio</th>
+              <th class="px-5 py-4 font-semibold">Inicial</th>
+              <th class="px-5 py-4 font-semibold">Profesional</th>
+              <th class="px-5 py-4 font-semibold">Empresa</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-200/70 dark:divide-slate-800">
+            {comparisonRows.map((row) => (
+              <tr class="text-gray-700 dark:text-gray-300">
+                {row.map((cell, cellIndex) => (
+                  <td class:list={["px-5 py-4", cellIndex === 0 ? "font-semibold text-gray-950 dark:text-white" : "", cellIndex === 2 ? "bg-blue-50/55 font-semibold text-blue-800 dark:bg-cyan-300/10 dark:text-cyan-100" : ""]}>
+                    {cell}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
