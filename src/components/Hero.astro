@@ -49,7 +49,7 @@ const heroFrames = Array.from(
       alt=""
       width="1920"
       height="1080"
-      class="h-full w-full object-cover object-[64%_center] transition-opacity duration-500 md:object-center"
+      class="hero-frame-fallback h-full w-full object-contain object-[center_bottom] transition-opacity duration-500 md:object-[right_center]"
       loading="eager"
       decoding="async"
       fetchpriority="high"
@@ -121,9 +121,14 @@ const heroFrames = Array.from(
 
 <style>
   .hero-visual {
-    transform: translate3d(0, calc(var(--hero-progress, 0) * 20px), 0) scale(calc(1.035 + var(--hero-progress, 0) * 0.025));
+    transform: translate3d(0, calc(var(--hero-progress, 0) * 14px), 0) scale(calc(1.005 + var(--hero-progress, 0) * 0.012));
     transform-origin: center right;
     will-change: transform;
+  }
+
+  .hero-frame-fallback {
+    box-sizing: border-box;
+    padding: 12.5rem 0 2.5rem 50%;
   }
 
   .hero-glow {
@@ -137,6 +142,13 @@ const heroFrames = Array.from(
     .hero-glow {
       transform: none;
       will-change: auto;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .hero-frame-fallback {
+      padding: 23rem 0 1.5rem;
+      opacity: 0.45;
     }
   }
 </style>
@@ -158,7 +170,7 @@ const heroFrames = Array.from(
     let frameIndex = -1;
     let resizeFrame;
 
-    const drawCover = (image) => {
+    const drawHeroFrame = (image) => {
       if (!(canvas instanceof HTMLCanvasElement) || !context || !image) return;
 
       const rect = canvas.getBoundingClientRect();
@@ -171,12 +183,18 @@ const heroFrames = Array.from(
         canvas.height = height;
       }
 
-      const scale = Math.max(width / image.naturalWidth, height / image.naturalHeight);
+      const isDesktop = window.innerWidth >= 1024;
+      const isTablet = window.innerWidth >= 768 && window.innerWidth < 1024;
+      const visualLeft = isDesktop ? width * 0.50 : isTablet ? width * 0.38 : 0;
+      const visualWidth = width - visualLeft;
+      const topPad = isDesktop ? height * 0.18 : isTablet ? height * 0.22 : height * 0.44;
+      const bottomPad = isDesktop ? height * 0.08 : isTablet ? height * 0.08 : height * 0.05;
+      const visualHeight = Math.max(1, height - topPad - bottomPad);
+      const scale = Math.min(visualWidth / image.naturalWidth, visualHeight / image.naturalHeight) * (isDesktop ? 0.9 : isTablet ? 0.88 : 0.9);
       const drawWidth = image.naturalWidth * scale;
       const drawHeight = image.naturalHeight * scale;
-      const focalX = window.innerWidth >= 768 ? 0.64 : 0.5;
-      const x = (width - drawWidth) * focalX;
-      const y = (height - drawHeight) / 2;
+      const x = visualLeft + Math.max(0, visualWidth - drawWidth);
+      const y = topPad + Math.max(0, visualHeight - drawHeight) * (isDesktop ? 0.42 : 0.5);
 
       context.clearRect(0, 0, width, height);
       context.drawImage(image, x, y, drawWidth, drawHeight);
@@ -192,7 +210,7 @@ const heroFrames = Array.from(
 
       if (nextIndex === frameIndex) return;
       frameIndex = nextIndex;
-      drawCover(loadedFrames[nextIndex]);
+      drawHeroFrame(loadedFrames[nextIndex]);
     };
 
     const preloadFrames = async () => {
